@@ -1,19 +1,69 @@
 <?php require_once 'view/autres_pages/header.php'; ?>
-<section class="avis-publics" style="margin-top: 40px; background: #f9f9f9; padding: 20px; border-radius: 5px;">
-    <h2>Les retours des survivants</h2>
-    <?php if(empty($avis_publics)): ?>
-        <p>Aucun avis pour le moment. Soyez la première équipe à laisser une trace !</p>
-    <?php else: ?>
-        <div style="display: flex; flex-direction: column; gap: 15px;">
-            <?php foreach($avis_publics as $avis): ?>
-                <div style="background: white; padding: 15px; border-left: 4px solid #e94560; box-shadow: 0 2px 4px rgba(0,0,0,0.05);">
-                    <p style="font-style: italic;">"<?= htmlspecialchars($avis['contenu']) ?>"</p>
-                    <p style="text-align: right; margin-top: 10px; font-size: 0.9em; color: #666;">
-                        - <strong><?= htmlspecialchars($avis['pseudo']) ?></strong>, le <?= date('d/m/Y', strtotime($avis['date_publication'])) ?>
-                    </p>
-                </div>
-            <?php endforeach; ?>
+
+<main>
+
+    <section>
+        <img src="" alt="[ Emplacement Image : Logo géant Framed ]" width="400" height="150">
+        
+        <p>Votre seul repère dans l'obscurité a une batterie limitée.</p>
+        
+        <a href="index.php?action=inscription">Commençons le jeu</a>
+    </section>
+
+    <hr>
+
+    <section>
+        <h2>Une expérience nocturne terrifiante</h2>
+        
+        <article>
+            <p>Bien plus qu'un simple escape game, Framed vous plonge dans une salle de classe abandonnée, hantée par le fantôme d'une jeune fille. Réveillez-vous dans l'obscurité totale.</p>
+            <p>Votre seul moyen de survie : une caméra à vision nocturne pour vous repérer dans les couloirs, et un polaroid pour rassembler les preuves du passé.</p>
+            <p>Framed inclut également un repas thématisé et une nuit complète sur place pour prolonger le frisson jusqu'au matin.</p>
+        </article>
+
+        <aside>
+            <img src="" alt="[ Emplacement Image : Capture d'écran du jeu avec caméra vision nocturne ]" width="400" height="250">
+            <br>
+            <a href="index.php?action=concept">Découvrir le scénario</a>
+        </aside>
+    </section>
+
+    <hr>
+
+    <section>
+        <ul>
+            <li>
+                <strong>2-8</strong><br>
+                participants par sessions
+            </li>
+            <li>
+                <strong>18+ ans</strong><br>
+                accompagné à partir de 16 ans
+            </li>
+            <li>
+                <strong>15 Heures</strong><br>
+                durée totale : toute la nuit
+            </li>
+            <li>
+                <strong>***</strong><br>
+                difficulté élevée
+            </li>
+        </ul>
+    </section>
+
+    <hr>
+
+    <section>
+        <div>
+            <img src="" alt="[ Emplacement Vidéo : Lecteur avec interface d'enregistrement REC ]" width="400" height="250">
         </div>
-    <?php endif; ?>
-</section>
+        
+        <div>
+            <h2>Silence, ça tourne...</h2>
+            <p>Découvrez notre vidéo de présentation ultra-rapide pour vous plonger directement dans l'ambiance de l'escape game et entrevoir ce qui vous attend dans le noir.</p>
+        </div>
+    </section>
+
+</main>
+
 <?php require_once 'view/autres_pages/footer.php'; ?>
