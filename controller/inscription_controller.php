@@ -61,5 +61,4 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
         $message_erreur = "Veuillez remplir tous les champs obligatoires (incluant la date).";
     }
 }
-
 require_once 'view/inscription_view.php';

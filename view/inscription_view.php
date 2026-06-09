@@ -1,102 +1,227 @@
-<?php require_once 'view/autres_pages/header.php'; ?>
+<?php require_once 'view/header.php'; ?>
 
-<h2>Inscription et Réservation de votre Escape Game</h2>
+<div class="inscription-container">
+    
+    <h2>Inscription</h2>
+    <p>Réservez votre nuit d'expérience. L'inscription crée un compte pour le capitaine.</p>
 
-<?php if(!empty($message_erreur)): ?>
-    <div class="erreur" style="color: red; font-weight: bold; margin-bottom: 15px;">
-        <?= $message_erreur ?>
+    <?php if(!empty($message_erreur)): ?>
+        <div class="erreur-message">
+            <?= $message_erreur ?>
+        </div>
+    <?php endif; ?>
+
+    <div class="tabs-navigation">
+        <div id="tab-1" class="tab active">1 - Equipe</div>
+        <div id="tab-2" class="tab">2 - Membres</div>
+        <div id="tab-3" class="tab">3 - Session</div>
+        <div id="tab-4" class="tab">4 - Confirmation</div>
     </div>
-<?php endif; ?>
 
-<form action="index.php?action=inscription" method="POST" id="form-inscription">
-    <fieldset>
-        <legend>1. Votre Compte Responsable (Chef d'équipe)</legend>
-        <label for="nom_equipe">Nom unique de l'équipe *</label>
-        <input type="text" id="nom_equipe" name="nom_equipe" required placeholder="Ex: Les Veilleurs">
-
-        <label for="pseudo">Votre Pseudo *</label>
-        <input type="text" id="pseudo" name="pseudo" required>
-
-        <label for="email">Adresse Email *</label>
-        <input type="email" id="email" name="email" required>
-
-        <label for="mot_de_passe">Mot de passe * (8 car. min)</label>
-        <input type="password" id="mot_de_passe" name="mot_de_passe" required minlength="8">
-
-        <label for="telephone">Téléphone de contact</label>
-        <input type="tel" id="telephone" name="telephone">
-    </fieldset>
-
-    <fieldset>
-        <legend>2. Session & Options Logistiques</legend>
+    <form action="index.php?action=inscription" method="POST" id="form-inscription">
         
-        <label for="id_session">Choisir la date de votre session *</label>
-        <select name="id_session" id="id_session" required style="width: 100%; padding: 8px; margin-top: 5px;">
-            <option value="">-- Sélectionnez une date --</option>
-            <?php foreach($sessions as $sess): ?>
-                <?php if($sess['est_complete'] == 1): ?>
-                    <option value="<?= $sess['id_session'] ?>" disabled style="color: #999; background: #eee;">
-                        <?= date('d/m/Y', strtotime($sess['date_session'])) ?> [COMPLET / GRISÉ]
-                    </option>
-                <?php else: ?>
-                    <option value="<?= $sess['id_session'] ?>">
-                        <?= date('d/m/Y', strtotime($sess['date_session'])) ?> (Disponible)
-                    </option>
-                <?php endif; ?>
-            <?php endforeach; ?>
-        </select>
+        <div id="step-1" class="form-step">
+            <fieldset>
+                <legend>Nommez votre équipe</legend>
+                
+                <label for="nom_equipe">Nom de l'équipe *</label>
+                <input type="text" name="nom_equipe" id="nom_equipe" required>
 
-        <label for="type_menu">Type de repas souhaité pour l'équipe *</label>
-        <select name="type_menu" id="type_menu" required style="width: 100%; padding: 8px; margin-top: 5px;">
-            <option value="Menu classique">Menu classique</option>
-            <option value="Menu Framed">Menu Framed</option>
-            <option value="Menu Végétarien">Menu Végétarien</option>
-        </select>
+                <div class="form-row">
+                    <div class="form-group">
+                        <label for="nb_participants">Nombre de participants *</label>
+                        <input type="number" name="nb_participants" id="nb_participants" value="1" readonly>
+                    </div>
+                    <div class="form-group">
+                        <label for="type_menu">Menu désiré *</label>
+                        <select name="type_menu" id="type_menu" required>
+                            <option value="Menu classique">Menu classique</option>
+                            <option value="Menu Framed">Menu Framed</option>
+                            <option value="Menu Végétarien">Menu Végétarien</option>
+                        </select>
+                    </div>
+                </div>
 
-        <label for="options_accessibilite">Options d'accessibilité ou besoins spécifiques (Handicap, PMR, régime alimentaire, allergies...)</label>
-        <textarea name="options_accessibilite" id="options_accessibilite" rows="3" style="width: 100%; padding: 8px; margin-top: 5px;" placeholder="Ex: Options PMR requises, un menu sans arachides..."></textarea>
-    </fieldset>
+                <label for="options_accessibilite">Besoins particuliers (PMR, allergies...)</label>
+                <textarea name="options_accessibilite" id="options_accessibilite" rows="4"></textarea>
 
-    <fieldset>
-        <legend>3. Composition de l'équipe</legend>
-        <label for="nb_participants">Nombre total de participants (Chef inclus) *</label>
-        <select name="nb_participants" id="nb_participants" required style="width: 100%; padding: 8px; margin-top: 5px;">
-            <option value="1">1 personne (Moi uniquement)</option>
-            <option value="2">2 personnes</option>
-            <option value="3">3 personnes</option>
-            <option value="4">4 personnes</option>
-            <option value="5">5 personnes</option>
-        </select>
+                <div class="boutons-navigation">
+                    <button type="button" class="btn-suivant" onclick="allerEtape(2)">Suivant</button>
+                </div>
+            </fieldset>
+        </div>
 
-        <div id="compagnons-fields" style="margin-top: 15px;"></div>
-    </fieldset>
+        <div id="step-2" class="form-step" style="display: none;">
+            <fieldset>
+                <legend>Infos des participants</legend>
+                <p>Seul le capitaine aura besoin de créer un compte.</p>
 
-    <button type="submit" class="btn">Valider la réservation et créer l'équipe</button>
-</form>
+                <div class="participant-titre">
+                    <strong>Participant 1 - CAPITAINE D'EQUIPE</strong>
+                </div>
+                
+                <div class="form-row">
+                    <div class="form-group">
+                        <label for="cap_nom">Nom *</label>
+                        <input type="text" id="cap_nom" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="cap_prenom">Prénom *</label>
+                        <input type="text" id="cap_prenom" required>
+                    </div>
+                </div>
+
+                <div class="form-row">
+                    <div class="form-group">
+                        <label for="telephone">Téléphone</label>
+                        <input type="tel" name="telephone" id="telephone">
+                    </div>
+                    <div class="form-group">
+                        <label for="email">E-mail *</label>
+                        <input type="email" name="email" id="email" required>
+                    </div>
+                </div>
+
+                <div class="form-row">
+                    <div class="form-group">
+                        <label for="pseudo">Pseudo *</label>
+                        <input type="text" name="pseudo" id="pseudo" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="mot_de_passe">Mot de passe *</label>
+                        <input type="password" name="mot_de_passe" id="mot_de_passe" required minlength="8">
+                    </div>
+                </div>
+
+                <div id="zone-participants"></div>
+
+                <div class="action-ajouter">
+                    <button type="button" class="btn-ajouter" onclick="ajouterParticipant()">Ajouter un Participant +</button>
+                </div>
+
+                <div class="boutons-navigation">
+                    <button type="button" class="btn-precedent" onclick="allerEtape(1)">Précédent</button>
+                    <button type="button" class="btn-suivant" onclick="allerEtape(3)">Suivant</button>
+                </div>
+            </fieldset>
+        </div>
+
+        <div id="step-3" class="form-step" style="display: none;">
+            <fieldset>
+                <legend>Réserver la date</legend>
+                
+                <label for="id_session">Choisissez votre nuit *</label>
+                <select name="id_session" id="id_session" required>
+                    <option value="">-- Sélectionnez une date disponible --</option>
+                    <?php foreach($sessions as $sess): ?>
+                        <?php if($sess['est_complete'] == 1): ?>
+                            <option value="<?= $sess['id_session'] ?>" disabled class="date-complete">
+                                <?= date('d/m/Y', strtotime($sess['date_session'])) ?> [COMPLET]
+                            </option>
+                        <?php else: ?>
+                            <option value="<?= $sess['id_session'] ?>">
+                                Nuit du <?= date('d/m/Y', strtotime($sess['date_session'])) ?>
+                            </option>
+                        <?php endif; ?>
+                    <?php endforeach; ?>
+                </select>
+
+                <div class="boutons-navigation">
+                    <button type="button" class="btn-precedent" onclick="allerEtape(2)">Précédent</button>
+                    <button type="button" class="btn-suivant" onclick="preparerRecap(); allerEtape(4);">Suivant</button>
+                </div>
+            </fieldset>
+        </div>
+
+        <div id="step-4" class="form-step" style="display: none;">
+            <fieldset>
+                <legend>Récapitulatif</legend>
+                
+                <div class="recap-box">
+                    <p><strong>Équipe :</strong> <span id="recap-equipe"></span></p>
+                    <p><strong>Date :</strong> <span id="recap-date"></span></p>
+                    <p><strong>Menu :</strong> <span id="recap-menu"></span></p>
+                    <p><strong>Nombre de joueurs :</strong> <span id="recap-nb"></span></p>
+                    <p><strong>Capitaine :</strong> <span id="recap-capitaine"></span> (<span id="recap-email"></span>)</p>
+                </div>
+
+                <div class="boutons-navigation">
+                    <button type="button" class="btn-precedent" onclick="allerEtape(3)">Précédent</button>
+                    <button type="submit" class="btn-confirmer">Confirmer l'inscription</button>
+                </div>
+            </fieldset>
+        </div>
+
+    </form>
+</div>
 
 <script>
-document.getElementById('nb_participants').addEventListener('change', function() {
-    const nb = parseInt(this.value);
-    const container = document.getElementById('compagnons-fields');
-    container.innerHTML = ''; 
+    let compteurParticipants = 1;
 
-    for(let i = 1; i < nb; i++) {
+    // 1. Navigation entre les étapes
+    function allerEtape(etape) {
+        // Masquer toutes les étapes
+        document.querySelectorAll('.form-step').forEach(el => el.style.display = 'none');
+        // Afficher l'étape ciblée
+        document.getElementById('step-' + etape).style.display = 'block';
+
+        // Gestion propre de la classe 'active' pour les onglets
+        document.querySelectorAll('.tab').forEach(el => el.classList.remove('active'));
+        document.getElementById('tab-' + etape).classList.add('active');
+    }
+
+    // 2. Ajouter un participant dynamiquement
+    function ajouterParticipant() {
+        if(compteurParticipants >= 8) {
+            alert("Maximum 8 participants par équipe !");
+            return;
+        }
+
+        compteurParticipants++;
+        document.getElementById('nb_participants').value = compteurParticipants;
+
+        const container = document.getElementById('zone-participants');
         const div = document.createElement('div');
-        div.style.padding = "10px";
-        div.style.borderTop = "1px dashed #ccc";
-        div.style.marginTop = "10px";
-        
+        div.classList.add('nouveau-participant');
+
+        // HTML propre, sans style en ligne
         div.innerHTML = `
-            <h4>Participant n°\${i + 1}</h4>
-            <div style="display: flex; gap: 10px; margin-top: 5px;">
-                <input type="text" name="membre_prenom[]" placeholder="Prénom *" required style="flex:1; padding:5px;">
-                <input type="text" name="membre_nom[]" placeholder="Nom *" required style="flex:1; padding:5px;">
-                <input type="text" name="membre_pseudo[]" placeholder="Pseudo *" required style="flex:1; padding:5px;">
+            <div class="participant-titre">
+                Participant \${compteurParticipants}
+            </div>
+            <div class="form-row">
+                <div class="form-group">
+                    <label>Nom</label>
+                    <input type="text" name="membre_nom[]" required>
+                </div>
+                <div class="form-group">
+                    <label>Prénom</label>
+                    <input type="text" name="membre_prenom[]" required>
+                </div>
+                <div class="form-group">
+                    <label>Pseudo</label>
+                    <input type="text" name="membre_pseudo[]" required>
+                </div>
             </div>
         `;
         container.appendChild(div);
     }
-});
+
+    // 3. Préparer le récapitulatif
+    function preparerRecap() {
+        document.getElementById('recap-equipe').innerText = document.getElementById('nom_equipe').value || 'Non renseigné';
+        document.getElementById('recap-menu').innerText = document.getElementById('type_menu').value;
+        document.getElementById('recap-nb').innerText = compteurParticipants;
+        document.getElementById('recap-capitaine').innerText = document.getElementById('pseudo').value || 'Non renseigné';
+        document.getElementById('recap-email').innerText = document.getElementById('email').value || 'Non renseigné';
+        
+        let selectDate = document.getElementById('id_session');
+        if(selectDate.selectedIndex > 0) {
+            document.getElementById('recap-date').innerText = selectDate.options[selectDate.selectedIndex].text;
+        } else {
+            document.getElementById('recap-date').innerText = 'Aucune date choisie';
+        }
+    }
 </script>
 
-<?php require_once 'view/autres_pages/footer.php'; ?>
+<?php require_once 'view/footer.php'; ?>
