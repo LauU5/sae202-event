@@ -62,5 +62,5 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     }
 }
 
-require_once 'view/autres_pages/inscription_view.php';
+require_once 'view/inscription_view.php';
 ?>
