@@ -1,0 +1,4 @@
+AuthType Basic
+AuthName "Administration - Accès restreint"
+AuthUserFile /var/www/html/sae202-event/admin/.htpasswd
+Require valid-user
