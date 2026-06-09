@@ -63,4 +63,3 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
 }
 
 require_once 'view/inscription_view.php';
-?>
