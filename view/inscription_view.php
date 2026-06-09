@@ -1,4 +1,4 @@
-<?php require_once 'view/header.php'; ?>
+<?php require_once 'view/autres_pages/header.php'; ?>
 
 <div class="inscription-container">
     
@@ -165,7 +165,7 @@
         // Afficher l'étape ciblée
         document.getElementById('step-' + etape).style.display = 'block';
 
-        // Gestion propre de la classe 'active' pour les onglets
+        // Gestion de la classe 'active' pour les onglets
         document.querySelectorAll('.tab').forEach(el => el.classList.remove('active'));
         document.getElementById('tab-' + etape).classList.add('active');
     }
@@ -184,26 +184,23 @@
         const div = document.createElement('div');
         div.classList.add('nouveau-participant');
 
-        // HTML propre, sans style en ligne
-        div.innerHTML = `
-            <div class="participant-titre">
-                Participant \${compteurParticipants}
-            </div>
-            <div class="form-row">
-                <div class="form-group">
-                    <label>Nom</label>
-                    <input type="text" name="membre_nom[]" required>
-                </div>
-                <div class="form-group">
-                    <label>Prénom</label>
-                    <input type="text" name="membre_prenom[]" required>
-                </div>
-                <div class="form-group">
-                    <label>Pseudo</label>
-                    <input type="text" name="membre_pseudo[]" required>
-                </div>
-            </div>
-        `;
+        // Utilisation de la concaténation classique pour éviter les bugs d'affichage
+        div.innerHTML = '<div class="participant-titre"><strong>Participant ' + compteurParticipants + '</strong></div>' +
+            '<div class="form-row">' +
+                '<div class="form-group">' +
+                    '<label>Nom</label>' +
+                    '<input type="text" name="membre_nom[]" required>' +
+                '</div>' +
+                '<div class="form-group">' +
+                    '<label>Prénom</label>' +
+                    '<input type="text" name="membre_prenom[]" required>' +
+                '</div>' +
+                '<div class="form-group">' +
+                    '<label>Pseudo</label>' +
+                    '<input type="text" name="membre_pseudo[]" required>' +
+                '</div>' +
+            '</div>';
+            
         container.appendChild(div);
     }
 
@@ -224,4 +221,4 @@
     }
 </script>
 
-<?php require_once 'view/footer.php'; ?>
+<?php require_once 'view/autres_pages/footer.php'; ?>
