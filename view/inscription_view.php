@@ -30,7 +30,16 @@
                 <div class="form-row">
                     <div class="form-group">
                         <label for="nb_participants">Nombre de participants *</label>
-                        <input type="number" name="nb_participants" id="nb_participants" value="1" readonly>
+                        <select name="nb_participants" id="nb_participants" required onchange="mettreAJourParticipants()">
+                            <option value="1">1 personne (Moi seul)</option>
+                            <option value="2">2 personnes</option>
+                            <option value="3">3 personnes</option>
+                            <option value="4">4 personnes</option>
+                            <option value="5">5 personnes</option>
+                            <option value="6">6 personnes</option>
+                            <option value="7">7 personnes</option>
+                            <option value="8">8 personnes</option>
+                        </select>
                     </div>
                     <div class="form-group">
                         <label for="type_menu">Menu désiré *</label>
@@ -156,59 +165,68 @@
 </div>
 
 <script>
-    let compteurParticipants = 1;
-
     // 1. Navigation entre les étapes
     function allerEtape(etape) {
-        // Masquer toutes les étapes
         document.querySelectorAll('.form-step').forEach(el => el.style.display = 'none');
-        // Afficher l'étape ciblée
         document.getElementById('step-' + etape).style.display = 'block';
 
-        // Gestion de la classe 'active' pour les onglets
         document.querySelectorAll('.tab').forEach(el => el.classList.remove('active'));
         document.getElementById('tab-' + etape).classList.add('active');
     }
 
-    // 2. Ajouter un participant dynamiquement
+    // 2. Fonction qui génère les champs en fonction du menu déroulant (Page 1)
+    function mettreAJourParticipants() {
+        let nb = parseInt(document.getElementById('nb_participants').value);
+        const container = document.getElementById('zone-participants');
+        container.innerHTML = ''; // On vide la zone pour la recréer proprement
+
+        // On boucle à partir de 2 (puisque le participant 1 est le capitaine fixe)
+        for(let i = 2; i <= nb; i++) {
+            const div = document.createElement('div');
+            div.classList.add('nouveau-participant');
+
+            div.innerHTML = '<div class="participant-titre"><strong>Participant ' + i + '</strong></div>' +
+                '<div class="form-row">' +
+                    '<div class="form-group">' +
+                        '<label>Nom</label>' +
+                        '<input type="text" name="membre_nom[]" required>' +
+                    '</div>' +
+                    '<div class="form-group">' +
+                        '<label>Prénom</label>' +
+                        '<input type="text" name="membre_prenom[]" required>' +
+                    '</div>' +
+                    '<div class="form-group">' +
+                        '<label>Pseudo</label>' +
+                        '<input type="text" name="membre_pseudo[]" required>' +
+                    '</div>' +
+                '</div>';
+                
+            container.appendChild(div);
+        }
+    }
+
+    // 3. Bouton "Ajouter un participant" (Page 2) qui met à jour le menu déroulant
     function ajouterParticipant() {
-        if(compteurParticipants >= 8) {
+        let selectElement = document.getElementById('nb_participants');
+        let nbActuel = parseInt(selectElement.value);
+        
+        if(nbActuel >= 8) {
             alert("Maximum 8 participants par équipe !");
             return;
         }
 
-        compteurParticipants++;
-        document.getElementById('nb_participants').value = compteurParticipants;
-
-        const container = document.getElementById('zone-participants');
-        const div = document.createElement('div');
-        div.classList.add('nouveau-participant');
-
-        // Utilisation de la concaténation classique pour éviter les bugs d'affichage
-        div.innerHTML = '<div class="participant-titre"><strong>Participant ' + compteurParticipants + '</strong></div>' +
-            '<div class="form-row">' +
-                '<div class="form-group">' +
-                    '<label>Nom</label>' +
-                    '<input type="text" name="membre_nom[]" required>' +
-                '</div>' +
-                '<div class="form-group">' +
-                    '<label>Prénom</label>' +
-                    '<input type="text" name="membre_prenom[]" required>' +
-                '</div>' +
-                '<div class="form-group">' +
-                    '<label>Pseudo</label>' +
-                    '<input type="text" name="membre_pseudo[]" required>' +
-                '</div>' +
-            '</div>';
-            
-        container.appendChild(div);
+        // On incrémente le menu déroulant
+        selectElement.value = nbActuel + 1;
+        
+        // On relance la génération visuelle
+        mettreAJourParticipants();
     }
 
-    // 3. Préparer le récapitulatif
+    // 4. Préparer le récapitulatif
     function preparerRecap() {
         document.getElementById('recap-equipe').innerText = document.getElementById('nom_equipe').value || 'Non renseigné';
         document.getElementById('recap-menu').innerText = document.getElementById('type_menu').value;
-        document.getElementById('recap-nb').innerText = compteurParticipants;
+        document.getElementById('recap-nb').innerText = document.getElementById('nb_participants').value;
         document.getElementById('recap-capitaine').innerText = document.getElementById('pseudo').value || 'Non renseigné';
         document.getElementById('recap-email').innerText = document.getElementById('email').value || 'Non renseigné';
         
@@ -219,6 +237,11 @@
             document.getElementById('recap-date').innerText = 'Aucune date choisie';
         }
     }
+
+    // Initialisation au chargement de la page pour être sûr d'avoir le bon nombre
+    window.onload = function() {
+        mettreAJourParticipants();
+    };
 </script>
 
 <?php require_once 'view/autres_pages/footer.php'; ?>
