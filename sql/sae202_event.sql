@@ -1,4 +1,92 @@
+-- phpMyAdmin SQL Dump
+-- version 5.2.3
+-- https://www.phpmyadmin.net/
+--
+-- Hôte : localhost
+-- Généré le : mer. 10 juin 2026 à 20:42
+-- Version du serveur : 10.11.14-MariaDB-0+deb12u2
+-- Version de PHP : 8.2.31
 
+SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
+START TRANSACTION;
+SET time_zone = "+00:00";
+
+
+/*!40101 SET @OLD_CHARACTER_SET_CLIENT=@@CHARACTER_SET_CLIENT */;
+/*!40101 SET @OLD_CHARACTER_SET_RESULTS=@@CHARACTER_SET_RESULTS */;
+/*!40101 SET @OLD_COLLATION_CONNECTION=@@COLLATION_CONNECTION */;
+/*!40101 SET NAMES utf8mb4 */;
+
+--
+-- Base de données : `sae202_event`
+--
+
+-- --------------------------------------------------------
+
+--
+-- Structure de la table `commentaires`
+--
+
+CREATE TABLE `commentaires` (
+  `id_commentaire` int(11) NOT NULL,
+  `id_utilisateur` int(11) NOT NULL,
+  `contenu` text NOT NULL,
+  `statut` enum('en_attente','approuve','refuse') DEFAULT 'en_attente',
+  `date_publication` datetime DEFAULT current_timestamp()
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+
+-- --------------------------------------------------------
+
+--
+-- Structure de la table `equipes`
+--
+
+CREATE TABLE `equipes` (
+  `id_equipe` int(11) NOT NULL,
+  `nom_equipe` varchar(100) NOT NULL,
+  `date_creation` datetime DEFAULT current_timestamp(),
+  `nb_participants` int(11) NOT NULL DEFAULT 1,
+  `type_menu` varchar(50) NOT NULL DEFAULT 'Menu classique',
+  `options_accessibilite` text DEFAULT NULL,
+  `id_session` int(11) DEFAULT NULL,
+  `score_obtenu` int(11) DEFAULT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+
+--
+-- Déchargement des données de la table `equipes`
+--
+
+INSERT INTO `equipes` (`id_equipe`, `nom_equipe`, `date_creation`, `nb_participants`, `type_menu`, `options_accessibilite`, `id_session`, `score_obtenu`) VALUES
+(1, 'slay', '2026-06-10 20:41:25', 4, 'Menu Framed', 'hahaha', 1, NULL);
+
+-- --------------------------------------------------------
+
+--
+-- Structure de la table `membres_equipe`
+--
+
+CREATE TABLE `membres_equipe` (
+  `id_membre` int(11) NOT NULL,
+  `id_equipe` int(11) NOT NULL,
+  `nom` varchar(50) NOT NULL,
+  `prenom` varchar(50) NOT NULL,
+  `pseudo` varchar(50) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+
+--
+-- Déchargement des données de la table `membres_equipe`
+--
+
+INSERT INTO `membres_equipe` (`id_membre`, `id_equipe`, `nom`, `prenom`, `pseudo`) VALUES
+(1, 1, 'tom', 'tom', 'tim'),
+(2, 1, 'tim', 'tim', 'tom'),
+(3, 1, 'tam', 'tam', 'tem');
+
+-- --------------------------------------------------------
+
+--
+-- Structure de la table `sessions`
+--
 
 CREATE TABLE `sessions` (
   `id_session` int(11) NOT NULL,
@@ -33,6 +121,13 @@ CREATE TABLE `utilisateurs` (
   `nom` varchar(50) DEFAULT NULL,
   `prenom` varchar(50) DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+
+--
+-- Déchargement des données de la table `utilisateurs`
+--
+
+INSERT INTO `utilisateurs` (`id_utilisateur`, `id_equipe`, `pseudo`, `email`, `mot_de_passe`, `telephone`, `role`, `nom`, `prenom`) VALUES
+(1, 1, 'lulalua', 'laulau@gmail.com', '$2y$10$osokfL0bgMTc2RY0GYzUr.vFqtLVenjxEBtY3Pk0EKYi/yN8Hw2Ia', '02136457789', 'participant', NULL, NULL);
 
 --
 -- Index pour les tables déchargées
@@ -88,13 +183,13 @@ ALTER TABLE `commentaires`
 -- AUTO_INCREMENT pour la table `equipes`
 --
 ALTER TABLE `equipes`
-  MODIFY `id_equipe` int(11) NOT NULL AUTO_INCREMENT;
+  MODIFY `id_equipe` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
 
 --
 -- AUTO_INCREMENT pour la table `membres_equipe`
 --
 ALTER TABLE `membres_equipe`
-  MODIFY `id_membre` int(11) NOT NULL AUTO_INCREMENT;
+  MODIFY `id_membre` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
 
 --
 -- AUTO_INCREMENT pour la table `sessions`
@@ -106,7 +201,7 @@ ALTER TABLE `sessions`
 -- AUTO_INCREMENT pour la table `utilisateurs`
 --
 ALTER TABLE `utilisateurs`
-  MODIFY `id_utilisateur` int(11) NOT NULL AUTO_INCREMENT;
+  MODIFY `id_utilisateur` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
 
 --
 -- Contraintes pour les tables déchargées

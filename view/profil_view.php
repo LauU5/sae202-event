@@ -10,11 +10,16 @@ require_once 'view/autres_pages/header.php';
 
     <section class="profil-header-card">
         <div class="profil-icon">
-            <img src="" alt="[ Icône Utilisateur ]">
+            <img src="" alt="[ Icône Utilisateur ]" width="60" height="60">
         </div>
         <div class="profil-info-main">
-            <h3><?= htmlspecialchars($infos['prenom']) ?> <?= htmlspecialchars($infos['nom']) ?></h3>
-            <p><?= htmlspecialchars($infos['nom_equipe']) ?></p>
+            <h3>
+                <?= htmlspecialchars($infos['prenom'] ?? 'Prénom inconnu') ?> 
+                <?= htmlspecialchars($infos['nom'] ?? 'Nom inconnu') ?>
+            </h3>
+            <p>
+                <?= htmlspecialchars($infos['nom_equipe'] ?? 'Aucune équipe') ?>
+            </p>
         </div>
         <div class="profil-status">
             <span class="badge-inscrit">Inscrit ✓</span>
@@ -82,7 +87,10 @@ require_once 'view/autres_pages/header.php';
                 <div class="membre-item">
                     <span class="numero">1</span>
                     <div class="membre-detail">
-                        <strong><?= htmlspecialchars($infos['prenom']) ?> <?= htmlspecialchars($infos['nom']) ?></strong><br>
+                        <strong>
+                            <?= htmlspecialchars($infos['prenom'] ?? 'Prénom inconnu') ?> 
+                            <?= htmlspecialchars($infos['nom'] ?? 'Nom inconnu') ?>
+                        </strong><br>
                         <small><?= htmlspecialchars($infos['pseudo']) ?></small>
                     </div>
                     <span class="label-vous">Vous</span>
