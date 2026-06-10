@@ -1,55 +1,35 @@
-<?php
-require_once 'conf/conf.inc.php';
+// ... (tes anciennes fonctions comme recupererInfosUtilisateur, etc.)
 
-function creerUtilisateur($id_equipe, $pseudo, $email, $mdp_hash, $tel) {
+// Met à jour les infos complètes du capitaine
+function mettreAJourProfilComplet($id, $nom, $prenom, $pseudo, $tel, $email) {
     global $bdd;
-    $req = $bdd->prepare("INSERT INTO utilisateurs (id_equipe, pseudo, email, mot_de_passe, telephone) VALUES (:id_eq, :pseudo, :email, :mdp, :tel)");
+    $req = $bdd->prepare("UPDATE utilisateurs SET pseudo = :ps, telephone = :tel, email = :em, nom = :nom, prenom = :pre WHERE id_utilisateur = :id");
     return $req->execute([
-        'id_eq' => $id_equipe,
-        'pseudo' => $pseudo,
-        'email' => $email,
-        'mdp' => $mdp_hash,
-        'tel' => $tel
-    ]);
-}
-
-function verifierUtilisateur($email) {
-    global $bdd;
-    $req = $bdd->prepare("SELECT id_utilisateur, mot_de_passe, pseudo FROM utilisateurs WHERE email = :email");
-    $req->execute(['email' => $email]);
-    return $req->fetch();
-}
-
-function mettreAJourProfil($id_user, $pseudo, $tel) {
-    global $bdd;
-    $req = $bdd->prepare("UPDATE utilisateurs SET pseudo = :pseudo, telephone = :tel WHERE id_utilisateur = :id");
-    return $req->execute([
-        'pseudo' => $pseudo,
+        'ps' => $pseudo,
         'tel' => $tel,
-        'id' => $id_user
+        'em' => $email,
+        'nom' => $nom,
+        'pre' => $prenom,
+        'id' => $id
     ]);
 }
 
-// Récupère les infos du chef d'équipe, de son équipe et de sa réservation
-function recupererInfosUtilisateur($id_user) {
+// Met à jour un coéquipier spécifique
+function modifierMembreEquipe($id_m, $nom, $prenom, $pseudo) {
     global $bdd;
-    $req = $bdd->prepare("SELECT u.pseudo, u.telephone, u.email, e.nom_equipe, e.score_obtenu, e.type_menu, e.options_accessibilite, e.nb_participants, s.date_session 
-                          FROM utilisateurs u 
-                          JOIN equipes e ON u.id_equipe = e.id_equipe 
-                          LEFT JOIN sessions s ON e.id_session = s.id_session
-                          WHERE u.id_utilisateur = :id");
-    $req->execute(['id' => $id_user]);
-    return $req->fetch();
+    $req = $bdd->prepare("UPDATE membres_equipe SET nom = :nom, prenom = :pre, pseudo = :ps WHERE id_membre = :id");
+    return $req->execute([
+        'nom' => $nom,
+        'pre' => $prenom,
+        'ps' => $pseudo,
+        'id' => $id_m
+    ]);
 }
 
-// Récupère la liste des autres participants de l'équipe
-function recupererMembresEquipeParUtilisateur($id_user) {
+// Ajoute un commentaire en attente
+function ajouterCommentaire($id_u, $contenu) {
     global $bdd;
-    $req = $bdd->prepare("SELECT m.nom, m.prenom, m.pseudo 
-                          FROM membres_equipe m
-                          JOIN equipes e ON m.id_equipe = e.id_equipe
-                          JOIN utilisateurs u ON e.id_equipe = u.id_equipe
-                          WHERE u.id_utilisateur = :id");
-    $req->execute(['id' => $id_user]);
-    return $req->fetchAll();
+    $req = $bdd->prepare("INSERT INTO commentaires (id_utilisateur, contenu, statut) VALUES (:id_u, :cont, 'en_attente')");
+    return $req->execute(['id_u' => $id_u, 'cont' => $contenu]);
 }
+?>

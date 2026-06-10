@@ -2,3 +2,8 @@ AuthType Basic
 AuthName "Administration - Accès restreint"
 AuthUserFile /var/www/html/sae202-event/admin/.htpasswd
 Require valid-user
+# On active le module de réécriture d'URL
+RewriteEngine On
+
+# Règle magique : on fait pointer /gestion vers le dossier /admin
+RewriteRule ^gestion/?(.*)$ admin/$1 [L,NC]
