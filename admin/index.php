@@ -1,29 +1,31 @@
 <?php
+// On démarre la session (utile si tu veux gérer des messages flash)
+session_start();
 require_once 'admin_model.php';
+
 $message = "";
 
-// 1. Traitement des actions du formulaire de l'admin
+// 1. Traitement des formulaires de l'admin (POST)
 if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     
-    // Action : Mise à jour des scores
+    // Saisie des scores
     if (isset($_POST['action']) && $_POST['action'] === 'maj_score') {
         $id_equipe = (int)$_POST['id_equipe'];
         $score = (int)$_POST['score'];
         mettreAJourScoreEquipe($id_equipe, $score);
-        $message = "Score mis à jour avec succès.";
+        $message = "Le score a été mis à jour avec succès.";
     }
     
-    // Action : Modération des commentaires (Approuver ou Refuser)
+    // Modération des avis
     if (isset($_POST['action']) && $_POST['action'] === 'moderation') {
         $id_commentaire = (int)$_POST['id_commentaire'];
         $statut = $_POST['decision'] === 'approuver' ? 'approuve' : 'refuse';
         changerStatutCommentaire($id_commentaire, $statut);
-        $message = "Commentaire " . ($statut === 'approuve' ? "approuvé" : "refusé") . ".";
+        $message = "L'avis a été " . ($statut === 'approuve' ? "approuvé" : "refusé") . ".";
     }
 }
 
-// 2. Récupération des données pour l'affichage
-$inscrits = recupererTousLesInscrits();
+// 2. Récupération de TOUTES les données
 $equipes = recupererToutesLesEquipes();
 $commentaires = recupererCommentairesEnAttente();
 

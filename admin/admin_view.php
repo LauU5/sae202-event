@@ -2,101 +2,155 @@
 <html lang="fr">
 <head>
     <meta charset="UTF-8">
-    <title>Administration - Escape Game</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Back-Office | Framed Escape Game</title>
     <link rel="stylesheet" href="../view/css/style.css">
 </head>
-<body style="background-color: #f4f4f9;">
-    <header style="background-color: #2c3e50; color: white; padding: 15px;">
-        <div style="display: flex; justify-content: space-between; max-width: 1000px; margin: auto;">
-            <h1>Espace Administrateur</h1>
-            <a href="../index.php" style="color: white; text-decoration: none; padding: 10px; background: #e74c3c; border-radius: 5px;">Retour au site public</a>
-        </div>
+<body>
+
+    <header>
+        <h1>Espace Administration - Framed</h1>
+        <nav>
+            <ul>
+                <li><a href="index.php">Tableau de bord</a></li>
+                <li><a href="../index.php">Retour au site public</a></li>
+            </ul>
+        </nav>
     </header>
 
-    <main style="max-width: 1000px; margin: 20px auto; padding: 20px; background: white; border-radius: 5px; box-shadow: 0 0 10px rgba(0,0,0,0.1);">
-        
+    <main>
         <?php if(!empty($message)): ?>
-            <p style="color: white; background: #27ae60; padding: 10px; border-radius: 5px;"><?= $message ?></p>
+            <div class="message-succes">
+                <p><?= $message ?></p>
+            </div>
         <?php endif; ?>
 
-        <section style="margin-bottom: 40px;">
+        <section>
             <h2>Avis en attente de modération</h2>
+            
             <?php if(empty($commentaires)): ?>
-                <p>Aucun commentaire en attente.</p>
+                <p>Aucun nouvel avis à modérer.</p>
             <?php else: ?>
-                <table style="width: 100%; border-collapse: collapse; text-align: left;">
-                    <tr style="background: #eee;">
-                        <th style="padding: 10px; border: 1px solid #ccc;">Auteur</th>
-                        <th style="padding: 10px; border: 1px solid #ccc;">Avis</th>
-                        <th style="padding: 10px; border: 1px solid #ccc;">Action</th>
-                    </tr>
-                    <?php foreach($commentaires as $com): ?>
-                    <tr>
-                        <td style="padding: 10px; border: 1px solid #ccc;"><strong><?= htmlspecialchars($com['pseudo']) ?></strong><br><small><?= $com['date_publication'] ?></small></td>
-                        <td style="padding: 10px; border: 1px solid #ccc;"><?= htmlspecialchars($com['contenu']) ?></td>
-                        <td style="padding: 10px; border: 1px solid #ccc;">
-                            <form action="index.php" method="POST" style="display: inline-block;">
-                                <input type="hidden" name="action" value="moderation">
-                                <input type="hidden" name="id_commentaire" value="<?= $com['id_commentaire'] ?>">
-                                <button type="submit" name="decision" value="approuver" style="background: #2ecc71; color: white; border: none; padding: 5px 10px; cursor: pointer;">Approuver</button>
-                                <button type="submit" name="decision" value="refuser" style="background: #e74c3c; color: white; border: none; padding: 5px 10px; cursor: pointer;">Refuser</button>
-                            </form>
-                        </td>
-                    </tr>
-                    <?php endforeach; ?>
+                <table>
+                    <thead>
+                        <tr>
+                            <th>Auteur / Date</th>
+                            <th>Contenu de l'avis</th>
+                            <th>Actions</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <?php foreach($commentaires as $com): ?>
+                        <tr>
+                            <td>
+                                <strong><?= htmlspecialchars($com['pseudo']) ?></strong><br>
+                                <small><?= date('d/m/Y H:i', strtotime($com['date_publication'])) ?></small>
+                            </td>
+                            <td><?= htmlspecialchars($com['contenu']) ?></td>
+                            <td>
+                                <form action="index.php" method="POST">
+                                    <input type="hidden" name="action" value="moderation">
+                                    <input type="hidden" name="id_commentaire" value="<?= $com['id_commentaire'] ?>">
+                                    <button type="submit" name="decision" value="approuver">Approuver</button>
+                                    <button type="submit" name="decision" value="refuser">Refuser</button>
+                                </form>
+                            </td>
+                        </tr>
+                        <?php endforeach; ?>
+                    </tbody>
                 </table>
             <?php endif; ?>
         </section>
 
-        <hr style="margin: 30px 0; border: 0; border-top: 1px solid #eee;">
+        <hr>
 
-        <section style="margin-bottom: 40px;">
-            <h2>Saisie des Scores par Équipe</h2>
-            <table style="width: 100%; border-collapse: collapse; text-align: left;">
-                <tr style="background: #eee;">
-                    <th style="padding: 10px; border: 1px solid #ccc;">Équipe</th>
-                    <th style="padding: 10px; border: 1px solid #ccc;">Score actuel</th>
-                    <th style="padding: 10px; border: 1px solid #ccc;">Nouveau Score</th>
-                </tr>
-                <?php foreach($equipes as $equipe): ?>
-                <tr>
-                    <td style="padding: 10px; border: 1px solid #ccc;"><?= htmlspecialchars($equipe['nom_equipe']) ?></td>
-                    <td style="padding: 10px; border: 1px solid #ccc;"><?= $equipe['score_obtenu'] !== null ? htmlspecialchars($equipe['score_obtenu']) . ' pts' : 'Non défini' ?></td>
-                    <td style="padding: 10px; border: 1px solid #ccc;">
-                        <form action="index.php" method="POST">
-                            <input type="hidden" name="action" value="maj_score">
-                            <input type="hidden" name="id_equipe" value="<?= $equipe['id_equipe'] ?>">
-                            <input type="number" name="score" value="<?= htmlspecialchars($equipe['score_obtenu'] ?? '') ?>" required style="padding: 5px;">
-                            <button type="submit" style="background: #3498db; color: white; border: none; padding: 5px 10px; cursor: pointer;">Valider</button>
-                        </form>
-                    </td>
-                </tr>
-                <?php endforeach; ?>
+        <section>
+            <h2>Gestion des Scores</h2>
+            
+            <table>
+                <thead>
+                    <tr>
+                        <th>Date de Session</th>
+                        <th>Nom de l'équipe</th>
+                        <th>Score Actuel</th>
+                        <th>Nouveau Score</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <?php foreach($equipes as $equipe): ?>
+                    <tr>
+                        <td><?= $equipe['date_session'] ? date('d/m/Y', strtotime($equipe['date_session'])) : 'Non définie' ?></td>
+                        <td><strong><?= htmlspecialchars($equipe['nom_equipe']) ?></strong></td>
+                        <td><?= $equipe['score_obtenu'] !== null ? htmlspecialchars($equipe['score_obtenu']) . ' pts' : 'En attente' ?></td>
+                        <td>
+                            <form action="index.php" method="POST">
+                                <input type="hidden" name="action" value="maj_score">
+                                <input type="hidden" name="id_equipe" value="<?= $equipe['id_equipe'] ?>">
+                                <input type="number" name="score" value="<?= htmlspecialchars($equipe['score_obtenu'] ?? '') ?>" required placeholder="Ex: 850">
+                                <button type="submit">Valider</button>
+                            </form>
+                        </td>
+                    </tr>
+                    <?php endforeach; ?>
+                </tbody>
             </table>
         </section>
 
-        <hr style="margin: 30px 0; border: 0; border-top: 1px solid #eee;">
+        <hr>
 
         <section>
-            <h2>Liste des Participants Inscrits</h2>
-            <table style="width: 100%; border-collapse: collapse; text-align: left;">
-                <tr style="background: #eee;">
-                    <th style="padding: 10px; border: 1px solid #ccc;">Pseudo</th>
-                    <th style="padding: 10px; border: 1px solid #ccc;">Équipe</th>
-                    <th style="padding: 10px; border: 1px solid #ccc;">Email</th>
-                    <th style="padding: 10px; border: 1px solid #ccc;">Téléphone</th>
-                </tr>
-                <?php foreach($inscrits as $inscrit): ?>
-                <tr>
-                    <td style="padding: 10px; border: 1px solid #ccc;"><?= htmlspecialchars($inscrit['pseudo']) ?></td>
-                    <td style="padding: 10px; border: 1px solid #ccc;"><?= htmlspecialchars($inscrit['nom_equipe']) ?></td>
-                    <td style="padding: 10px; border: 1px solid #ccc;"><a href="mailto:<?= htmlspecialchars($inscrit['email']) ?>"><?= htmlspecialchars($inscrit['email']) ?></a></td>
-                    <td style="padding: 10px; border: 1px solid #ccc;"><?= htmlspecialchars($inscrit['telephone']) ?></td>
-                </tr>
-                <?php endforeach; ?>
+            <h2>Détails Logistiques des Réservations</h2>
+            
+            <table>
+                <thead>
+                    <tr>
+                        <th>Session</th>
+                        <th>Équipe & Logistique</th>
+                        <th>Capitaine (Contact)</th>
+                        <th>Composition du groupe</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <?php foreach($equipes as $equipe): ?>
+                    <tr>
+                        <td>
+                            <strong><?= $equipe['date_session'] ? date('d/m/Y', strtotime($equipe['date_session'])) : 'Non définie' ?></strong>
+                        </td>
+                        
+                        <td>
+                            <strong><?= htmlspecialchars($equipe['nom_equipe']) ?></strong><br>
+                            Menu : <?= htmlspecialchars($equipe['type_menu']) ?><br>
+                            Total : <?= $equipe['nb_participants'] ?> joueur(s)<br>
+                            <?php if(!empty($equipe['options_accessibilite'])): ?>
+                                <em style="color: red;">Alertes : <?= htmlspecialchars($equipe['options_accessibilite']) ?></em>
+                            <?php endif; ?>
+                        </td>
+                        
+                        <td>
+                            <strong><?= htmlspecialchars($equipe['capitaine_pseudo']) ?></strong><br>
+                            <a href="mailto:<?= htmlspecialchars($equipe['email']) ?>"><?= htmlspecialchars($equipe['email']) ?></a><br>
+                            <?= htmlspecialchars($equipe['telephone']) ?>
+                        </td>
+                        
+                        <td>
+                            <ul>
+                                <li><?= htmlspecialchars($equipe['capitaine_pseudo']) ?> <em>(Capitaine)</em></li>
+                                <?php 
+                                // On récupère les autres membres pour cette équipe spécifique
+                                $membres = recupererMembresEquipe($equipe['id_equipe']);
+                                foreach($membres as $membre): 
+                                ?>
+                                    <li><?= htmlspecialchars($membre['prenom']) ?> <?= htmlspecialchars($membre['nom']) ?> <em>(<?= htmlspecialchars($membre['pseudo']) ?>)</em></li>
+                                <?php endforeach; ?>
+                            </ul>
+                        </td>
+                    </tr>
+                    <?php endforeach; ?>
+                </tbody>
             </table>
         </section>
 
     </main>
+
 </body>
 </html>

@@ -65,7 +65,7 @@
                     <li>Gratin dauphinois</li>
                     <li>Tarte aux pommes maison</li>
                 </ul>
-                <img src="" alt="[ Emplacement Image : Menu Classique ]" width="250" height="150">
+                
             </article>
 
             <article>
@@ -77,7 +77,7 @@
                     <li>Rôti de porc / purée maison</li>
                     <li>Fondant au chocolat</li>
                 </ul>
-                <img src="" alt="[ Emplacement Image : Menu Framed ]" width="250" height="150">
+                
             </article>
 
             <article>
@@ -88,7 +88,7 @@
                     <li>Gratin de légumes</li>
                     <li>Tarte aux pommes maison</li>
                 </ul>
-                <img src="" alt="[ Emplacement Image : Menu Végétarien ]" width="250" height="150">
+               
             </article>
         </div>
         
