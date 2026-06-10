@@ -28,7 +28,7 @@ switch ($action) {
         require_once 'controller/deconnexion_controller.php';
         break;
     case 'profil':
-        
+
         if(isset($_SESSION['id_utilisateur'])) {
             require_once 'controller/profil_controller.php';
         } else {

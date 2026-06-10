@@ -1,12 +1,5 @@
 RewriteEngine On
 RewriteBase /
 
-
+# Redirige tout ce qui commence par /gestion vers le dossier admin
 RewriteRule ^gestion/?(.*)$ admin/$1 [L,NC]
-
-
-RewriteCond %{REQUEST_FILENAME} !-f
-RewriteCond %{REQUEST_FILENAME} !-d
-
-
-RewriteRule ^([a-zA-Z0-9_-]+)$ index.php?action=$1 [QSA,L]
