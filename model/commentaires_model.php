@@ -11,12 +11,15 @@ function ajouterCommentaire($id_user, $contenu) {
 }
 
 function recupererCommentairesApprouves() {
-    global $bdd; // Si la ligne du haut manque, $bdd sera "null" ici
-    $req = $bdd->query("SELECT c.contenu, c.date_publication, u.pseudo 
-                        FROM commentaires c 
-                        JOIN utilisateurs u ON c.id_utilisateur = u.id_utilisateur 
-                        WHERE c.statut = 'approuve' 
-                        ORDER BY c.date_publication DESC");
+    global $bdd;
+    $req = $bdd->query("
+        SELECT c.contenu, u.pseudo, u.prenom 
+        FROM commentaires c
+        JOIN utilisateurs u ON c.id_utilisateur = u.id_utilisateur
+        WHERE c.statut = 'valide' 
+        ORDER BY c.id_commentaire DESC 
+        LIMIT 5
+    ");
     return $req->fetchAll();
 }
 ?>

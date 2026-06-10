@@ -72,5 +72,17 @@ function modifierMembreEquipe($id_m, $nom, $prenom, $pseudo) {
     ]);
 }
 
+function recupererAvisValides() {
+    global $bdd;
+    $req = $bdd->query("
+        SELECT c.contenu, u.pseudo, u.prenom 
+        FROM commentaires c
+        JOIN utilisateurs u ON c.id_utilisateur = u.id_utilisateur
+        WHERE c.statut = 'valide' 
+        ORDER BY c.id_commentaire DESC 
+        LIMIT 5
+    ");
+    return $req->fetchAll();
+}
 
 ?>
