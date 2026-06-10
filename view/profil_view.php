@@ -1,4 +1,8 @@
-<?php require_once 'view/header.php'; ?>
+<?php
+// CORRECTION : 'view/header.php' et 'view/footer.php' n'existent pas
+// Les fichiers sont dans view/autres_pages/ comme dans toutes les autres vues
+require_once 'view/autres_pages/header.php';
+?>
 
 <main class="espace-client">
 
@@ -18,10 +22,10 @@
     </section>
 
     <nav class="tabs-navigation">
-        <div id="tab-infos" class="tab active" onclick="switchTab('infos')">Informations</div>
-        <div id="tab-equipe" class="tab" onclick="switchTab('equipe')">Mon Equipe</div>
-        <div id="tab-temps" class="tab" onclick="switchTab('temps')">Mon Temps</div>
-        <div id="tab-avis" class="tab" onclick="switchTab('avis')">Laisser un Avis</div>
+        <div id="tab-infos"  class="tab active" onclick="switchTab('infos')">Informations</div>
+        <div id="tab-equipe" class="tab"        onclick="switchTab('equipe')">Mon Equipe</div>
+        <div id="tab-temps"  class="tab"        onclick="switchTab('temps')">Mon Temps</div>
+        <div id="tab-avis"   class="tab"        onclick="switchTab('avis')">Laisser un Avis</div>
     </nav>
 
     <?php if(!empty($message)): ?>
@@ -74,7 +78,6 @@
         <h3>Nom de l'équipe</h3>
         <form action="index.php?action=profil" method="POST">
             <input type="hidden" name="action" value="update_equipe">
-            
             <div class="liste-membres">
                 <div class="membre-item">
                     <span class="numero">1</span>
@@ -89,10 +92,10 @@
                 <div class="membre-item">
                     <span class="numero"><?= $i ?></span>
                     <div class="membre-detail">
-                        <input type="hidden" name="membre_id[]" value="<?= $m['id_membre'] ?>">
-                        <input type="text" name="membre_prenom[]" value="<?= htmlspecialchars($m['prenom']) ?>" placeholder="Prénom">
-                        <input type="text" name="membre_nom[]" value="<?= htmlspecialchars($m['nom']) ?>" placeholder="Nom">
-                        <input type="text" name="membre_pseudo[]" value="<?= htmlspecialchars($m['pseudo']) ?>" placeholder="Pseudo">
+                        <input type="hidden" name="membre_id[]"     value="<?= $m['id_membre'] ?>">
+                        <input type="text"   name="membre_prenom[]" value="<?= htmlspecialchars($m['prenom']) ?>" placeholder="Prénom">
+                        <input type="text"   name="membre_nom[]"    value="<?= htmlspecialchars($m['nom']) ?>"    placeholder="Nom">
+                        <input type="text"   name="membre_pseudo[]" value="<?= htmlspecialchars($m['pseudo']) ?>" placeholder="Pseudo">
                     </div>
                     <span class="label-membre">Membre</span>
                 </div>
@@ -103,7 +106,6 @@
                 <p><strong>Menu Choisi</strong><br><?= htmlspecialchars($infos['type_menu']) ?></p>
                 <p><strong>Session Réservée</strong><br><?= $infos['date_session'] ? date('l j F Y, H:i', strtotime($infos['date_session'])) : 'Non définie' ?></p>
                 <p><strong>Besoins Particuliers</strong><br><?= !empty($infos['options_accessibilite']) ? htmlspecialchars($infos['options_accessibilite']) : 'Aucun' ?></p>
-                
                 <div class="action-zone">
                     <button type="submit" class="btn-modifier">Modifier</button>
                 </div>
@@ -138,15 +140,11 @@
 
 <script>
     function switchTab(tabName) {
-        // Cacher tous les contenus
         document.querySelectorAll('.tab-content').forEach(el => el.style.display = 'none');
-        // Retirer la classe active de tous les onglets
         document.querySelectorAll('.tab').forEach(el => el.classList.remove('active'));
-        
-        // Afficher le contenu sélectionné et activer l'onglet
         document.getElementById('content-' + tabName).style.display = 'block';
         document.getElementById('tab-' + tabName).classList.add('active');
     }
 </script>
 
-<?php require_once 'view/footer.php'; ?>
+<?php require_once 'view/autres_pages/footer.php'; ?>

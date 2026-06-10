@@ -1,17 +1,45 @@
 <?php
-require_once 'conf/conf.inc.php';
+
+require_once __DIR__ . '/../conf/conf.inc.php';
+
+function recupererInfosUtilisateur($id_utilisateur) {
+    global $bdd;
+    $req = $bdd->prepare("
+        SELECT u.*, e.nom_equipe, e.nb_participants, e.type_menu, e.options_accessibilite, e.score_obtenu, s.date_session
+        FROM utilisateurs u
+        LEFT JOIN equipes e ON u.id_equipe = e.id_equipe
+        LEFT JOIN sessions s ON e.id_session = s.id_session
+        WHERE u.id_utilisateur = :id
+    ");
+    $req->execute(['id' => $id_utilisateur]);
+    return $req->fetch();
+}
+
+function recupererMembresEquipeParUtilisateur($id_utilisateur) {
+    global $bdd;
+    $req = $bdd->prepare("
+        SELECT m.* FROM membres_equipe m
+        JOIN utilisateurs u ON m.id_equipe = u.id_equipe
+        WHERE u.id_utilisateur = :id
+    ");
+    $req->execute(['id' => $id_utilisateur]);
+    return $req->fetchAll();
+}
+
 
 function creerUtilisateur($id_equipe, $pseudo, $email, $mdp_hash, $tel) {
     global $bdd;
-    $req = $bdd->prepare("INSERT INTO utilisateurs (id_equipe, pseudo, email, mot_de_passe, telephone) VALUES (:id_eq, :pseudo, :email, :mdp, :tel)");
+    $req = $bdd->prepare("INSERT INTO utilisateurs (id_equipe, pseudo, email, mot_de_passe, telephone)
+                          VALUES (:id_equipe, :pseudo, :email, :mdp, :tel)");
     return $req->execute([
-        'id_eq' => $id_equipe,
-        'pseudo' => $pseudo,
-        'email' => $email,
-        'mdp' => $mdp_hash,
-        'tel' => $tel
+        'id_equipe' => $id_equipe,
+        'pseudo'    => $pseudo,
+        'email'     => $email,
+        'mdp'       => $mdp_hash,
+        'tel'       => $tel
     ]);
 }
+
 
 function verifierUtilisateur($email) {
     global $bdd;
@@ -20,42 +48,18 @@ function verifierUtilisateur($email) {
     return $req->fetch();
 }
 
-function mettreAJourProfil($id_user, $pseudo, $tel) {
-    global $bdd;
-    $req = $bdd->prepare("UPDATE utilisateurs SET pseudo = :pseudo, telephone = :tel WHERE id_utilisateur = :id");
-    return $req->execute([
-        'pseudo' => $pseudo,
-        'tel' => $tel,
-        'id' => $id_user
-    ]);
-}
-
-function recupererInfosUtilisateur($id_user) {
-    global $bdd;
-    
-    $req = $bdd->prepare("SELECT u.pseudo, u.telephone, e.score_obtenu 
-                          FROM utilisateurs u 
-                          JOIN equipes e ON u.id_equipe = e.id_equipe 
-                          WHERE u.id_utilisateur = :id");
-    $req->execute(['id' => $id_user]);
-    return $req->fetch();
-}
-
-
-
 function mettreAJourProfilComplet($id, $nom, $prenom, $pseudo, $tel, $email) {
     global $bdd;
     $req = $bdd->prepare("UPDATE utilisateurs SET pseudo = :ps, telephone = :tel, email = :em, nom = :nom, prenom = :pre WHERE id_utilisateur = :id");
     return $req->execute([
-        'ps' => $pseudo,
+        'ps'  => $pseudo,
         'tel' => $tel,
-        'em' => $email,
+        'em'  => $email,
         'nom' => $nom,
         'pre' => $prenom,
-        'id' => $id
+        'id'  => $id
     ]);
 }
-
 
 function modifierMembreEquipe($id_m, $nom, $prenom, $pseudo) {
     global $bdd;
@@ -63,15 +67,10 @@ function modifierMembreEquipe($id_m, $nom, $prenom, $pseudo) {
     return $req->execute([
         'nom' => $nom,
         'pre' => $prenom,
-        'ps' => $pseudo,
-        'id' => $id_m
+        'ps'  => $pseudo,
+        'id'  => $id_m
     ]);
 }
 
 
-function ajouterCommentaire($id_u, $contenu) {
-    global $bdd;
-    $req = $bdd->prepare("INSERT INTO commentaires (id_utilisateur, contenu, statut) VALUES (:id_u, :cont, 'en_attente')");
-    return $req->execute(['id_u' => $id_u, 'cont' => $contenu]);
-}
 ?>

@@ -1,11 +1,10 @@
 <?php
-require_once 'model/commentaires_model.php'; // On inclut le modèle
+// CORRECTION : utilisation de __DIR__ pour garantir le bon chemin
+require_once __DIR__ . '/../model/commentaires_model.php';
 
 $titre_page = "Accueil";
 
-// On récupère les avis validés par l'admin
 $avis_publics = recupererCommentairesApprouves();
 
-// Appel de la vue
 require_once 'view/accueil_view.php';
 ?>
