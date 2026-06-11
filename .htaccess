@@ -1,5 +1,4 @@
-RewriteEngine On
-RewriteBase /
-
-# Redirige tout ce qui commence par /gestion vers le dossier admin
-RewriteRule ^gestion/?(.*)$ admin/$1 [L,NC]
+AuthType Basic
+AuthName "Back-Office MMI"
+AuthUserFile /home/MMI/htpassword.mmi
+Require valid-user

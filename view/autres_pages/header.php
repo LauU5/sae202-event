@@ -3,12 +3,27 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title><?= isset($titre_page) ? htmlspecialchars($titre_page) : "Escape Game de Nuit" ?> - SAE 202</title>
+    <title><?= isset($titre_page) ? htmlspecialchars($titre_page) : 'Framed' ?></title>
+    
     <link rel="stylesheet" href="view/css/style.css">
 </head>
 <body>
-    <header>
-        <?php require_once 'view/autres_pages/menu.php'; ?>
-    </header>
 
-    <main>
+<header>
+    <nav>
+        <div class="logo">Framed</div>
+        <ul>
+            <li><a href="index.php?action=accueil">Accueil</a></li>
+            <li><a href="index.php?action=concept">Concept</a></li>
+            <li><a href="index.php?action=infos">Infos pratiques</a></li>
+
+            <?php if(isset($_SESSION['id_utilisateur'])): ?>
+                <li><a href="index.php?action=profil">Mon Profil</a></li>
+                <li><a href="index.php?action=deconnexion">Déconnexion</a></li>
+            <?php else: ?>
+                <li><a href="index.php?action=inscription">Inscription</a></li>
+                <li><a href="index.php?action=connexion">Connexion</a></li>
+            <?php endif; ?>
+        </ul>
+    </nav>
+</header>
