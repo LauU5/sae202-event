@@ -34,7 +34,7 @@
     </section>
 
     <section>
-        <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2654.341877403612!2d4.072659711987807!3d48.29627587114152!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x47ee98f824dc1693%3A0xc2220ad206e89802!2s1%20Rue%20Louis%20Ulbach%2C%2010000%20Troyes!5e0!3m2!1sfr!2sfr!4v1781073063829!5m2!1sfr!2sfr" width="600" height="450" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+        <iframe src="https://maps.google.com/maps?q=33+Avenue+Jean+Jaurès,+10600+La+Chapelle-Saint-Luc,+France&output=embed&z=16" width="600" height="450" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
     </section>
 
     <section>
@@ -54,8 +54,8 @@
             <article>
                 <h3>Adresse</h3>
                 <p>
-                    01 Rue de Louis Ulbach<br>
-                    10000 Troyes, France
+                    33 Avenue Jean Jaurès<br>
+                    10600 La Chapelle-Saint-Luc, France
                 </p>
             </article>
         </div>
