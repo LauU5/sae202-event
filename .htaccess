@@ -1,4 +1,4 @@
 AuthType Basic
 AuthName "Back-Office MMI"
-AuthUserFile /home/MMI/htpassword.mmi
+AuthUserFile /home/mmi25h15/htpassword.mmi
 Require valid-user
