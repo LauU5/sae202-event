@@ -72,11 +72,11 @@
                 <div class="form-row">
                     <div class="form-group">
                         <label for="cap_nom">Nom *</label>
-                        <input type="text" id="cap_nom" required>
+                        <input type="text" name="nom" id="cap_nom" required>
                     </div>
                     <div class="form-group">
                         <label for="cap_prenom">Prénom *</label>
-                        <input type="text" id="cap_prenom" required>
+                        <input type="text" name="prenom" id="cap_prenom" required>
                     </div>
                 </div>
 
@@ -174,13 +174,12 @@
         document.getElementById('tab-' + etape).classList.add('active');
     }
 
-    // 2. Fonction qui génère les champs en fonction du menu déroulant (Page 1)
+    // 2. Fonction qui génère les champs en fonction du menu déroulant
     function mettreAJourParticipants() {
         let nb = parseInt(document.getElementById('nb_participants').value);
         const container = document.getElementById('zone-participants');
-        container.innerHTML = ''; // On vide la zone pour la recréer proprement
+        container.innerHTML = ''; 
 
-        // On boucle à partir de 2 (puisque le participant 1 est le capitaine fixe)
         for(let i = 2; i <= nb; i++) {
             const div = document.createElement('div');
             div.classList.add('nouveau-participant');
@@ -205,7 +204,7 @@
         }
     }
 
-    // 3. Bouton "Ajouter un participant" (Page 2) qui met à jour le menu déroulant
+    // 3. Bouton "Ajouter un participant" 
     function ajouterParticipant() {
         let selectElement = document.getElementById('nb_participants');
         let nbActuel = parseInt(selectElement.value);
@@ -215,10 +214,7 @@
             return;
         }
 
-        // On incrémente le menu déroulant
         selectElement.value = nbActuel + 1;
-        
-        // On relance la génération visuelle
         mettreAJourParticipants();
     }
 
@@ -238,7 +234,6 @@
         }
     }
 
-    // Initialisation au chargement de la page pour être sûr d'avoir le bon nombre
     window.onload = function() {
         mettreAJourParticipants();
     };

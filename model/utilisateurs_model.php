@@ -27,16 +27,20 @@ function recupererMembresEquipeParUtilisateur($id_utilisateur) {
 }
 
 
-function creerUtilisateur($id_equipe, $pseudo, $email, $mdp_hash, $tel) {
+function creerUtilisateur($id_equipe, $nom, $prenom, $pseudo, $email, $telephone, $mot_de_passe) {
     global $bdd;
-    $req = $bdd->prepare("INSERT INTO utilisateurs (id_equipe, pseudo, email, mot_de_passe, telephone)
-                          VALUES (:id_equipe, :pseudo, :email, :mdp, :tel)");
+    $req = $bdd->prepare("
+        INSERT INTO utilisateurs (id_equipe, nom, prenom, pseudo, email, telephone, mot_de_passe) 
+        VALUES (:id_e, :nom, :pre, :ps, :em, :tel, :mdp)
+    ");
     return $req->execute([
-        'id_equipe' => $id_equipe,
-        'pseudo'    => $pseudo,
-        'email'     => $email,
-        'mdp'       => $mdp_hash,
-        'tel'       => $tel
+        'id_e' => $id_equipe,
+        'nom'  => $nom,
+        'pre'  => $prenom,
+        'ps'   => $pseudo,
+        'em'   => $email,
+        'tel'  => $telephone,
+        'mdp'  => $mot_de_passe
     ]);
 }
 

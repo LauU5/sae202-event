@@ -12,8 +12,7 @@
         <h1>Espace Administration - Framed</h1>
         <nav>
             <ul>
-                <li><a href="index.php">Tableau de bord</a></li>
-                <li><a href="../index.php">Retour au site public</a></li>
+               <li><a href="../index.php">Retour au site public</a></li>
             </ul>
         </nav>
     </header>
