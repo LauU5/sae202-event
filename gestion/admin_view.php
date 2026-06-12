@@ -1,155 +1,175 @@
+<?php 
+if (!isset($onglet)) {
+    $onglet = isset($_GET['onglet']) ? $_GET['onglet'] : 'dashboard';
+}
+?>
 <!DOCTYPE html>
 <html lang="fr">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Back-Office | Framed Escape Game</title>
-    <link rel="stylesheet" href="../view/css/style.css">
+    <title>Administration - Framed</title>
 </head>
 <body>
 
     <header>
-        <h1>Espace Administration - Framed</h1>
+        <div>[ F ] Framed</div>
         <nav>
-            <ul>
-               <li><a href="../index.php">Retour au site public</a></li>
-            </ul>
+            <a href="index.php?action=accueil">Accueil</a>
+            <a href="index.php?action=concept">Concept</a>
+            <a href="index.php?action=infos">Infos pratiques</a>
+            <a href="index.php?action=inscription">Inscriptions</a>
         </nav>
     </header>
 
     <main>
-        <?php if(!empty($message)): ?>
-            <div class="message-succes">
-                <p><?= $message ?></p>
-            </div>
-        <?php endif; ?>
+        <h1>Vue d'ensemble</h1>
+        
+        <nav>
+            <a href="index.php?action=admin&onglet=dashboard" <?= $onglet == 'dashboard' ? 'class="active"' : '' ?>>Tableau de Bord</a> | 
+            <a href="index.php?action=admin&onglet=equipes" <?= $onglet == 'equipes' ? 'class="active"' : '' ?>>Equipes</a> | 
+            <a href="index.php?action=admin&onglet=commentaires" <?= $onglet == 'commentaires' ? 'class="active"' : '' ?>>Commentaires</a> | 
+            <a href="index.php?action=admin&onglet=temps" <?= $onglet == 'temps' ? 'class="active"' : '' ?>>Temps des Equipes</a>
+        </nav>
+        <hr>
 
-        <section>
-            <h2>Avis en attente de modération</h2>
-            
-            <?php if(empty($commentaires)): ?>
-                <p>Aucun nouvel avis à modérer.</p>
-            <?php else: ?>
-                <table>
-                    <thead>
+        <?php if($onglet === 'dashboard'): ?>
+        <section id="tableau-de-bord">
+            <div>
+                <div><strong>4,7/5</strong><br>Note globale</div>
+                <div><strong>11</strong><br>Joueurs attendus</div>
+                <div><strong>2</strong><br>Avis en attente</div>
+                <div><strong>81%</strong><br>Taux de réussite</div>
+            </div>
+
+            <h2>Sessions à venir</h2>
+            <table border="1" width="100%">
+                <thead>
+                    <tr><th>Date</th><th>Equipe</th><th>Nb. Joueurs</th><th>Statut</th></tr>
+                </thead>
+                <tbody>
+                    <?php if(!empty($sessions)): ?>
+                        <?php foreach($sessions as $session): ?>
                         <tr>
-                            <th>Auteur / Date</th>
-                            <th>Contenu de l'avis</th>
-                            <th>Actions</th>
-                        </tr>
-                    </thead>
-                    <tbody>
-                        <?php foreach($commentaires as $com): ?>
-                        <tr>
-                            <td>
-                                <strong><?= htmlspecialchars($com['pseudo']) ?></strong><br>
-                                <small><?= date('d/m/Y H:i', strtotime($com['date_publication'])) ?></small>
-                            </td>
-                            <td><?= htmlspecialchars($com['contenu']) ?></td>
-                            <td>
-                                <form action="index.php" method="POST">
-                                    <input type="hidden" name="action" value="moderation">
-                                    <input type="hidden" name="id_commentaire" value="<?= $com['id_commentaire'] ?>">
-                                    <button type="submit" name="decision" value="approuver">Approuver</button>
-                                    <button type="submit" name="decision" value="refuser">Refuser</button>
-                                </form>
-                            </td>
+                            <td><?= date('d/m/Y H:i', strtotime($session['date_session'])) ?></td>
+                            <td><?= htmlspecialchars($session['nom_equipe']) ?></td>
+                            <td><?= $session['nb_participants'] ?></td>
+                            <td>Inscrit</td>
                         </tr>
                         <?php endforeach; ?>
-                    </tbody>
-                </table>
+                    <?php else: ?>
+                        <tr><td colspan="4">Aucune session à venir.</td></tr>
+                    <?php endif; ?>
+                </tbody>
+            </table>
+        </section>
+
+        <?php elseif($onglet === 'equipes'): ?>
+        <section id="equipes">
+            <?php if(!empty($equipes)): ?>
+                <?php foreach($equipes as $equipe): ?>
+                <article>
+                    <h3><?= htmlspecialchars($equipe['nom_equipe']) ?> <small>(Inscrit √)</small></h3>
+                    <p>Session du : <?= date('d/m/Y', strtotime($equipe['date_session'] ?? '')) ?></p>
+                    
+                    <table border="1" width="100%">
+                        <tr><th>Nom</th><th>Prénom</th><th>Pseudo</th><th>Email</th><th>Téléphone</th></tr>
+                        
+                        <?php 
+                        // Ex: $membres = recupererMembresEquipe($equipe['id_equipe']); 
+                        // En attendant, on affiche le chef d'équipe ou des données génériques
+                        ?>
+                        <tr>
+                            <td><?= htmlspecialchars($equipe['nom'] ?? 'Nom') ?></td>
+                            <td><?= htmlspecialchars($equipe['prenom'] ?? 'Prénom') ?></td>
+                            <td><?= htmlspecialchars($equipe['pseudo_chef'] ?? 'Pseudo') ?></td>
+                            <td><?= htmlspecialchars($equipe['email'] ?? 'Email') ?></td>
+                            <td><?= htmlspecialchars($equipe['telephone'] ?? 'Tel') ?></td>
+                        </tr>
+                    </table>
+                </article>
+                <br>
+                <?php endforeach; ?>
+            <?php else: ?>
+                <p>Aucune équipe inscrite pour le moment.</p>
             <?php endif; ?>
         </section>
 
-        <hr>
-
-        <section>
-            <h2>Gestion des Scores</h2>
+        <?php elseif($onglet === 'commentaires'): ?>
+        <section id="commentaires">
+            <div>
+                <button>En Attente</button>
+                <button>Approuvés</button>
+                <button>Refusés</button>
+            </div>
             
-            <table>
-                <thead>
-                    <tr>
-                        <th>Date de Session</th>
-                        <th>Nom de l'équipe</th>
-                        <th>Score Actuel</th>
-                        <th>Nouveau Score</th>
-                    </tr>
-                </thead>
-                <tbody>
-                    <?php foreach($equipes as $equipe): ?>
-                    <tr>
-                        <td><?= $equipe['date_session'] ? date('d/m/Y', strtotime($equipe['date_session'])) : 'Non définie' ?></td>
-                        <td><strong><?= htmlspecialchars($equipe['nom_equipe']) ?></strong></td>
-                        <td><?= $equipe['score_obtenu'] !== null ? htmlspecialchars($equipe['score_obtenu']) . ' pts' : 'En attente' ?></td>
-                        <td>
-                            <form action="index.php" method="POST">
-                                <input type="hidden" name="action" value="maj_score">
-                                <input type="hidden" name="id_equipe" value="<?= $equipe['id_equipe'] ?>">
-                                <input type="number" name="score" value="<?= htmlspecialchars($equipe['score_obtenu'] ?? '') ?>" required placeholder="Ex: 850">
-                                <button type="submit">Valider</button>
-                            </form>
-                        </td>
-                    </tr>
-                    <?php endforeach; ?>
-                </tbody>
-            </table>
+            <?php if(!empty($commentaires)): ?>
+                <?php foreach($commentaires as $avis): ?>
+                <article>
+                    <h4><?= htmlspecialchars($avis['pseudo'] ?? 'Anonyme') ?> <small><?= date('d/m/Y', strtotime($avis['date_commentaire'])) ?></small></h4>
+                    <p>"<?= htmlspecialchars($avis['texte']) ?>"</p>
+                    
+                    <form action="index.php?action=admin" method="POST" style="display:inline;">
+                        <input type="hidden" name="action" value="moderation">
+                        <input type="hidden" name="id_commentaire" value="<?= $avis['id_commentaire'] ?>">
+                        <button type="submit" name="decision" value="approuver">Accepter</button>
+                        <button type="submit" name="decision" value="refuser">Refuser</button>
+                    </form>
+                </article>
+                <hr>
+                <?php endforeach; ?>
+            <?php else: ?>
+                <p>Aucun commentaire en attente.</p>
+            <?php endif; ?>
         </section>
 
-        <hr>
-
-        <section>
-            <h2>Détails Logistiques des Réservations</h2>
-            
-            <table>
-                <thead>
-                    <tr>
-                        <th>Session</th>
-                        <th>Équipe & Logistique</th>
-                        <th>Capitaine (Contact)</th>
-                        <th>Composition du groupe</th>
-                    </tr>
-                </thead>
-                <tbody>
-                    <?php foreach($equipes as $equipe): ?>
-                    <tr>
-                        <td>
-                            <strong><?= $equipe['date_session'] ? date('d/m/Y', strtotime($equipe['date_session'])) : 'Non définie' ?></strong>
-                        </td>
-                        
-                        <td>
-                            <strong><?= htmlspecialchars($equipe['nom_equipe']) ?></strong><br>
-                            Menu : <?= htmlspecialchars($equipe['type_menu']) ?><br>
-                            Total : <?= $equipe['nb_participants'] ?> joueur(s)<br>
-                            <?php if(!empty($equipe['options_accessibilite'])): ?>
-                                <em style="color: red;">Alertes : <?= htmlspecialchars($equipe['options_accessibilite']) ?></em>
-                            <?php endif; ?>
-                        </td>
-                        
-                        <td>
-                            <strong><?= htmlspecialchars($equipe['capitaine_pseudo']) ?></strong><br>
-                            <a href="mailto:<?= htmlspecialchars($equipe['email']) ?>"><?= htmlspecialchars($equipe['email']) ?></a><br>
-                            <?= htmlspecialchars($equipe['telephone']) ?>
-                        </td>
-                        
-                        <td>
-                            <ul>
-                                <li><?= htmlspecialchars($equipe['capitaine_pseudo']) ?> <em>(Capitaine)</em></li>
-                                <?php 
-                                // On récupère les autres membres pour cette équipe spécifique
-                                $membres = recupererMembresEquipe($equipe['id_equipe']);
-                                foreach($membres as $membre): 
-                                ?>
-                                    <li><?= htmlspecialchars($membre['prenom']) ?> <?= htmlspecialchars($membre['nom']) ?> <em>(<?= htmlspecialchars($membre['pseudo']) ?>)</em></li>
+        <?php elseif($onglet === 'temps'): ?>
+        <section id="temps-equipes">
+            <div>
+                <h2>Saisie Rapide</h2>
+                <form action="index.php?action=admin" method="POST">
+                    <input type="hidden" name="action" value="maj_score">
+                    <label>Equipe : 
+                        <select name="id_equipe" required>
+                            <option value="">-- Choisir une équipe --</option>
+                            <?php if(!empty($equipes)): ?>
+                                <?php foreach($equipes as $eq): ?>
+                                    <option value="<?= $eq['id_equipe'] ?>"><?= htmlspecialchars($eq['nom_equipe']) ?></option>
                                 <?php endforeach; ?>
-                            </ul>
-                        </td>
-                    </tr>
+                            <?php endif; ?>
+                        </select>
+                    </label>
+                    <label>Temps (min) : <input type="number" name="temps" required></label>
+                    <label>Score (%) : <input type="number" name="score" required></label>
+                    <button type="submit">Enregistrer</button>
+                </form>
+            </div>
+
+            <h2>Classement</h2>
+            <table border="1" width="100%">
+                <tr><th>Equipe</th><th>Temps</th><th>Score</th></tr>
+                <?php if(!empty($equipes)): // Idéalement remplacer par $classement trié ?>
+                    <?php foreach($equipes as $eq): ?>
+                        <?php if(isset($eq['score']) && $eq['score'] > 0): // On n'affiche que ceux qui ont joué ?>
+                        <tr>
+                            <td><?= htmlspecialchars($eq['nom_equipe']) ?></td>
+                            <td><?= htmlspecialchars($eq['temps'] ?? 'N/A') ?> min</td>
+                            <td><?= htmlspecialchars($eq['score']) ?>/100</td>
+                        </tr>
+                        <?php endif; ?>
                     <?php endforeach; ?>
-                </tbody>
+                <?php else: ?>
+                    <tr><td colspan="3">Aucun score enregistré.</td></tr>
+                <?php endif; ?>
             </table>
         </section>
+        <?php endif; ?>
 
     </main>
+
+    <footer>
+        <p>© 2026 Framed - Agence Okapi | Mentions Légales | X - TikTok - Insta</p>
+    </footer>
 
 </body>
 </html>

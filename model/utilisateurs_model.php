@@ -89,4 +89,5 @@ function recupererAvisValides() {
     return $req->fetchAll();
 }
 
+
 ?>

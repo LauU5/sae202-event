@@ -60,4 +60,52 @@ function changerStatutCommentaire($id_commentaire, $statut) {
     $req = $bdd->prepare("UPDATE commentaires SET statut = :statut WHERE id_commentaire = :id");
     return $req->execute(['statut' => $statut, 'id' => $id_commentaire]);
 }
+
+function recupererStatistiquesDashboard() {
+    global $bdd;
+    
+    // On prépare des valeurs par défaut au cas où la BDD est vide
+    $stats = [
+        'note_globale' => '0',
+        'joueurs_attendus' => 0,
+        'avis_attente' => 0,
+        'taux_reussite' => '0'
+    ];
+
+    try {
+        // 1. AVIS EN ATTENTE (On compte les commentaires avec le statut 'attente')
+        $req1 = $bdd->query("SELECT COUNT(id_commentaire) AS total FROM commentaires WHERE statut = 'attente'");
+        if ($req1) { $stats['avis_attente'] = $req1->fetch()['total']; }
+
+        // 2. NOTE GLOBALE (On fait la moyenne de la colonne 'note' des commentaires approuvés)
+        // /!\ Assure-toi d'avoir une colonne 'note' (int) dans ta table commentaires
+        $req2 = $bdd->query("SELECT ROUND(AVG(note), 1) AS moyenne FROM commentaires WHERE statut = 'approuve'");
+        if ($req2) { 
+            $res = $req2->fetch();
+            $stats['note_globale'] = $res['moyenne'] ? $res['moyenne'] : '0'; 
+        }
+
+        // 3. JOUEURS ATTENDUS (On fait la somme du nombre de participants dans les équipes)
+        $req3 = $bdd->query("SELECT SUM(nb_participants) AS total FROM equipes");
+        if ($req3) { 
+            $res = $req3->fetch();
+            $stats['joueurs_attendus'] = $res['total'] ? $res['total'] : 0; 
+        }
+
+        // 4. TAUX DE RÉUSSITE (On calcule le % d'équipes qui ont plus de 50 en score)
+        $req4_tot = $bdd->query("SELECT COUNT(id_equipe) AS total FROM equipes WHERE score > 0");
+        $req4_vic = $bdd->query("SELECT COUNT(id_equipe) AS victoires FROM equipes WHERE score >= 50");
+        if ($req4_tot && $req4_vic) {
+            $total = $req4_tot->fetch()['total'];
+            $victoires = $req4_vic->fetch()['victoires'];
+            if ($total > 0) {
+                $stats['taux_reussite'] = round(($victoires / $total) * 100);
+            }
+        }
+    } catch(Exception $e) {
+        // Si une colonne manque dans la BDD, ça n'affichera pas d'erreur fatale, ça mettra juste 0
+    }
+
+    return $stats;
+}
 ?>

@@ -18,7 +18,7 @@
         <div id="tab-4" class="tab">4 - Confirmation</div>
     </div>
 
-    <form action="index.php?action=inscription" method="POST" id="form-inscription">
+    <form action="index.php?action=inscription" method="POST" id="form-inscription" novalidate>
         
         <div id="step-1" class="form-step">
             <fieldset>
