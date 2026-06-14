@@ -1,8 +1,7 @@
 <?php require_once 'view/autres_pages/header.php'; ?>
 
 <main>
-
-    <section>
+    <section class="hero-section">
         <img src="" alt="[ Emplacement Image : Logo géant Framed ]" width="400" height="150">
         <p>Votre seul repère dans l'obscurité a une batterie limitée.</p>
         <a href="index.php?action=inscription">Commençons le jeu</a>
@@ -49,86 +48,57 @@
 
     <hr>
 
-    
-    <section>
+    <section class="avis-section">
         <h2>Ce qu'ils en pensent</h2>
+
         <?php if (!empty($avis_publics)): ?>
-            <ul>
-                <?php foreach ($avis_publics as $avis): ?>
-                    <li>
-                        <blockquote><?= htmlspecialchars($avis['contenu']) ?></blockquote>
-                        <p>
-                            <strong><?= htmlspecialchars($avis['pseudo']) ?></strong>
-                            <small> — <?= date('d/m/Y', strtotime($avis['date_publication'])) ?></small>
-                        </p>
-                    </li>
-                <?php endforeach; ?>
-            </ul>
+            <div class="carousel-container" style="overflow: hidden;">
+
+                <div class="carousel-track" style="display: flex; transition: transform 0.5s ease-in-out;">
+                    <?php foreach ($avis_publics as $index => $avis): ?>
+                        <div class="carousel-item" style="min-width: 100%; box-sizing: border-box;">
+                            <p>
+                                "<?= nl2br(htmlspecialchars($avis['contenu'])) ?>"
+                            </p>
+                            <p>
+                                — <?= htmlspecialchars($avis['pseudo']) ?>
+                                (<?= htmlspecialchars($avis['prenom'] ?? '') ?>)
+                                <small> — <?= date('d/m/Y', strtotime($avis['date_publication'])) ?></small>
+                            </p>
+                        </div>
+                    <?php endforeach; ?>
+                </div>
+
+                <div class="carousel-buttons">
+                    <button class="carousel-btn" onclick="prevAvis()">&#10094; Précédent</button>
+                    <button class="carousel-btn" onclick="nextAvis()">Suivant &#10095;</button>
+                </div>
+            </div>
+
+            <script>
+                let currentAvis = 0;
+                const track = document.querySelector('.carousel-track');
+                const items = document.querySelectorAll('.carousel-item');
+                const totalItems = items.length;
+
+                function showAvis(index) {
+                    if (index >= totalItems) currentAvis = 0;
+                    if (index < 0) currentAvis = totalItems - 1;
+
+                    const translateX = -(currentAvis * 100);
+                    track.style.transform = `translateX(${translateX}%)`;
+                }
+
+                function nextAvis() { currentAvis++; showAvis(currentAvis); }
+                function prevAvis() { currentAvis--; showAvis(currentAvis); }
+
+                if (totalItems > 1) {
+                    setInterval(nextAvis, 5000);
+                }
+            </script>
+
         <?php else: ?>
             <p>Soyez les premiers à partager votre expérience !</p>
-            <section class="avis-section" style="text-align: center; margin: 50px 0;">
-    <h2 style="color: #4CAF50;">Ils ont survécu... Voici leurs témoignages</h2>
-    
-    <?php if(!empty($avis_publics)): ?>
-        <div class="carousel-container" style="position: relative; max-width: 600px; margin: 20px auto; padding: 20px; border: 1px solid #333; background: #111;">
-            
-            <?php foreach($avis_publics as $index => $avis): ?>
-                <div class="carousel-item" style="display: none;">
-                    <p style="font-size: 1.2em; font-style: italic;">
-                        "<?= nl2br(htmlspecialchars($avis['contenu'])) ?>"
-                    </p>
-                    <p style="color: #888; margin-top: 15px; font-weight: bold;">
-                        — <?= htmlspecialchars($avis['pseudo']) ?> 
-                        (<?= htmlspecialchars($avis['prenom'] ?? '') ?>)
-                    </p>
-                </div>
-            <?php endforeach; ?>
-
-            <div style="margin-top: 20px;">
-                <button onclick="prevAvis()" style="background: none; border: 1px solid #4CAF50; color: #4CAF50; padding: 5px 15px; cursor: pointer;">&#10094; Précédent</button>
-                <button onclick="nextAvis()" style="background: none; border: 1px solid #4CAF50; color: #4CAF50; padding: 5px 15px; cursor: pointer;">Suivant &#10095;</button>
-            </div>
-            
-        </div>
-
-        <script>
-            let currentAvis = 0;
-            const items = document.querySelectorAll('.carousel-item');
-
-            function showAvis(index) {
-                // On cache tout
-                items.forEach(item => item.style.display = 'none');
-                
-                // On boucle si on arrive au bout
-                if (index >= items.length) currentAvis = 0;
-                if (index < 0) currentAvis = items.length - 1;
-                
-                // On affiche le bon élément
-                items[currentAvis].style.display = 'block';
-            }
-
-            function nextAvis() {
-                currentAvis++;
-                showAvis(currentAvis);
-            }
-
-            function prevAvis() {
-                currentAvis--;
-                showAvis(currentAvis);
-            }
-
-            // Initialisation au chargement
-            if(items.length > 0) {
-                showAvis(currentAvis);
-                // Défilement automatique (5000 ms = 5 secondes)
-                setInterval(nextAvis, 5000);
-            }
-        </script>
-
-    <?php else: ?>
-        <p>Aucun témoignage pour le moment. Serez-vous les premiers ?</p>
-    <?php endif; ?>
-</section>
         <?php endif; ?>
     </section>
 

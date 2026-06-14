@@ -1,5 +1,4 @@
 <?php
-
 require_once __DIR__ . '/../conf/conf.inc.php';
 
 function recupererInfosUtilisateur($id_utilisateur) {
@@ -26,7 +25,6 @@ function recupererMembresEquipeParUtilisateur($id_utilisateur) {
     return $req->fetchAll();
 }
 
-
 function creerUtilisateur($id_equipe, $nom, $prenom, $pseudo, $email, $telephone, $mot_de_passe) {
     global $bdd;
     $req = $bdd->prepare("
@@ -43,7 +41,6 @@ function creerUtilisateur($id_equipe, $nom, $prenom, $pseudo, $email, $telephone
         'mdp'  => $mot_de_passe
     ]);
 }
-
 
 function verifierUtilisateur($email) {
     global $bdd;
@@ -65,6 +62,12 @@ function mettreAJourProfilComplet($id, $nom, $prenom, $pseudo, $tel, $email) {
     ]);
 }
 
+function mettreAJourMotDePasse($id, $mot_de_passe_hash) {
+    global $bdd;
+    $req = $bdd->prepare("UPDATE utilisateurs SET mot_de_passe = :mdp WHERE id_utilisateur = :id");
+    return $req->execute(['mdp' => $mot_de_passe_hash, 'id' => $id]);
+}
+
 function modifierMembreEquipe($id_m, $nom, $prenom, $pseudo) {
     global $bdd;
     $req = $bdd->prepare("UPDATE membres_equipe SET nom = :nom, prenom = :pre, pseudo = :ps WHERE id_membre = :id");
@@ -75,19 +78,4 @@ function modifierMembreEquipe($id_m, $nom, $prenom, $pseudo) {
         'id'  => $id_m
     ]);
 }
-
-function recupererAvisValides() {
-    global $bdd;
-    $req = $bdd->query("
-        SELECT c.contenu, u.pseudo, u.prenom 
-        FROM commentaires c
-        JOIN utilisateurs u ON c.id_utilisateur = u.id_utilisateur
-        WHERE c.statut = 'valide' 
-        ORDER BY c.id_commentaire DESC 
-        LIMIT 5
-    ");
-    return $req->fetchAll();
-}
-
-
 ?>

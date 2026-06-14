@@ -5,7 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title><?= isset($titre_page) ? htmlspecialchars($titre_page) : 'Framed' ?></title>
     
-    <link rel="stylesheet" href="view/css/style.css">
+    <link rel="stylesheet" href="style.css">
 </head>
 <body>
 
@@ -22,7 +22,7 @@
                 <li><a href="index.php?action=deconnexion">Déconnexion</a></li>
             <?php else: ?>
                 <li><a href="index.php?action=inscription">Inscription</a></li>
-                <li><a href="index.php?action=connexion">Connexion</a></li>
+                <li><a href="index.php?action=connexion">Compte</a></li>
             <?php endif; ?>
         </ul>
     </nav>
