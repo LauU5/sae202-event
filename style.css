@@ -25,6 +25,7 @@ header {
     margin-top: auto;
 }
 .compte {
+    
     width: 100px;
     display: flex;
     align-items: center;
@@ -48,7 +49,7 @@ nav ul {
 }
 
 nav ul li a {
-    color: #6ebd87; /* Le vert craie */
+    color: #6ebd87; 
     text-decoration: none;
     font-size: 24px;
     letter-spacing: 1.5px;
@@ -58,24 +59,6 @@ nav ul li a {
 nav ul li a:hover {
     color: #a3e8b8;
 }
-
-
-nav ul li:last-child a {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-}
-
-
-
-nav ul li:last-child a:hover {
-    color: #6ebd87;
-}
-
-nav ul li:last-child a:hover::before {
-    border-color: #6ebd87; /* Le pointillé change de couleur au survol ! */
-}
-
 
 .hero-section {
     display: flex;
@@ -93,7 +76,7 @@ nav ul li:last-child a:hover::before {
 }
 
 .hero-section img {
-    border: 1px dashed #555; /* Placeholder pour ton grand logo */
+    border: 1px dashed #555; 
     margin-bottom: 30px;
 }
 
@@ -102,23 +85,22 @@ nav ul li:last-child a:hover::before {
     font-size: 22px;
     letter-spacing: 1px;
     margin-bottom: 40px;
-    /* Pour s'assurer que c'est bien la police machine à écrire */
-    font-family: 'Special Elite', cursive; 
+   font-family: 'Special Elite', cursive; 
 }
 
 .hero-section a {
-    background-color: #cb2d2d; /* Le rouge de ton bouton */
+    background-color: #cb2d2d; 
     color: #ffffff;
     text-decoration: none;
     font-size: 24px;
     padding: 12px 30px;
-    border: 2px solid #000000; /* La bordure noire du bouton */
-    box-shadow: 3px 3px 8px rgba(0, 0, 0, 0.6); /* Petite ombre pour faire ressortir */
+    border: 2px solid #000000; 
+    box-shadow: 3px 3px 8px rgba(0, 0, 0, 0.6); 
     transition: background-color 0.2s, transform 0.2s;
 }
 
-/* Effet sympa quand on passe la souris sur le bouton rouge */
+
 .hero-section a:hover {
-    background-color: #a82222; /* Rouge un peu plus sombre */
-    transform: scale(1.05); /* Grossit légèrement */
+    background-color: #a82222; 
+    transform: scale(1.05); 
 }
