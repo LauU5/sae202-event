@@ -49,15 +49,19 @@
 
   
 
-    <section>
-        <div>
-            <img src="" alt="[ Emplacement Vidéo ]" width="400" height="250">
+    <section class="presentation-section">
+    <div class="presentation-content">
+        <div class="espace-video">
+            </div>
+        
+        <div class="presentation-text">
+            <h2>Silence, ça tourne.</h2>
+            <p>Découvrez notre vidéo de présentation ultra-rapide pour vous plonger directement dans l'ambiance de l'escape game et entrevoir ce qui vous attend dans le noir.</p>
         </div>
-        <div>
-            <h2>Silence, ça tourne...</h2>
-            <p>Découvrez notre vidéo de présentation pour vous plonger directement dans l'ambiance.</p>
-        </div>
-    </section>
+    </div>
+    
+    <div class="ligne-rouge"></div>
+   </section>
 
   
 
