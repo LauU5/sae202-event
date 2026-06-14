@@ -18,17 +18,26 @@ header {
     justify-content: center;   
     z-index: 1000;     
 }
-/* --- LE LOGO (Fixé complètement à gauche) --- */
-.logo {
-    position: absolute;
-    left: 50px;
-    color: white;
-    font-size: 28px;
-    
-    padding: 10px 20px;
+
+.logo img {
+    width: 60px;
+    height: auto;
+    margin-top: auto;
+}
+.compte {
+    width: 100px;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+
 }
 
-/* --- LE MENU (Parfaitement centré) --- */
+nav {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
 nav ul {
     display: flex;
     align-items: center;
@@ -50,31 +59,14 @@ nav ul li a:hover {
     color: #a3e8b8;
 }
 
-/* --- L'ESPACE DROITE (Fixé complètement à droite) --- */
-nav ul li:last-child {
-    position: absolute;
-    right: 50px;
-}
 
 nav ul li:last-child a {
-    color: #ffffff;
-    font-size: 20px;
-    /* On active Flexbox pour empiler le placeholder et le texte */
     display: flex;
     flex-direction: column;
     align-items: center;
-    gap: 8px; /* L'espace entre le carré et le mot "Compte" */
 }
 
-/* LE FAMEUX PLACEHOLDER MAGIQUE 🪄 */
-nav ul li:last-child a::before {
-    content: ""; /* Crée un faux élément visible */
-    display: block;
-    width: 45px;
-    height: 45px;
-    border: 1px dashed #555; /* Ton bord pointillé */
-    border-radius: 8px; /* Un petit arrondi sympa */
-}
+
 
 nav ul li:last-child a:hover {
     color: #6ebd87;
@@ -83,29 +75,20 @@ nav ul li:last-child a:hover {
 nav ul li:last-child a:hover::before {
     border-color: #6ebd87; /* Le pointillé change de couleur au survol ! */
 }
-/* =========================================
-   PAGE ACCUEIL - HERO SECTION
-   ========================================= */
 
-/* =========================================
-   PAGE ACCUEIL - HERO SECTION
-   ========================================= */
 
 .hero-section {
     display: flex;
     flex-direction: column;
     align-items: center;
     text-align: center;
-    /* J'ai augmenté un peu le padding-top pour compenser ton header transparent (min-height: 100px) */
-    padding: 150px 20px 120px 20px; 
-    
-    /* LE FILTRE EST ICI : Un dégradé noir à 70% d'opacité superposé à ton image */
+    padding: 150px 20px 120px 20px;
     background-image: 
-        linear-gradient(rgba(0, 0, 0, 0.7), rgba(0, 0, 0, 0.7)), 
-        url('view/img/image-1.webp');
+        linear-gradient(#254134,#0B1E18), 
+        url('view/img/classe_background.webp');
         
-    background-size: cover; /* L'image s'adapte à l'écran */
-    background-position: center; /* L'image est bien centrée */
+    background-size: cover; 
+    background-position: center; 
     background-repeat: no-repeat;
 }
 
