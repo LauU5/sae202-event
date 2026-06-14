@@ -15,7 +15,7 @@
         </aside>
     </section>
 
-    <hr>
+    
 
     <section>
         <h2>Planning</h2>
@@ -29,7 +29,7 @@
         </ul>
     </section>
 
-    <hr>
+   
 
     <section>
         <div>
@@ -65,7 +65,7 @@
         <p><em>* Les allergies et régimes spécifiques sont pris en charge sur demande lors de la réservation.</em></p>
     </section>
 
-    <hr>
+    
 
     <section>
         <h2>Prix & Services</h2>

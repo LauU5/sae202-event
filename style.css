@@ -102,16 +102,15 @@ a.compte img {
 }
 
 .hero-section img {
-    border: 1px dashed #555; 
-    margin-bottom: 30px;
+    height: 350px;
 }
 
 .hero-section p {
     color: #ffffff;
-    font-size: 22px;
+    font-size: 25px;
+    margin-top: 0px;
     letter-spacing: 1px;
-    margin-bottom: 40px;
-   font-family: 'Special Elite', cursive; 
+    font-family: 'Special Elite', cursive; 
 }
 
 .hero-section a {
@@ -121,15 +120,11 @@ a.compte img {
     font-size: 24px;
     
     
-    padding: 15px 40px; 
-    
-
+    padding: 15px 15px; 
     background-image: url('view/img/Rectangle 702.png'); 
     background-size: 100% 100%; 
     background-repeat: no-repeat;
     background-position: center;
-    background-color: rgba(0, 0, 0, 0.445); 
-    
     border: none; 
     display: inline-block;
     letter-spacing: 1px;
@@ -138,5 +133,191 @@ a.compte img {
 
 
 .hero-section a:hover {
-    transform: scale(1.05);
+    transform: scale(1.01);
+    color: #cf2525;
+}
+
+section {
+    padding: 80px 10%;
+    background-color: #0B1E18;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 40px 60px;
+    align-items: center;
+}
+
+section h2 {
+    grid-column: 1 / -1;
+    font-family: 'Special Elite', cursive;
+    color: #6ebd87;
+    font-size: 42px;
+    font-weight: normal;
+    text-align: center;
+    margin-bottom: 20px;
+    letter-spacing: 2px;
+}
+
+section article {
+    font-family: 'Georgia', serif;
+    font-size: 18px;
+    color: #d1d1d1;
+    line-height: 1.8;
+}
+
+section article p {
+    margin-bottom: 25px;
+}
+
+section aside {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 30px;
+}
+
+section aside br {
+    display: none;
+}
+
+section aside img {
+    width: 100%;
+    max-width: 550px;
+    height: auto;
+    border-radius: 2px;
+}
+
+section aside a {
+    font-family: 'Special Elite', cursive;
+    color: #ffffff;
+    text-decoration: none;
+    font-size: 24px;
+    padding: 15px 55px;
+    background-image: url('view/img/Rectangle 702.png');
+    background-size: 100% 100%;
+    background-repeat: no-repeat;
+    background-position: center;
+    background-color: transparent;
+    border: none;
+    display: inline-block;
+    letter-spacing: 1px;
+    transition: transform 0.2s ease-in-out;
+}
+
+section aside a:hover {
+    transform: scale(1.01);
+    color: #cf2525;
+}
+.info-cards-section {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-wrap: wrap; /* Permet de passer à la ligne sur petit écran */
+    gap: 30px; 
+    padding: 60px 10%;
+    background-color: #254134;
+    box-shadow: 0 8px 15px rgba(0, 0, 0, 0.5); 
+}
+
+.info-card {
+    background-color: #0b110d; 
+    width: 240px;
+    height: 160px;
+    border-radius: 4px; 
+    box-shadow: 0 8px 15px rgba(0, 0, 0, 0.5); 
+    
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    gap: 15px; 
+    
+    transition: transform 0.2s ease-in-out;
+}
+
+
+.info-card:hover {
+    transform: translateY(-5px);
+}
+
+.card-valeur {
+    font-family: 'Special Elite', cursive;
+    color: #6ebd87;
+    font-size: 34px;
+    line-height: 1;
+}
+
+.info-card p {
+    font-family: 'Georgia', serif;
+    color: #e8e8e8; 
+    font-size: 16px;
+    margin: 0;
+    line-height: 1.4;
+}
+/* =========================================
+   SECTION PRÉSENTATION (Texte + Ligne rouge)
+   ========================================= */
+
+.presentation-section {
+    /* Le fond vert sombre de ta maquette */
+    background-color: #27362d; 
+    padding: 80px 10% 40px 10%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+/* Conteneur Flexbox pour les deux colonnes */
+.presentation-content {
+    display: flex;
+    align-items: center;
+    gap: 60px;
+    width: 100%;
+    max-width: 1100px; /* Garde le texte bien centré sur les grands écrans */
+    margin-bottom: 60px; /* L'espace avant la ligne rouge */
+}
+
+/* La place vide à gauche */
+.espace-video {
+    flex: 1;
+    min-height: 250px; /* Garde la hauteur pour que le texte reste bien à droite */
+}
+
+/* Le texte à droite */
+.presentation-text {
+    flex: 1;
+}
+
+.presentation-text h2 {
+    font-family: 'Special Elite', cursive;
+    color: #6ebd87; /* Ton vert craie */
+    font-size: 42px;
+    font-weight: normal;
+    margin-top: 0;
+    margin-bottom: 20px;
+    letter-spacing: 2px;
+}
+
+.presentation-text p {
+    font-family: 'Georgia', serif;
+    color: #e8e8e8;
+    font-size: 18px;
+    line-height: 1.8;
+    margin: 0;
+}
+
+/* --- LA LIGNE ROUGE EN BAS --- */
+.ligne-rouge {
+    width: 80%; /* La ligne prend 80% de la largeur de l'écran */
+    max-width: 1000px;
+    height: 8px; /* L'épaisseur de la ligne */
+    
+    /* On recycle ton rectangle pour faire un trait texturé ! */
+    background-image: url('view/img/Rectangle 702.png');
+    background-size: 100% 100%;
+    background-repeat: no-repeat;
+    background-position: center;
+    
+    /* Petite ombre pour la faire ressortir */
+    filter: drop-shadow(0px 3px 5px rgba(0, 0, 0, 0.6));
 }

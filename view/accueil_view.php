@@ -2,12 +2,12 @@
 
 <main>
     <section class="hero-section">
-        <img src="" alt="[ Emplacement Image : Logo géant Framed ]" width="400" height="150">
+        <img src="view/img/Framed-Logo.webp"  alt="[ Emplacement Image : Logo géant Framed ]">
         <p>Votre seul repère dans l'obscurité a une batterie limitée.</p>
         <a href="index.php?action=inscription">Commençons le jeu</a>
     </section>
 
-    <hr>
+
 
     <section>
         <h2>Une expérience nocturne terrifiante</h2>
@@ -17,24 +17,37 @@
             <p>Framed inclut également un repas thématisé et une nuit complète sur place pour prolonger le frisson jusqu'au matin.</p>
         </article>
         <aside>
-            <img src="" alt="[ Emplacement Image : Capture d'écran du jeu avec caméra vision nocturne ]" width="400" height="250">
+            <img src="view/img/Framed-Logo.webp" alt="[ Emplacement Image : Capture d'écran du jeu avec caméra vision nocturne ]" width="400" height="250">
             <br>
             <a href="index.php?action=concept">Découvrir le scénario</a>
         </aside>
     </section>
 
-    <hr>
 
-    <section>
-        <ul>
-            <li><strong>2-8</strong><br>participants par sessions</li>
-            <li><strong>18+ ans</strong><br>accompagné à partir de 16 ans</li>
-            <li><strong>15 Heures</strong><br>durée totale : toute la nuit</li>
-            <li><strong>***</strong><br>difficulté élevée</li>
-        </ul>
-    </section>
 
-    <hr>
+    <section class="info-cards-section">
+    <div class="info-card">
+        <span class="card-valeur">2-8</span>
+        <p>participants par<br>sessions</p>
+    </div>
+    
+    <div class="info-card">
+        <span class="card-valeur">18+ ans</span>
+        <p>accompagné à<br>partir de 16 ans</p>
+    </div>
+    
+    <div class="info-card">
+        <span class="card-valeur">15 Heures</span>
+        <p>durée totale :<br>toute la nuit</p>
+    </div>
+    
+    <div class="info-card">
+        <span class="card-valeur">★★★</span>
+        <p>difficulté<br>élevée</p>
+    </div>
+</section>
+
+  
 
     <section>
         <div>
@@ -46,7 +59,7 @@
         </div>
     </section>
 
-    <hr>
+  
 
     <section class="avis-section">
         <h2>Ce qu'ils en pensent</h2>

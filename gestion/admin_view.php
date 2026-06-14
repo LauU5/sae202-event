@@ -31,7 +31,7 @@ if (!isset($onglet)) {
         <a href="index.php?onglet=commentaires" <?= $onglet == 'commentaires' ? 'class="active"' : '' ?>>Commentaires</a> |
         <a href="index.php?onglet=temps" <?= $onglet == 'temps' ? 'class="active"' : '' ?>>Temps des Equipes</a>
     </nav>
-    <hr>
+   
 
     <?php if ($onglet === 'dashboard'): ?>
     <section id="tableau-de-bord">
@@ -105,7 +105,7 @@ if (!isset($onglet)) {
                     <button type="submit" name="decision" value="refuser">Refuser</button>
                 </form>
             </article>
-            <hr>
+           
             <?php endforeach; ?>
         <?php else: ?>
             <p>Aucun commentaire en attente.</p>
