@@ -8,14 +8,15 @@ body {
 }
 
 header {
-    position: relative;
-    /* On part d'un gris anthracite en haut, qui fond vers ton noir de fond en bas */
-    background: linear-gradient(to bottom, #252525 0%, #0a0a0a 100%);
+    position: absolute;
+    top: 0;
+    width: 100%;
+    background: linear-gradient(black, transparent);
     min-height: 100px;
     display: flex;
     align-items: center;
-    justify-content: center;
-    border-bottom: 1px solid #1a1a1a; /* Liseré subtil pour fermer le bloc */
+    justify-content: center;   
+    z-index: 1000;     
 }
 /* --- LE LOGO (Fixé complètement à gauche) --- */
 .logo {
@@ -23,7 +24,7 @@ header {
     left: 50px;
     color: white;
     font-size: 28px;
-    border: 1px dashed #555; /* Placeholder */
+    
     padding: 10px 20px;
 }
 
@@ -86,14 +87,26 @@ nav ul li:last-child a:hover::before {
    PAGE ACCUEIL - HERO SECTION
    ========================================= */
 
+/* =========================================
+   PAGE ACCUEIL - HERO SECTION
+   ========================================= */
+
 .hero-section {
     display: flex;
     flex-direction: column;
     align-items: center;
     text-align: center;
-    padding: 80px 20px 120px 20px;
-    /* Un léger dégradé radial pour donner un effet de "halo" dans le noir */
-    background: radial-gradient(circle at center, #151a17 0%, #0a0a0a 70%);
+    /* J'ai augmenté un peu le padding-top pour compenser ton header transparent (min-height: 100px) */
+    padding: 150px 20px 120px 20px; 
+    
+    /* LE FILTRE EST ICI : Un dégradé noir à 70% d'opacité superposé à ton image */
+    background-image: 
+        linear-gradient(rgba(0, 0, 0, 0.7), rgba(0, 0, 0, 0.7)), 
+        url('view/img/image-1.webp');
+        
+    background-size: cover; /* L'image s'adapte à l'écran */
+    background-position: center; /* L'image est bien centrée */
+    background-repeat: no-repeat;
 }
 
 .hero-section img {
