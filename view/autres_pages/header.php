@@ -12,23 +12,26 @@
 <header>
     <nav>
         <div class="logo"><img src="view/img/Framed-Favicon.webp" alt="Logo Framed"></div>
+        
         <div class="menu">
             <ul>
                 <li><a href="index.php?action=accueil">Accueil</a></li>
                 <li><a href="index.php?action=concept">Concept</a></li>
                 <li><a href="index.php?action=infos">Infos pratiques</a></li>
-            </ul>
-        </div>
-        <div class="compte">
-            <ul>
                 <?php if(isset($_SESSION['id_utilisateur'])): ?>
                     <li><a href="index.php?action=profil">Mon Profil</a></li>
-                    <li><a href="index.php?action=deconnexion">Déconnexion</a></li>
                 <?php else: ?>
                     <li><a href="index.php?action=inscription">Inscription</a></li>
-                    <li><a href="index.php?action=connexion"><img src="view/img/compte.webp">Compte</a></li>
                 <?php endif; ?>
             </ul>
         </div>
+        
+        <ul class="droite">
+            <?php if(isset($_SESSION['id_utilisateur'])): ?>
+                <li><a href="index.php?action=deconnexion" class="compte">Déconnexion</a></li>
+            <?php else: ?>
+                <li><a href="index.php?action=connexion" class="compte"><img src="view/img/compte.webp" alt="Compte">Compte</a></li>
+            <?php endif; ?>
+        </ul>
     </nav>
 </header>
