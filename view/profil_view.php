@@ -1,6 +1,5 @@
 <?php
-// CORRECTION : 'view/header.php' et 'view/footer.php' n'existent pas
-// Les fichiers sont dans view/autres_pages/ comme dans toutes les autres vues
+// Les fichiers de structure (Header)
 require_once 'view/autres_pages/header.php';
 ?>
 
@@ -10,7 +9,7 @@ require_once 'view/autres_pages/header.php';
 
     <section class="profil-header-card">
         <div class="profil-icon">
-            <img src="" alt="[ Icône Utilisateur ]" width="60" height="60">
+            <img src="" alt="[ Icône ]" width="60" height="60">
         </div>
         <div class="profil-info-main">
             <h3>
@@ -83,6 +82,7 @@ require_once 'view/autres_pages/header.php';
         <h3>Nom de l'équipe</h3>
         <form action="index.php?action=profil" method="POST">
             <input type="hidden" name="action" value="update_equipe">
+            
             <div class="liste-membres">
                 <div class="membre-item">
                     <span class="numero">1</span>
@@ -111,9 +111,9 @@ require_once 'view/autres_pages/header.php';
             </div>
 
             <div class="reservation-fixe-box">
-                <p><strong>Menu Choisi</strong><br><?= htmlspecialchars($infos['type_menu']) ?></p>
-                <p><strong>Session Réservée</strong><br><?= $infos['date_session'] ? date('l j F Y, H:i', strtotime($infos['date_session'])) : 'Non définie' ?></p>
-                <p><strong>Besoins Particuliers</strong><br><?= !empty($infos['options_accessibilite']) ? htmlspecialchars($infos['options_accessibilite']) : 'Aucun' ?></p>
+                <p><strong>Menu Choisi</strong><?= htmlspecialchars($infos['type_menu']) ?></p>
+                <p><strong>Session Réservée</strong><?= $infos['date_session'] ? date('l j F Y, H:i', strtotime($infos['date_session'])) : 'Non définie' ?></p>
+                <p><strong>Besoins Particuliers</strong><?= !empty($infos['options_accessibilite']) ? htmlspecialchars($infos['options_accessibilite']) : 'Aucun' ?></p>
                 <div class="action-zone">
                     <button type="submit" class="btn-modifier">Modifier</button>
                 </div>
@@ -135,9 +135,19 @@ require_once 'view/autres_pages/header.php';
     <div id="content-avis" class="tab-content" style="display:none;">
         <form action="index.php?action=profil" method="POST">
             <input type="hidden" name="action" value="envoyer_avis">
+            
             <h3>Envoyer un commentaire</h3>
-            <p>Votre avis sera soumis à validation avant publication sur la page d'accueil du site.</p>
-            <textarea name="commentaire" rows="6" placeholder="Votre message..."></textarea>
+            
+            <div class="rating-stars">
+                <input type="radio" name="note" id="star5" value="5"><label for="star5">★</label>
+                <input type="radio" name="note" id="star4" value="4"><label for="star4">★</label>
+                <input type="radio" name="note" id="star3" value="3"><label for="star3">★</label>
+                <input type="radio" name="note" id="star2" value="2"><label for="star2">★</label>
+                <input type="radio" name="note" id="star1" value="1"><label for="star1">★</label>
+            </div>
+
+            <textarea name="commentaire" rows="6"></textarea>
+            
             <div class="action-zone">
                 <button type="submit" class="btn-envoyer">Envoyer</button>
             </div>
@@ -155,4 +165,7 @@ require_once 'view/autres_pages/header.php';
     }
 </script>
 
-<?php require_once 'view/autres_pages/footer.php'; ?>
+<?php 
+// Le fichier de structure (Footer)
+require_once 'view/autres_pages/footer.php'; 
+?>

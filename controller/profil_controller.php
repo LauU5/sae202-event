@@ -47,7 +47,8 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
 
     if (isset($_POST['action']) && $_POST['action'] === 'envoyer_avis') {
         $contenu = htmlspecialchars($_POST['commentaire']);
-        ajouterCommentaire($id_user, $contenu);
+        $note = isset($_POST['note']) ? (int)$_POST['note'] : 5;
+        ajouterCommentaire($id_membre, $contenu, $note);
         $message = "Votre avis a été envoyé et est en attente de modération.";
     }
 }

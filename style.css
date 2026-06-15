@@ -143,17 +143,19 @@ a.compte img {
     color: #ffffff;
     text-decoration: none;
     font-size: 45px;
-
-
-    padding: 15px 15px;
-    background-image: url('view/img/Rectangle 702.png');
+    height: 75px;
+    padding: 8px 15px 0px 15px;
+    background-image: url(view/img/Rectangle 702.png);
     background-size: 100% 100%;
     background-repeat: no-repeat;
     background-position: center;
     border: none;
-    display: inline-block;
+    display: inline-flex;
     letter-spacing: 1px;
     transition: transform 0.2s ease-in-out;
+    align-items: center;
+    justify-content: center;
+    box-sizing: border-box;
 }
 
 
@@ -245,7 +247,6 @@ section aside a:hover {
     display: flex;
     justify-content: center;
     align-items: center;
-    flex-wrap: wrap;
     gap: 65px;
     padding: 60px 10%;
     background-image: linear-gradient(to bottom, #254134, #27362d);
@@ -369,7 +370,7 @@ section aside a:hover {
 .avis-section h2 {
     font-family: 'Special Elite', cursive;
     color: #4AA07B;
-    font-size: 42px;
+    font-size: 75px;
     font-weight: normal;
     margin-top: 0;
     letter-spacing: 2px;
@@ -1027,7 +1028,7 @@ section aside a:hover {
 
 /* --- LA LIGNE VERTICALE --- */
 .horaires-timeline {
-    border-left: 6px solid #334439;
+    border-left: 6px solid #254134;
     position: relative;
     width: 100%;
     box-sizing: border-box;
@@ -1039,7 +1040,7 @@ section aside a:hover {
     justify-content: space-between;
     align-items: center;
     padding: 30px 0;
-    border-bottom: 3px solid #233027;
+    border-bottom: 3px solid #254134;
     position: relative;
     width: 100%;
 }
@@ -1052,7 +1053,7 @@ section aside a:hover {
 .horaires-item::before {
     content: "";
     position: absolute;
-    left: -9px;
+    left: -13px;
     /* On ajuste pour que ça tombe pile sur la ligne */
     top: 50%;
     transform: translateY(-50%);
@@ -1060,13 +1061,14 @@ section aside a:hover {
     height: 12px;
     background-color: #4AA07B;
     border-radius: 50%;
+    border: 4px solid #254134;
 }
 
 /* --- LE TEXTE DES JOURS --- */
 .jour {
     font-family: 'Special Elite', cursive;
     color: #e8e8e8;
-    font-size: 24px;
+    font-size: 32px;
     white-space: nowrap;
     margin-left: 30px;
     line-height: 1.6;
@@ -1076,8 +1078,932 @@ section aside a:hover {
 .heures {
     font-family: 'Georgia', serif;
     color: #4AA07B;
-    font-size: 18px;
+    font-size: 32px;
     white-space: nowrap;
     text-align: right;
     line-height: 1.6;
+}
+/* =========================================
+   SECTION CONTACT & CARTE
+   ========================================= */
+
+.contact-section {
+    padding: 60px 10%;
+    width: 100%;
+    max-width: 1200px; 
+    margin: 0 auto;
+    display: flex;
+    flex-direction: column;
+    align-items: center; 
+    box-sizing: border-box;
+    position: relative;
+    z-index: 10; 
+}
+
+/* Le grand cadre autour de la carte */
+.map-container {
+    width: 100%;
+    background-color: #0b110d; 
+    border: 2px solid #6ebd87; 
+    padding: 10px; 
+    margin-bottom: 40px; 
+    box-sizing: border-box;
+}
+
+/* La carte Google Maps elle-même (tout le style est géré ici) */
+.map-container iframe {
+    display: block; 
+    width: 100%; /* Rapatrié du HTML */
+    height: 450px; /* Rapatrié du HTML */
+    border: none; /* Le fameux style="border:0;" rapatrié ici ! */
+    border-radius: 2px; 
+}
+
+/* Le titre en dessous */
+.contact-section h2 {
+    font-family: 'Special Elite', cursive;
+    color: #6ebd87;
+    font-size: 42px;
+    margin: 0;
+    font-weight: normal;
+    text-align: center;
+    text-shadow: 0 4px 4px hsl(0deg 0% 0% / 75%);
+}
+/* =========================================
+   COORDONNÉES DE CONTACT (Titre + Colonnes)
+   ========================================= */
+
+/* Le grand conteneur qui englobe le titre et les colonnes */
+.infos-contact-wrapper {
+    width: 100%;
+    text-align: center; /* Centre le titre H2 */
+    padding: 0 10% 60px 10%; /* Garde une marge sur les côtés pour que ça ne touche pas l'écran */
+    box-sizing: border-box;
+}
+
+/* Le style forcé du titre */
+.infos-contact-wrapper h2 {
+    font-family: 'Special Elite', cursive;
+    color: #6ebd87;
+    font-size: 42px;
+    margin-top: 0;
+    margin-bottom: 50px;
+    font-weight: normal;
+    text-shadow: 0 4px 4px hsl(0deg 0% 0% / 75%);
+}
+
+/* Le bloc qui contient les 3 colonnes */
+.contact-info-container {
+    display: flex;
+    justify-content: space-between; 
+    align-items: flex-start;
+    width: 100%;
+    max-width: 900px; 
+    margin: 0 auto; /* LA CORRECTION EST LÀ : ça force le bloc à se centrer horizontalement ! */
+    gap: 30px;
+}
+
+/* Chaque colonne individuelle */
+.contact-item {
+    flex: 1; 
+    text-align: left; /* Garde le texte aligné à gauche à l'intérieur de sa propre colonne */
+}
+
+.contact-item h3 {
+    font-family: 'Special Elite', cursive;
+    color: #6ebd87;
+    font-size: 26px;
+    margin-top: 0;
+    margin-bottom: 15px;
+    font-weight: normal;
+    text-shadow: 0 4px 4px hsl(0deg 0% 0% / 75%);
+}
+
+.contact-item p {
+    font-family: 'Georgia', serif;
+    color: #e8e8e8;
+    font-size: 18px;
+    margin: 0;
+    line-height: 1.6;
+}
+
+/* Style pour le lien mail cliquable */
+.contact-item a {
+    color: #e8e8e8;
+    text-decoration: none;
+    transition: color 0.2s ease;
+}
+
+.contact-item a:hover {
+    color: #6ebd87; 
+}
+/* =========================================
+   PAGE INSCRIPTION (Multi-étapes)
+   ========================================= */
+
+.inscription-container {
+    max-width: 800px;
+    margin: 60px auto;
+    padding: 0 20px;
+}
+/* Titre principal et texte d'intro */
+.inscription-container > p {
+    font-family: 'Georgia', serif;
+    color: #e8e8e8 !important; /* Le !important force le blanc cassé ici aussi */
+    font-size: 16px;
+    margin-bottom: 40px;
+}
+
+/* Titre principal et texte d'intro */
+.inscription-container h2 {
+    font-family: 'Special Elite', cursive;
+    color: #6ebd87;
+    font-size: 42px;
+    margin-top: 0;
+    margin-bottom: 10px;
+    font-weight: normal;
+}
+/* --- BOUTON "AJOUTER UN PARTICIPANT" --- */
+
+.action-ajouter {
+    margin-top: 20px;
+    margin-bottom: 30px;
+    text-align: left; /* Tu peux mettre 'center' si tu préfères qu'il soit au milieu */
+}
+
+.btn-ajouter {
+    background-color: transparent;
+    color: #6ebd87;
+    /* On utilise une bordure en pointillés (dashed) pour le côté "Ajout/Optionnel", 
+       ça rend super bien pour ce genre d'action ! */
+    border: 2px dashed #6ebd87; 
+    font-family: 'Special Elite', cursive;
+    font-size: 18px;
+    padding: 10px 25px;
+    cursor: pointer;
+    transition: all 0.2s ease;
+}
+
+/* Effet quand on passe la souris dessus */
+.btn-ajouter:hover {
+    background-color: #6ebd87;
+    color: #0b110d; /* Le texte devient sombre */
+    border-style: solid; /* La bordure devient pleine */
+}
+
+
+.inscription-container {
+    max-width: 800px;
+    margin: 0 auto 60px auto !important; /* On centre le bloc proprement */
+    
+    /* LA SOLUTION DE CHOC : On force un gros espace en haut à l'intérieur du bloc */
+    padding-top: 160px !important; 
+    
+    padding-left: 20px;
+    padding-right: 20px;
+    position: relative;
+    z-index: 10; 
+}
+
+/* --- LES ONGLETS (1. Equipe, 2. Membres...) --- */
+.tabs-navigation {
+    display: flex;
+    gap: 5px; /* Petit espace entre les onglets */
+    margin-bottom: 30px;
+}
+
+.tab {
+    flex: 1;
+    padding: 15px 10px;
+    text-align: center;
+    font-family: 'Special Elite', cursive;
+    font-size: 16px;
+    color: #e8e8e8;
+    border: 2px solid #6ebd87;
+    background-color: transparent;
+    cursor: default; /* On désactive le curseur pointeur si ce n'est pas cliquable manuellement */
+}
+
+.tab.active {
+    background-color: #6ebd87;
+    color: #0b110d;
+    font-weight: bold;
+}
+
+/* --- LE CADRE DU FORMULAIRE --- */
+#form-inscription fieldset {
+    border: 2px solid #6ebd87;
+    padding: 40px;
+    margin: 0;
+    background-color: transparent;
+}
+
+/* On force la légende ("Nommez votre équipe") à s'afficher à l'intérieur du cadre */
+#form-inscription legend {
+    font-family: 'Special Elite', cursive;
+    color: #6ebd87;
+    font-size: 36px;
+    float: left;
+    width: 100%;
+    margin-bottom: 30px;
+    padding: 0;
+}
+
+/* --- LES CHAMPS DU FORMULAIRE --- */
+#form-inscription label {
+    display: block;
+    font-family: 'Georgia', serif;
+    color: #e8e8e8;
+    font-size: 16px;
+    margin-bottom: 10px;
+    clear: both; /* Pour s'assurer qu'ils passent bien sous la légende */
+    margin-top: 20px;
+}
+
+/* Annule la marge du tout premier label juste en dessous du titre */
+#form-inscription legend + label {
+    margin-top: 0;
+}
+
+#form-inscription input[type="text"],
+#form-inscription input[type="email"],
+#form-inscription input[type="tel"],
+#form-inscription input[type="password"],
+#form-inscription select,
+#form-inscription textarea {
+    width: 100%;
+    background-color: #0a0f0c; /* Fond presque noir */
+    border: 1px solid #1a241e; /* Bordure très discrète */
+    color: #e8e8e8;
+    padding: 12px;
+    font-family: 'Georgia', serif;
+    font-size: 16px;
+    box-sizing: border-box;
+}
+
+/* Changement de couleur quand on clique dans un champ */
+#form-inscription input:focus,
+#form-inscription select:focus,
+#form-inscription textarea:focus {
+    outline: none;
+    border-color: #6ebd87;
+}
+
+/* Personnalisation de la petite flèche des menus déroulants (Select) */
+#form-inscription select {
+    appearance: none;
+    background-image: url('data:image/svg+xml;utf8,<svg fill="%236ebd87" height="24" viewBox="0 0 24 24" width="24" xmlns="http://www.w3.org/2000/svg"><path d="M7 10l5 5 5-5z"/><path d="M0 0h24v24H0z" fill="none"/></svg>');
+    background-repeat: no-repeat;
+    background-position-x: 98%;
+    background-position-y: center;
+    cursor: pointer;
+}
+
+/* Alignement des colonnes (ex: Nombre de participants / Menu) */
+.form-row {
+    display: flex;
+    gap: 30px;
+    width: 100%;
+}
+
+.form-group {
+    flex: 1;
+}
+
+/* --- LES BOUTONS --- */
+.boutons-navigation {
+    display: flex;
+    justify-content: flex-end; /* Pousse les boutons tout à droite */
+    margin-top: 30px;
+    gap: 20px;
+}
+
+/* Bouton Suivant avec la bordure rouge */
+.btn-suivant, .btn-confirmer {
+    background-color: #0b110d;
+    color: #e8e8e8;
+    border: 2px solid #cc2929; /* Le rouge de ta maquette */
+    font-family: 'Special Elite', cursive;
+    font-size: 20px;
+    padding: 10px 30px;
+    cursor: pointer;
+    transition: all 0.2s ease;
+}
+
+.btn-suivant:hover, .btn-confirmer:hover {
+    background-color: #cc2929;
+    color: white;
+}
+
+/* Bouton Précédent (pour les étapes suivantes) */
+.btn-precedent {
+    background-color: transparent;
+    color: #6ebd87;
+    border: 2px solid #6ebd87;
+    font-family: 'Special Elite', cursive;
+    font-size: 18px;
+    padding: 10px 30px;
+    cursor: pointer;
+    transition: all 0.2s ease;
+}
+
+.btn-precedent:hover {
+    background-color: #6ebd87;
+    color: #0b110d;
+}
+/* --- TEXTES ET TITRES A L'INTERIEUR DU FORMULAIRE --- */
+
+/* Le texte "Seul le capitaine..." */
+#form-inscription p {
+    font-family: 'Georgia', serif;
+    color: #e8e8e8; /* Le blanc cassé */
+    font-size: 16px;
+    margin-top: -15px; /* Rapproche un peu le texte du grand titre vert */
+    margin-bottom: 30px;
+}
+
+/* Le texte "Participant 1 - CAPITAINE D'EQUIPE" et les suivants ajoutés en JS */
+.participant-titre,
+.participant-titre strong {
+    font-family: 'Special Elite', cursive;
+    color: #e8e8e8; /* Le blanc cassé */
+    font-size: 20px;
+    font-weight: normal; /* Enlève le gras trop prononcé si besoin */
+    margin-top: 20px;
+    margin-bottom: 20px;
+    display: block; /* S'assure qu'il prend bien toute la ligne */
+}
+/* =========================================
+   PAGE CONNEXION
+   ========================================= */
+
+
+.connexion-container {
+    max-width: 400px; /* On a réduit la largeur ici (au lieu de 500px) */
+    margin: 0 auto 100px auto; 
+    padding: 30px 35px; /* On a réduit l'espace à l'intérieur du cadre */
+    border: 2px solid #6ebd87; 
+    background-color: #0b110d; 
+    box-sizing: border-box;
+    position: relative;
+    z-index: 10; 
+}
+
+/* Le titre */
+.connexion-container h2 {
+    font-family: 'Special Elite', cursive;
+    color: #6ebd87;
+    font-size: 38px;
+    text-align: center;
+    margin-top: 0;
+    margin-bottom: 40px;
+    font-weight: normal;
+}
+
+/* Gestion du formulaire */
+.connexion-form {
+    display: flex;
+    flex-direction: column;
+}
+
+.connexion-form label {
+    font-family: 'Georgia', serif;
+    color: #e8e8e8;
+    font-size: 16px;
+    margin-bottom: 10px;
+    text-align: left;
+}
+
+/* Les champs de saisie */
+.connexion-form input[type="email"],
+.connexion-form input[type="password"] {
+    background-color: #0a0f0c; /* Fond très sombre */
+    border: 1px solid #233027; /* Bordure discrète */
+    color: #e8e8e8;
+    padding: 12px;
+    font-family: 'Georgia', serif;
+    font-size: 16px;
+    margin-bottom: 30px; /* Espace entre les champs */
+    width: 100%;
+    box-sizing: border-box;
+    transition: border-color 0.2s ease;
+}
+
+/* Focus sur les champs */
+.connexion-form input:focus {
+    outline: none;
+    border-color: #6ebd87; /* La bordure s'allume en vert quand on clique dedans */
+}
+
+/* Le conteneur du bouton pour le centrer */
+.bouton-centrer {
+    text-align: center;
+    margin-top: 10px;
+    margin-bottom: 30px;
+}
+
+/* Le bouton "Se Connecter" */
+.btn-connexion {
+    background-color: transparent;
+    color: #6ebd87;
+    border: 2px solid #6ebd87;
+    font-family: 'Special Elite', cursive;
+    font-size: 22px;
+    padding: 10px 40px;
+    cursor: pointer;
+    transition: all 0.2s ease;
+}
+
+.btn-connexion:hover {
+    background-color: #6ebd87;
+    color: #0b110d;
+}
+
+/* Le texte tout en bas */
+.inscription-link {
+    text-align: center;
+    font-family: 'Georgia', serif;
+    color: #e8e8e8;
+    font-size: 16px;
+    margin: 0;
+}
+
+/* Le lien "Inscrivez-vous!" */
+.inscription-link a {
+    color: #558c66; /* Vert un peu plus sombre, comme sur ta maquette */
+    text-decoration: none;
+    transition: color 0.2s ease;
+}
+
+.inscription-link a:hover {
+    color: #6ebd87; /* Devient plus clair au survol */
+}
+
+/* Message d'erreur PHP */
+.erreur-message {
+    color: #cc2929 !important; /* Rouge vif */
+    font-family: 'Georgia', serif;
+    text-align: center;
+    margin-bottom: 20px;
+}
+/* =========================================
+   SÉCURITÉ HEADER
+   ========================================= */
+
+/* Le mur invisible qui empêche le contenu de passer sous le menu */
+.espace-header {
+    height: 180px; 
+    width: 100%;
+    display: block;
+    clear: both;
+}
+
+/* =========================================
+   PAGE CONNEXION
+   ========================================= */
+
+/* Le grand cadre au centre */
+.connexion-container {
+    max-width: 500px; 
+    margin: 0 auto 100px auto; /* On centre au milieu de la page */
+    padding: 40px 50px;
+    border: 2px solid #6ebd87; 
+    background-color: #0b110d; /* Fond plein pour bien bloquer les éléments derrière */
+    box-sizing: border-box;
+    position: relative;
+    z-index: 10; 
+}
+
+/* Le titre centré */
+.connexion-container h2 {
+    font-family: 'Special Elite', cursive;
+    color: #6ebd87;
+    font-size: 38px;
+    text-align: center; /* Oblige le titre à rester au milieu */
+    margin-top: 0;
+    margin-bottom: 40px;
+    font-weight: normal;
+}
+
+/* Le conteneur du bouton pour le centrer */
+.bouton-centrer {
+    text-align: center;
+    margin-top: 20px;
+    margin-bottom: 30px;
+}
+
+/* Le texte tout en bas centré */
+.inscription-link {
+    text-align: center;
+    font-family: 'Georgia', serif;
+    color: #e8e8e8;
+    font-size: 16px;
+    margin: 20px 0 0 0;
+}
+/* =========================================
+   ESPACE CLIENT
+   ========================================= */
+
+.espace-client {
+    max-width: 800px;
+    margin: 150px auto 100px auto; /* Marge pour dégager le header fixe */
+    padding: 0 20px;
+    position: relative;
+    z-index: 10;
+}
+
+/* Le titre principal de la page */
+.titre-espace {
+    font-family: 'Special Elite', cursive;
+    color: #6ebd87;
+    font-size: 38px;
+    margin-bottom: 30px;
+    font-weight: normal;
+}
+
+/* --- LE BLOC EN-TÊTE DU PROFIL --- */
+.profil-header-card {
+    display: flex;
+    align-items: center;
+    border: 2px solid #6ebd87;
+    padding: 20px 30px;
+    margin-bottom: 40px;
+    background-color: transparent; /* Laisse le fond sombre de la page */
+}
+
+/* L'icône (avatar) */
+.profil-icon {
+    margin-right: 20px;
+    display: flex;
+    align-items: center;
+}
+
+/* Placeholder pour l'image SVG si tu n'en as pas encore */
+.profil-icon img {
+    border-radius: 50%;
+    /* Tu pourras remplacer ça par ton vrai SVG */
+    background-color: #6ebd87; 
+    width: 60px;
+    height: 60px;
+    display: block;
+}
+
+/* Les infos (Nom, prénom, équipe) */
+.profil-info-main {
+    flex-grow: 1; /* Prend l'espace restant pour pousser le statut à droite */
+}
+
+.profil-info-main h3 {
+    font-family: 'Special Elite', cursive;
+    color: #6ebd87;
+    font-size: 26px;
+    margin: 0 0 5px 0;
+    font-weight: normal;
+}
+
+.profil-info-main p {
+    font-family: 'Georgia', serif;
+    color: #e8e8e8;
+    font-size: 16px;
+    margin: 0;
+}
+
+/* Le badge "Inscrit" à droite */
+.profil-status {
+    text-align: right;
+}
+
+.badge-inscrit {
+    background-color: #6ebd87;
+    color: #0b110d;
+    font-family: 'Special Elite', cursive;
+    font-size: 16px;
+    padding: 5px 15px;
+    border: 1px solid #0b110d; /* Petite bordure foncée pour le style */
+}
+
+/* --- LA NAVIGATION (LES ONGLETS) --- */
+.tabs-navigation {
+    display: flex;
+    border-bottom: 2px solid #233027; /* Ligne sombre sous les onglets */
+    margin-bottom: 30px;
+}
+
+.tabs-navigation .tab {
+    padding: 10px 20px;
+    font-family: 'Special Elite', cursive;
+    color: #e8e8e8;
+    font-size: 18px;
+    cursor: pointer;
+    border-bottom: 3px solid transparent; /* Bordure invisible par défaut */
+    transition: all 0.2s ease;
+    margin-bottom: -2px; /* Pour superposer la bordure sur la ligne principale */
+}
+
+.tabs-navigation .tab:hover {
+    color: #6ebd87;
+}
+
+/* L'onglet actif avec sa ligne verte en dessous */
+.tabs-navigation .tab.active {
+    color: #6ebd87;
+    border-bottom: 3px solid #6ebd87;
+}
+
+/* --- LE CONTENU DES ONGLETS (FORMULAIRE) --- */
+.tab-content {
+    border: 2px solid #6ebd87;
+    padding: 40px;
+    background-color: transparent;
+}
+
+/* Retire la bordure et la marge par défaut des fieldsets */
+.tab-content fieldset {
+    border: none;
+    padding: 0;
+    margin: 0;
+}
+
+/* Titre "Modifier mes Informations" (et autres légendes) */
+.tab-content legend, .tab-content h3 {
+    font-family: 'Special Elite', cursive;
+    color: #6ebd87;
+    font-size: 24px;
+    margin-bottom: 30px;
+    font-weight: normal;
+}
+
+/* Grille pour les champs de formulaire (2 colonnes) */
+.form-row {
+    display: flex;
+    gap: 40px;
+    margin-bottom: 25px;
+}
+
+.form-group {
+    flex: 1; /* Les colonnes prennent une largeur égale */
+}
+
+.form-group label {
+    display: block;
+    font-family: 'Georgia', serif;
+    color: #e8e8e8;
+    font-size: 16px;
+    margin-bottom: 10px;
+}
+
+/* Style des champs input */
+.form-group input[type="text"],
+.form-group input[type="email"],
+.form-group input[type="tel"],
+.form-group input[type="password"],
+.tab-content textarea {
+    width: 100%;
+    background-color: #0a0f0c;
+    border: 1px solid #233027;
+    color: #e8e8e8;
+    padding: 12px;
+    font-family: 'Georgia', serif;
+    font-size: 16px;
+    box-sizing: border-box;
+    transition: border-color 0.2s ease;
+}
+
+.form-group input:focus,
+.tab-content textarea:focus {
+    outline: none;
+    border-color: #6ebd87;
+}
+
+/* --- LA ZONE DU BOUTON (Enregistrer) --- */
+.action-zone {
+    text-align: right; /* Aligne le bouton à droite comme sur la maquette */
+    margin-top: 40px;
+}
+
+.btn-enregistrer, .btn-modifier, .btn-envoyer {
+    background-color: transparent;
+    color: #e8e8e8; /* Texte blanc cassé par défaut */
+    border: 2px solid #cc2929; /* Bordure rouge */
+    font-family: 'Special Elite', cursive;
+    font-size: 20px;
+    padding: 10px 30px;
+    cursor: pointer;
+    transition: all 0.2s ease;
+}
+
+/* Effet au survol (devient plein rouge) */
+.btn-enregistrer:hover, .btn-modifier:hover, .btn-envoyer:hover {
+    background-color: #cc2929;
+    color: white;
+}
+
+/* Textes secondaires (notifications, etc.) */
+.message-notif, .recap-box p, .tab-content p {
+    font-family: 'Georgia', serif;
+    color: #e8e8e8;
+    font-size: 16px;
+    line-height: 1.6;
+}
+.tab.active {
+    background-color: #6ebd87 !important;
+    color: #0b110d !important; /* Le !important force le texte en sombre */
+    font-weight: bold;
+}
+/* =========================================
+   ESPACE CLIENT
+   ========================================= */
+
+.espace-client {
+    max-width: 800px;
+    margin: 0 auto 100px auto !important; /* Sécurise le centrage et la marge du bas */
+    
+    /* LA CORRECTION : On force un gros espace en haut pour dégager le header */
+    padding-top: 180px !important; 
+    
+    padding-left: 20px;
+    padding-right: 20px;
+    position: relative;
+    z-index: 10;
+}
+/* =========================================
+   ONGLET : MON EQUIPE
+   ========================================= */
+
+/* La liste des membres */
+.liste-membres {
+    margin-bottom: 40px;
+}
+
+/* Chaque ligne de membre */
+.membre-item {
+    display: flex;
+    align-items: center;
+    border-bottom: 1px solid #6ebd87; /* La ligne de séparation verte */
+    padding: 20px 0;
+}
+
+/* Enlève la ligne sous le dernier membre de la liste */
+.membre-item:last-of-type {
+    border-bottom: none;
+}
+
+/* Le gros numéro (1, 2, 3...) */
+.numero {
+    font-family: 'Special Elite', cursive;
+    color: #6ebd87;
+    font-size: 45px;
+    width: 60px; /* Largeur fixe pour bien aligner tous les textes */
+    text-align: left;
+    margin: 0;
+    line-height: 1;
+}
+
+/* Le conteneur du nom et pseudo */
+.membre-detail {
+    flex: 1; /* Prend tout l'espace restant au milieu */
+}
+
+/* Style pour le texte du Capitaine (Participant 1) */
+.membre-detail strong {
+    font-family: 'Georgia', serif;
+    color: #e8e8e8;
+    font-size: 18px;
+    font-weight: normal;
+}
+
+.membre-detail small {
+    font-family: 'Georgia', serif;
+    color: #6ebd87;
+    font-size: 14px;
+    display: block; /* Force le passage à la ligne */
+    margin-top: 4px;
+}
+
+/* --- L'ASTUCE POUR LES AUTRES MEMBRES (Champs Input) --- */
+/* On enlève le fond et les bordures pour qu'ils ressemblent à du texte pur */
+.membre-detail input[type="text"] {
+    background-color: transparent !important;
+    border: none !important;
+    padding: 0 !important;
+    margin: 0 !important;
+    font-family: 'Georgia', serif;
+    color: #e8e8e8;
+    font-size: 18px;
+}
+
+/* On met le prénom et le nom sur la même ligne (Côte à côte) */
+.membre-detail input[name="membre_prenom[]"],
+.membre-detail input[name="membre_nom[]"] {
+    display: inline-block;
+    width: 48%; /* Moitié-moitié */
+    margin-bottom: 4px !important;
+}
+
+/* Le pseudo passe en dessous, en plus petit et en vert */
+.membre-detail input[name="membre_pseudo[]"] {
+    display: block;
+    width: 100%;
+    color: #6ebd87 !important;
+    font-size: 14px !important;
+}
+
+/* --- LES BADGES A DROITE --- */
+.label-vous {
+    background-color: #6ebd87;
+    color: #0b110d;
+    font-family: 'Special Elite', cursive;
+    font-size: 14px;
+    padding: 5px 15px;
+    border: 1px solid #6ebd87;
+}
+
+.label-membre {
+    background-color: transparent;
+    color: #e8e8e8;
+    font-family: 'Special Elite', cursive;
+    font-size: 14px;
+    padding: 5px 15px;
+    border: 1px solid #6ebd87; /* Bordure verte avec fond vide */
+}
+
+/* --- LA ZONE DU BAS (Menu, Session, Besoins) --- */
+.reservation-fixe-box {
+    margin-top: 10px;
+}
+
+.reservation-fixe-box p {
+    margin-bottom: 25px;
+    font-family: 'Georgia', serif;
+    color: #e8e8e8;
+    font-size: 16px;
+    line-height: 1.5;
+}
+
+/* Les titres (Menu Choisi, etc.) en vert et Special Elite */
+.reservation-fixe-box p strong {
+    font-family: 'Special Elite', cursive;
+    color: #6ebd87;
+    font-size: 18px;
+    font-weight: normal;
+    display: block; /* Met le titre sur sa propre ligne */
+    margin-bottom: 5px;
+}
+/* =========================================
+   ONGLET : LAISSER UN AVIS (Etoiles)
+   ========================================= */
+
+/* Conteneur des étoiles */
+.rating-stars {
+    display: flex;
+    flex-direction: row-reverse; /* Astuce pour que le hover éclaire les étoiles précédentes */
+    justify-content: flex-end;   /* Aligné à gauche */
+    gap: 10px;
+    margin-bottom: 25px;
+}
+
+/* On cache les vrais boutons radio (les ronds moches) */
+.rating-stars input[type="radio"] {
+    display: none;
+}
+
+/* Le style des étoiles (vides par défaut) */
+.rating-stars label {
+    font-size: 45px;
+    color: transparent; /* Fond transparent */
+    -webkit-text-stroke: 2px #e8e8e8; /* Contour blanc cassé */
+    cursor: pointer;
+    transition: all 0.2s ease;
+    line-height: 1;
+}
+
+/* L'effet magique de remplissage au survol et au clic */
+.rating-stars label:hover,
+.rating-stars label:hover ~ label,
+.rating-stars input[type="radio"]:checked ~ label {
+    color: #e8e8e8; /* L'étoile se remplit en blanc cassé */
+}
+
+/* Ajustement de la zone de texte pour coller à la maquette */
+#content-avis textarea {
+    margin-bottom: 10px;
+}
+/* =========================================
+   AFFICHAGE DES ÉTOILES (Avis)
+   ========================================= */
+
+.etoiles-affichage {
+    margin-bottom: 15px;
+    letter-spacing: 2px; /* Un petit espace entre chaque étoile */
+}
+
+.etoile-pleine {
+    color: #e8e8e8; /* Blanc cassé pour les étoiles remplies */
+    font-size: 24px;
+}
+
+.etoile-vide {
+    color: #e8e8e8; /* Blanc cassé pour les contours des étoiles vides */
+    font-size: 24px;
+    opacity: 0.5; /* On les rend un peu transparentes pour qu'elles soient plus discrètes */
 }

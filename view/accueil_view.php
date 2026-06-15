@@ -67,7 +67,7 @@
 
 <section class="avis-section">
     <h2>Les Survivants</h2>
-        <p>Ils ont passé la nuit entière enfermés. Récits de ceux qui ont réussi à sortir.</p>
+    <p>Ils ont passé la nuit entière enfermés. Récits de ceux qui ont réussi à sortir.</p>
 
     <?php if (!empty($avis_publics)): ?>
         <div class="defilement-container">
@@ -76,6 +76,23 @@
                 <?php for($i = 0; $i < 2; $i++): ?>
                     <?php foreach ($avis_publics as $avis): ?>
                         <div class="avis-card">
+                            
+                            <div class="etoiles-affichage">
+                                <?php 
+                                // On récupère la note (si elle n'existe pas, on met 5 par défaut pour éviter les bugs)
+                                $note = isset($avis['note']) ? (int)$avis['note'] : 5; 
+                                
+                                // Boucle pour afficher 5 étoiles
+                                for ($j = 1; $j <= 5; $j++) {
+                                    if ($j <= $note) {
+                                        echo '<span class="etoile-pleine">★</span>'; // Étoile pleine
+                                    } else {
+                                        echo '<span class="etoile-vide">☆</span>'; // Étoile vide
+                                    }
+                                }
+                                ?>
+                            </div>
+
                             <p class="commentaire">
                                 "<?= nl2br(htmlspecialchars($avis['contenu'])) ?>"
                             </p>

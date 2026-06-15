@@ -1,15 +1,18 @@
 <?php
 require_once 'conf/conf.inc.php';
 
-function ajouterCommentaire($id_user, $contenu) {
-    global $bdd;
-    $req = $bdd->prepare("
-        INSERT INTO commentaires (id_utilisateur, contenu) 
-        VALUES (:id_user, :contenu)
-    ");
-    return $req->execute([
-        'id_user' => $id_user,
-        'contenu' => $contenu
+function ajouterCommentaire($id_membre, $contenu, $note) {
+    global $pdo; 
+    
+    // On ajoute 'note' dans la requête SQL
+    $sql = "INSERT INTO commentaires (id_membre, contenu, note, date_publication) 
+            VALUES (:id_membre, :contenu, :note, NOW())";
+            
+    $stmt = $pdo->prepare($sql);
+    $stmt->execute([
+        ':id_membre' => $id_membre,
+        ':contenu'   => $contenu,
+        ':note'      => $note // On relie la note ici
     ]);
 }
 
