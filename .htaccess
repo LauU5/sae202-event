@@ -2,3 +2,19 @@ AuthType Basic
 AuthName "Back-Office MMI"
 AuthUserFile /home/mmi25h15/htpassword.mmi
 Require valid-user
+
+RewriteEngine On
+
+
+RewriteCond %{THE_REQUEST} \s/index.php[\s?] [NC]
+RewriteRule ^index.php$ / [R=301,L]
+
+
+RewriteCond %{THE_REQUEST} \s/(.+).php[\s?] [NC]
+RewriteRule ^ /%1 [R=301,L]
+
+
+RewriteCond %{REQUEST_FILENAME} !-f
+RewriteCond %{REQUEST_FILENAME} !-d
+RewriteCond %{REQUEST_FILENAME}.php -f
+RewriteRule ^([^.]+)$ $1.php [NC,L]

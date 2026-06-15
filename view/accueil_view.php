@@ -9,7 +9,7 @@
 
 
 
-    <section>
+    <section class="lore">
         <h2>Une expérience nocturne terrifiante</h2>
         <article>
             <p>Bien plus qu'un simple escape game, Framed vous plonge dans une salle de classe abandonnée, hantée par le fantôme d'une jeune fille. Réveillez-vous dans l'obscurité totale.</p>
@@ -42,7 +42,7 @@
     </div>
     
     <div class="info-card">
-        <span class="card-valeur">★★★</span>
+        <span class="card-valeur"><img src="view/img/etoile.svg"><img src="view/img/etoile.svg"><img src="view/img/etoile.svg"></span>
         <p>difficulté<br>élevée</p>
     </div>
 </section>
@@ -65,60 +65,37 @@
 
   
 
-    <section class="avis-section">
-        <h2>Ce qu'ils en pensent</h2>
+<section class="avis-section">
+    <h2>Les Survivants</h2>
+        <p>Ils ont passé la nuit entière enfermés. Récits de ceux qui ont réussi à sortir.</p>
 
-        <?php if (!empty($avis_publics)): ?>
-            <div class="carousel-container" style="overflow: hidden;">
-
-                <div class="carousel-track" style="display: flex; transition: transform 0.5s ease-in-out;">
-                    <?php foreach ($avis_publics as $index => $avis): ?>
-                        <div class="carousel-item" style="min-width: 100%; box-sizing: border-box;">
-                            <p>
+    <?php if (!empty($avis_publics)): ?>
+        <div class="defilement-container">
+            <div class="defilement-track">
+                
+                <?php for($i = 0; $i < 2; $i++): ?>
+                    <?php foreach ($avis_publics as $avis): ?>
+                        <div class="avis-card">
+                            <p class="commentaire">
                                 "<?= nl2br(htmlspecialchars($avis['contenu'])) ?>"
                             </p>
-                            <p>
+                            <p class="auteur">
                                 — <?= htmlspecialchars($avis['pseudo']) ?>
-                                (<?= htmlspecialchars($avis['prenom'] ?? '') ?>)
-                                <small> — <?= date('d/m/Y', strtotime($avis['date_publication'])) ?></small>
+                                <?php if (!empty($avis['prenom'])): ?>
+                                    (<?= htmlspecialchars($avis['prenom']) ?>)
+                                <?php endif; ?>
+                                <br><small><?= date('d/m/Y', strtotime($avis['date_publication'])) ?></small>
                             </p>
                         </div>
                     <?php endforeach; ?>
-                </div>
-
-                <div class="carousel-buttons">
-                    <button class="carousel-btn" onclick="prevAvis()">&#10094; Précédent</button>
-                    <button class="carousel-btn" onclick="nextAvis()">Suivant &#10095;</button>
-                </div>
+                <?php endfor; ?>
+                
             </div>
-
-            <script>
-                let currentAvis = 0;
-                const track = document.querySelector('.carousel-track');
-                const items = document.querySelectorAll('.carousel-item');
-                const totalItems = items.length;
-
-                function showAvis(index) {
-                    if (index >= totalItems) currentAvis = 0;
-                    if (index < 0) currentAvis = totalItems - 1;
-
-                    const translateX = -(currentAvis * 100);
-                    track.style.transform = `translateX(${translateX}%)`;
-                }
-
-                function nextAvis() { currentAvis++; showAvis(currentAvis); }
-                function prevAvis() { currentAvis--; showAvis(currentAvis); }
-
-                if (totalItems > 1) {
-                    setInterval(nextAvis, 5000);
-                }
-            </script>
-
-        <?php else: ?>
-            <p>Soyez les premiers à partager votre expérience !</p>
-        <?php endif; ?>
-    </section>
-
+        </div>
+    <?php else: ?>
+        <p class="aucun-avis">Soyez les premiers à partager votre expérience !</p>
+    <?php endif; ?>
+</section>
 </main>
 
 <?php require_once 'view/autres_pages/footer.php'; ?>

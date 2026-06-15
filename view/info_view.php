@@ -2,36 +2,31 @@
 
 <main>
 
-    <section>
-        <h2>Nous trouver</h2>
+    <section class="horaires-section">
+    <h2>Nous trouver</h2>
+    
+    <div class="horaires-timeline">
+        <div class="horaires-item">
+            <div class="jour">Lundi / Jeudi</div>
+            <div class="heures">Fermé</div>
+        </div>
         
-        <ul>
-            <li>
-                <strong>Lundi</strong>
-                <span>Fermé</span>
-            </li>
-            <li>
-                <strong>Mardi</strong>
-                <span>Fermé</span>
-            </li>
-            <li>
-                <strong>Mercredi</strong>
-                <span>18h00 - 8h00</span>
-            </li>
-            <li>
-                <strong>Jeudi</strong>
-                <span>18h00 - 8h00</span>
-            </li>
-            <li>
-                <strong>Vendredi</strong>
-                <span>18h00 - 8h00</span>
-            </li>
-            <li>
-                <strong>Samedi / Dimanche</strong>
-                <span>18h00 - 8h00</span>
-            </li>
-        </ul>
-    </section>
+        <div class="horaires-item">
+            <div class="jour">Vendredi</div>
+            <div class="heures">18-30 - 8h00</div>
+        </div>
+        
+        <div class="horaires-item">
+            <div class="jour">Samedi</div>
+            <div class="heures">18h30 - 8h00</div>
+        </div>
+        
+        <div class="horaires-item">
+            <div class="jour">Dimanche</div>
+            <div class="heures">18h00 - 8h00</div>
+        </div>
+    </div>
+</section>
 
     <section>
         <iframe src="https://maps.google.com/maps?q=33+Avenue+Jean+Jaurès,+10600+La+Chapelle-Saint-Luc,+France&output=embed&z=16" width="600" height="450" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>

@@ -1,9 +1,32 @@
 @import url('https://fonts.googleapis.com/css2?family=Special+Elite&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Love+Ya+Like+A+Sister&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Besley:ital,wght@0,400..900;1,400..900&display=swap');
 
 body {
     margin: 0;
     background-color: #0a0a0a;
     font-family: 'Special Elite', cursive;
+}
+
+body {
+    background-color: #0b1d16;
+    margin: 0;
+    position: relative;
+}
+
+
+body::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-image: url('view/img/glitch.webp');
+    background-repeat: repeat;
+    mix-blend-mode: overlay;
+    pointer-events: none;
+    z-index: 9999;
 }
 
 header {
@@ -14,7 +37,7 @@ header {
     min-height: 100px;
     display: flex;
     align-items: center;
-    z-index: 1000;     
+    z-index: 1000;
 }
 
 nav {
@@ -22,7 +45,7 @@ nav {
     padding: 0 50px;
     display: flex;
     align-items: center;
-    justify-content: space-between; 
+    justify-content: space-between;
 }
 
 nav ul {
@@ -35,7 +58,7 @@ nav ul {
 }
 
 nav ul li a {
-    color: #6ebd87; 
+    color: #4AA07B;
     text-decoration: none;
     font-size: 24px;
     letter-spacing: 1.5px;
@@ -43,7 +66,7 @@ nav ul li a {
 }
 
 nav ul li a:hover {
-    color: #a3e8b8;
+    color: #4AA07B;
 }
 
 .logo {
@@ -79,53 +102,55 @@ a.compte {
 }
 
 a.compte:hover {
-    color: #6ebd87;
+    color: #4AA07B;
 }
 
 a.compte img {
     width: 35px;
     height: auto;
 }
+
 .hero-section {
     display: flex;
     flex-direction: column;
     align-items: center;
     text-align: center;
     padding: 150px 20px 120px 20px;
-    background-image: 
-        linear-gradient(#254134d3,#0b1e18c7), 
-        url('view/img/classe_background.webp');
-        
-    background-size: cover; 
-    background-position: center; 
+    background-image:
+        linear-gradient(to bottom, #254134d3 0%, #0b1e18cc 70%, #0B1E18 100%),
+        url(view/img/classe_background.webp);
+
+    background-size: cover;
+    background-position: center;
     background-repeat: no-repeat;
+    gap: 0;
 }
 
 .hero-section img {
-    height: 350px;
+    height: 450px;
 }
 
 .hero-section p {
     color: #ffffff;
-    font-size: 25px;
+    font-size: 38px;
     margin-top: 0px;
     letter-spacing: 1px;
-    font-family: 'Special Elite', cursive; 
+    font-family: 'Special Elite', cursive;
 }
 
 .hero-section a {
     font-family: 'Special Elite', cursive;
-    color: #ffffff; 
+    color: #ffffff;
     text-decoration: none;
-    font-size: 24px;
-    
-    
-    padding: 15px 15px; 
-    background-image: url('view/img/Rectangle 702.png'); 
-    background-size: 100% 100%; 
+    font-size: 45px;
+
+
+    padding: 15px 15px;
+    background-image: url('view/img/Rectangle 702.png');
+    background-size: 100% 100%;
     background-repeat: no-repeat;
     background-position: center;
-    border: none; 
+    border: none;
     display: inline-block;
     letter-spacing: 1px;
     transition: transform 0.2s ease-in-out;
@@ -137,9 +162,15 @@ a.compte img {
     color: #cf2525;
 }
 
+.lore {
+    position: relative;
+    background-image: linear-gradient(to bottom, #0B1E18 0%, #254134 100%);
+    z-index: 10;
+    box-shadow: 0 49px 45px rgb(0 0 0 / 51%)
+}
+
 section {
     padding: 80px 10%;
-    background-color: #0B1E18;
     display: grid;
     grid-template-columns: 1fr 1fr;
     gap: 40px 60px;
@@ -148,18 +179,19 @@ section {
 
 section h2 {
     grid-column: 1 / -1;
-    font-family: 'Special Elite', cursive;
-    color: #6ebd87;
-    font-size: 42px;
+    font-family: 'Love Ya Like A Sister', cursive;
+    color: #4AA07B;
+    font-size: 80px;
     font-weight: normal;
     text-align: center;
     margin-bottom: 20px;
     letter-spacing: 2px;
+    text-shadow: 0 4px 4px hsl(0deg 0% 0% / 75%);
 }
 
 section article {
-    font-family: 'Georgia', serif;
-    font-size: 18px;
+    font-family: 'Besley', serif;
+    font-size: 32px;
     color: #d1d1d1;
     line-height: 1.8;
 }
@@ -172,7 +204,7 @@ section aside {
     display: flex;
     flex-direction: column;
     align-items: center;
-    gap: 30px;
+    gap: 50px;
 }
 
 section aside br {
@@ -181,7 +213,7 @@ section aside br {
 
 section aside img {
     width: 100%;
-    max-width: 550px;
+    max-width: 800px;
     height: auto;
     border-radius: 2px;
 }
@@ -190,7 +222,7 @@ section aside a {
     font-family: 'Special Elite', cursive;
     color: #ffffff;
     text-decoration: none;
-    font-size: 24px;
+    font-size: 40px;
     padding: 15px 55px;
     background-image: url('view/img/Rectangle 702.png');
     background-size: 100% 100%;
@@ -207,60 +239,61 @@ section aside a:hover {
     transform: scale(1.01);
     color: #cf2525;
 }
+
 .info-cards-section {
+    position: relative;
     display: flex;
     justify-content: center;
     align-items: center;
-    flex-wrap: wrap; /* Permet de passer à la ligne sur petit écran */
-    gap: 30px; 
+    flex-wrap: wrap;
+    gap: 65px;
     padding: 60px 10%;
-    background-color: #254134;
-    box-shadow: 0 8px 15px rgba(0, 0, 0, 0.5); 
+    background-image: linear-gradient(to bottom, #254134, #27362d);
+    box-shadow: 0 49px 45px rgb(0 0 0 / 51%);
+    z-index: 9;
 }
 
 .info-card {
-    background-color: #0b110d; 
-    width: 240px;
-    height: 160px;
-    border-radius: 4px; 
-    box-shadow: 0 8px 15px rgba(0, 0, 0, 0.5); 
-    
+    background-color: #0b110d;
+    width: 320px;
+    height: 270px;
+    border-radius: 8px;
+    box-shadow: 0 8px 15px rgba(0, 0, 0, 0.5);
+
     display: flex;
     flex-direction: column;
     justify-content: center;
     align-items: center;
     text-align: center;
-    gap: 15px; 
-    
-    transition: transform 0.2s ease-in-out;
+    gap: 15px;
+
 }
 
-
-.info-card:hover {
-    transform: translateY(-5px);
-}
 
 .card-valeur {
+    display: flex;
     font-family: 'Special Elite', cursive;
-    color: #6ebd87;
-    font-size: 34px;
+    color: #4AA07B;
+    font-size: 48px;
     line-height: 1;
+    gap:5px;
 }
 
 .info-card p {
     font-family: 'Georgia', serif;
-    color: #e8e8e8; 
-    font-size: 16px;
+    color: #e8e8e8;
+    font-size: 30px;
     margin: 0;
     line-height: 1.4;
 }
+
 /* =========================================
    SECTION PRÉSENTATION (Texte + Ligne rouge)
    ========================================= */
 
 .presentation-section {
     /* Le fond vert sombre de ta maquette */
-    background-color: #27362d; 
+    background-image: linear-gradient(to bottom, #254134 0%, #387158 100%);
     padding: 80px 10% 40px 10%;
     display: flex;
     flex-direction: column;
@@ -273,14 +306,17 @@ section aside a:hover {
     align-items: center;
     gap: 60px;
     width: 100%;
-    max-width: 1100px; /* Garde le texte bien centré sur les grands écrans */
-    margin-bottom: 60px; /* L'espace avant la ligne rouge */
+    max-width: 1100px;
+    /* Garde le texte bien centré sur les grands écrans */
+    margin-bottom: 60px;
+    /* L'espace avant la ligne rouge */
 }
 
 /* La place vide à gauche */
 .espace-video {
     flex: 1;
-    min-height: 250px; /* Garde la hauteur pour que le texte reste bien à droite */
+    min-height: 250px;
+    /* Garde la hauteur pour que le texte reste bien à droite */
 }
 
 /* Le texte à droite */
@@ -290,34 +326,758 @@ section aside a:hover {
 
 .presentation-text h2 {
     font-family: 'Special Elite', cursive;
-    color: #6ebd87; /* Ton vert craie */
-    font-size: 42px;
+    color: #4AA07B;
+    /* Ton vert craie */
+    font-size: 49px;
     font-weight: normal;
     margin-top: 0;
     margin-bottom: 20px;
     letter-spacing: 2px;
+    text-shadow: 0 4px 4px hsl(0deg 0% 0% / 75%);
 }
 
 .presentation-text p {
-    font-family: 'Georgia', serif;
+    font-family: 'Besley', serif;
     color: #e8e8e8;
-    font-size: 18px;
+    font-size: 23px;
     line-height: 1.8;
     margin: 0;
 }
 
 /* --- LA LIGNE ROUGE EN BAS --- */
 .ligne-rouge {
-    width: 80%; /* La ligne prend 80% de la largeur de l'écran */
-    max-width: 1000px;
-    height: 8px; /* L'épaisseur de la ligne */
-    
-    /* On recycle ton rectangle pour faire un trait texturé ! */
-    background-image: url('view/img/Rectangle 702.png');
+    width: 100%;
+    height: 25px;
+    background-image: url('view/img/Line1.svg');
     background-size: 100% 100%;
     background-repeat: no-repeat;
     background-position: center;
-    
-    /* Petite ombre pour la faire ressortir */
     filter: drop-shadow(0px 3px 5px rgba(0, 0, 0, 0.6));
+}
+
+/* =========================================
+   SECTION AVIS (Grille centrée)
+   ========================================= */
+
+.avis-section {
+    background-image: linear-gradient(to bottom, #387158 0%, #4AA07B 100%);
+    padding: 80px 0;
+    text-align: center;
+    display: block;
+}
+
+.avis-section h2 {
+    font-family: 'Special Elite', cursive;
+    color: #4AA07B;
+    font-size: 42px;
+    font-weight: normal;
+    margin-top: 0;
+    letter-spacing: 2px;
+    text-shadow: 0 4px 4px hsl(0deg 0% 0% / 75%);
+}
+
+.avis-section p {
+    color: #e8e8e8;
+    font-size: 24px;
+    font-family: 'Besley';
+    margin-bottom: 50px;
+    margin-top: 0;
+}
+
+/* --- LE CONTENEUR BIEN CENTRÉ --- */
+/* --- LE CONTENEUR DU DÉFILEMENT --- */
+.defilement-container {
+    width: 100%;
+    overflow: hidden;
+    /* Cache tout ce qui dépasse de l'écran */
+    padding: 20px 0;
+    position: relative;
+}
+
+/* --- LA PISTE QUI AVANCE --- */
+.defilement-track {
+    display: flex;
+    gap: 100px;
+    /* L'espace entre les cartes */
+    width: max-content;
+    /* La piste s'allonge selon le nombre de cartes */
+
+    /* C'est cette ligne qui fait défiler ! 25s = la vitesse. */
+    animation: defilement 25s linear infinite;
+}
+
+/* Mets le défilement en pause quand le joueur passe sa souris pour lire */
+.defilement-track:hover {
+    animation-play-state: paused;
+}
+
+/* --- LE DESIGN DE TES GRANDES CARTES --- */
+.avis-card {
+    background-color: #0b110d;
+    border: 2px solid #4AA07B;
+    padding: 40px;
+    width: 500px;
+    /* Tes grandes cartes */
+    flex-shrink: 0;
+    /* Empêche l'écran d'écraser les cartes */
+    border-radius: 2px;
+    text-align: left;
+    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.4);
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    box-sizing: border-box;
+}
+
+.avis-card .commentaire {
+    font-family: 'Georgia', serif;
+    color: #e8e8e8;
+    font-size: 20px;
+    font-style: italic;
+    line-height: 1.6;
+    margin: 0 0 20px 0;
+}
+
+.avis-card .auteur {
+    font-family: 'Special Elite', cursive;
+    color: #6ebd87;
+    font-size: 22px;
+    margin: 0;
+}
+
+.avis-card small {
+    color: #999999;
+    font-family: 'Georgia', serif;
+    font-size: 16px;
+}
+
+/* --- L'ANIMATION CSS --- */
+@keyframes defilement {
+    0% {
+        transform: translateX(0);
+    }
+
+    100% {
+        /* Se décale de 50% de la largeur totale (car on a doublé les cartes) + la moitié de l'espace (gap) */
+        transform: translateX(calc(-50% - 20px));
+    }
+}
+
+/* =========================================
+   FOOTER
+   ========================================= */
+
+.site-footer {
+    background-color: #0b110d;
+    
+    padding: 30px 5%;
+    display: flex;
+    justify-content: space-between;
+    
+    align-items: center;
+    border-top: 1px solid #1a241e;
+    position: relative;
+    z-index: 10000;
+    
+}
+
+/* --- LOGO --- */
+.footer-logo img {
+    width: 150px;
+    /* Adapte la taille selon ton besoin */
+    height: auto;
+}
+
+/* --- TEXTE CENTRAL --- */
+.footer-center {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+    gap: 10px;
+}
+
+.copyright {
+    font-family: 'Special Elite', cursive;
+    color: #6ebd87;
+    /* Ton vert machine à écrire */
+    font-size: 16px;
+    margin: 0;
+    letter-spacing: 1px;
+}
+
+.mentions-legales {
+    font-family: 'Georgia', serif;
+    color: #e8e8e8;
+    /* Blanc cassé */
+    font-size: 14px;
+    text-decoration: none;
+    transition: color 0.2s ease;
+}
+
+.mentions-legales:hover {
+    color: #6ebd87;
+    /* Devient vert au survol */
+    text-decoration: underline;
+}
+
+/* --- RÉSEAUX SOCIAUX --- */
+.footer-socials {
+    display: flex;
+    gap: 15px;
+}
+
+.social-icon {
+    display: inline-block;
+    width: 40px;
+    height: 40px;
+    background-color: #000000;
+    /* Fond noir pour les icônes comme sur ta maquette */
+    border-radius: 8px;
+    /* Bords légèrement arrondis */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    transition: transform 0.2s ease;
+}
+
+.social-icon img {
+    width: 20px;
+    height: 20px;
+    /* Si tes icônes sont noires de base, tu peux forcer la couleur blanche en CSS avec ce filtre (optionnel) : */
+    /* filter: invert(1); */
+}
+
+.social-icon:hover {
+    transform: scale(1.1);
+    /* Petit effet de zoom sympa au survol */
+}
+
+/* --- RESPONSIVE (Pour les téléphones) --- */
+@media (max-width: 850px) {
+    .site-footer {
+        flex-direction: column;
+        gap: 30px;
+        text-align: center;
+    }
+}
+
+/* =========================================
+   SECTION "C'EST QUOI, FRAMED?"
+   ========================================= */
+
+.about-section {
+    
+    padding-top: 200px;
+    padding-bottom: 80px;
+    padding-left: 10%;
+    padding-right: 10%;
+
+
+    background-color: transparent;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.about-section h2 {
+    font-family: 'Special Elite', cursive;
+    color: #6ebd87;
+    font-size: 80px;
+    font-weight: normal;
+    text-align: center;
+    margin-top: 0;
+    margin-bottom: 60px;
+    letter-spacing: 2px;
+    text-shadow: 0 4px 4px hsl(0deg 0% 0% / 75%);
+}
+
+/* --- CONTENEUR FLEX (Texte à gauche / Image à droite) --- */
+.about-container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 50px;
+    width: 100%;
+    margin-bottom: 40px;
+}
+
+/* --- COLONNE TEXTE --- */
+.about-text {
+    flex: 1;
+}
+
+.about-text p {
+    font-family: 'Georgia', serif;
+    color: #e8e8e8;
+    font-size: 28px;
+    line-height: 1.8;
+    margin-top: 0;
+    margin-bottom: 25px;
+}
+
+/* La petite partie de texte en vert */
+.texte-vert {
+    color: #6ebd87;
+}
+
+/* --- COLONNE IMAGE --- */
+.about-image {
+    flex: 1;
+    display: flex;
+    justify-content: flex-end;
+}
+
+.about-image img {
+    width: 100%;
+    max-width: 600px;
+    height: auto;
+    border-radius: 4px;
+    
+}
+
+/* --- PHRASE DE CONCLUSION EN BAS --- */
+.about-conclusion {
+    font-family: 'Georgia', serif;
+    color: #e8e8e8;
+    font-size: 28px;
+    line-height: 1.8;
+    width: 100%;
+    max-width: 1100px;
+    margin: 0;
+    text-align: left;
+}
+
+/* =========================================
+   SECTION PLANNING (PLEINE LARGEUR)
+   ========================================= */
+
+.planning-section {
+    padding: 80px 10%;
+    background-color: #27362d;
+    grid-template-columns: none;
+}
+
+.planning-section h2 {
+    text-align: left;
+    font-family: 'Special Elite', cursive;
+    color: #6ebd87;
+    font-size: 80px;
+    margin: 0 0 60px 0;
+    letter-spacing: 2px;
+}
+
+.timeline {
+    position: relative;
+    max-width: 1550px;
+    border-left: 6px solid #0B1E18;
+}
+
+.timeline-item {
+    display: flex;
+    padding: 30px 0;
+    position: relative;
+    border-bottom: 3px solid #0B1E18;
+    align-items: center;
+}
+
+/* Le point vert */
+.timeline-item::before {
+    content: "";
+    position: absolute;
+    left: -3px;
+    top: 75px;
+    transform: translate(-50%, -50%);
+    width: 14px;
+    height: 14px;
+    background-color: #4AA07B;
+    border-radius: 50%;
+    border: 4px solid #254134;
+}
+
+.time {
+    font-family: 'Special Elite', cursive;
+    color: #4aa07b;
+    font-size: 50px;
+    width: 180px;
+    flex-shrink: 0;
+    margin-left: 35px;
+    line-height: 1.6;
+}
+.timeline-item:last-child {
+    border-bottom: none;
+}
+
+.desc {
+    font-family: 'Georgia', serif;
+    color: #e8e8e8;
+    font-size: 34px;
+    line-height: 1.6;
+}
+
+.desc em {
+    color: #6ebd87;
+    font-style: italic;
+}
+
+/* =========================================
+   SECTION MENUS
+   ========================================= */
+.menus-section {
+    display: flex;
+    gap: 30px;
+    padding: 80px 5%;
+    flex-direction: column;
+}
+
+.menu-card {
+    background-color: #0b110d;
+    border: 2px solid #6ebd87;
+    width: 300px;
+    height: 600px;
+    padding: 30px;
+    text-align: center;
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: flex-end;
+}
+
+.nos-menus {
+    display: flex;
+    gap: 70px;
+
+}
+
+/* Badge Populaire */
+.popular {
+    border-color: #6ebd87;
+}
+
+.badge-populaire {
+    position: absolute;
+    top: -38px;
+    background-color: #6ebd87;
+    color: #0b110d;
+    font-family: 'Love Ya Like A Sister', cursive;
+    padding: 3px 15px;
+    font-size: 48px;
+    font-weight: bold;
+    border-radius: 5px;
+}
+
+.menu-card h3 {
+    font-family: 'Special Elite', cursive;
+    color: #ecf6ec;
+    font-size: 40px;
+    margin-bottom: 20px;
+    margin-top: 70px;
+}
+
+.menu-card ul {
+    list-style: none;
+    padding: 0;
+    font-size: 28px;
+    font-family: 'Georgia', serif;
+    color: #4aa07b;
+    margin-bottom: 30px;
+    text-align: left;
+}
+
+.menu-card ul li {
+    margin-bottom: 10px;
+    position: relative;
+    padding-left: 15px;
+}
+
+.menu-card ul li::before {
+    content: "•";
+    position: absolute;
+    left: 0;
+    color: #6ebd87;
+}
+
+.menu-card img {
+    width: 100%;
+    height: auto;
+    border-radius: 5px;
+}
+
+.allergies-note {
+    text-align: center;
+    font-family: 'Georgia', serif;
+    color: #e8e8e8;
+    font-style: italic;
+    padding: 0 10%;
+    margin-bottom: 50px;
+    font-size: 18px;
+}
+
+/* =========================================
+   SECTION PRIX & SERVICES (Maquette exacte)
+   ========================================= */
+
+.prix-services-section {
+    padding: 60px 5%;
+    /* On réduit le padding latéral de 10% à 5% pour gagner de la place */
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    /* On centre tout proprement */
+}
+
+/* Le titre noir au-dessus du bloc */
+.prix-services-section h2 {
+    font-family: 'Special Elite', cursive;
+    color: #4AA07B;
+    font-size: 80px;
+    margin-top: 0;
+    margin-bottom: 20px;
+    text-align: left;
+    width: 100%;
+    max-width: 1200px;
+    /* Aligne parfaitement le titre avec le bord gauche du cadre */
+}
+
+/* Le grand conteneur sombre avec la bordure verte */
+.ps-container {
+    background-color: #0b110d;
+    border: 2px solid #6ebd87;
+    padding: 50px;
+    /* Un peu plus d'air à l'intérieur */
+    display: flex;
+    flex-direction: column;
+    gap: 50px;
+    width: 100%;
+    max-width: 1200px;
+    /* C'EST CETTE LIGNE QUI REND LE BLOC BEAUCOUP PLUS LARGE */
+    box-sizing: border-box;
+}
+
+/* --- PARTIE HAUTE (3 colonnes) --- */
+.ps-top {
+    display: grid;
+    grid-template-columns: 1fr 2fr 1.2fr;
+    gap: 40px;
+    /* On augmente un peu l'espace entre les 3 colonnes */
+    align-items: center;
+}
+
+.ps-price-main {
+    text-align: center;
+}
+
+.ps-price-main .ps-label {
+    font-family: 'Special Elite', cursive;
+    color: #e8e8e8;
+    font-size: 16px;
+    margin: 5px 0;
+}
+
+.ps-price-value {
+    font-family: 'Permanent Marker', 'Special Elite', cursive;
+    color: #cc2929;
+    /* Le rouge vif/sang */
+    font-size: 75px;
+    line-height: 1;
+    margin: 10px 0;
+}
+
+/* La liste verte */
+.ps-list ul {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+
+.ps-list li {
+    font-family: 'Georgia', serif;
+    color: #6ebd87;
+    /* Texte en vert */
+    font-size: 16px;
+    margin-bottom: 10px;
+    position: relative;
+    padding-left: 15px;
+}
+
+.ps-list li::before {
+    content: "•";
+    position: absolute;
+    left: 0;
+    color: #6ebd87;
+}
+
+.ps-list em {
+    font-style: italic;
+    color: #558c66;
+    /* Vert un peu plus sombre pour l'italique */
+}
+
+/* La boîte grise à droite */
+.ps-info-box {
+    background-color: #1e2a22;
+    /* Fond vert-gris légèrement plus clair */
+    padding: 20px;
+    border-radius: 4px;
+}
+
+.ps-info-box p {
+    font-family: 'Georgia', serif;
+    color: #e8e8e8;
+    font-size: 14px;
+    line-height: 1.6;
+    margin: 0;
+    text-align: center;
+}
+
+/* --- PARTIE BASSE (Les blocs verts) --- */
+.ps-bottom {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 20px;
+}
+
+.ps-group-box {
+    background-color: #6ebd87;
+    color: #0b110d;
+    padding: 15px 25px;
+    border-radius: 4px;
+    text-align: center;
+    flex: 1;
+    /* Force les blocs à faire la même taille */
+}
+
+.ps-group-box strong {
+    font-family: 'Georgia', serif;
+    font-size: 18px;
+    font-weight: bold;
+    display: block;
+    margin-bottom: 5px;
+}
+
+.ps-group-box span {
+    font-family: 'Georgia', serif;
+    font-size: 16px;
+}
+
+/* Le bouton avec l'effet "Bordure rouge" */
+.ps-btn-tarifs {
+    font-family: 'Special Elite', cursive;
+    color: #ffffff;
+    font-size: 26px;
+    text-decoration: none;
+    padding: 10px 40px;
+    border: 3px solid #cc2929;
+    /* Bordure rouge */
+    background-color: transparent;
+    transition: all 0.2s ease;
+    /* Petite rotation pour imiter le côté dessiné/tampon de la maquette */
+    transform: rotate(-1deg);
+}
+
+.ps-btn-tarifs:hover {
+    background-color: #cc2929;
+    color: white;
+}
+
+/* --- RESPONSIVE POUR MOBILE --- */
+@media (max-width: 950px) {
+    .ps-top {
+        grid-template-columns: 1fr;
+        /* Passe en 1 seule colonne sur mobile */
+    }
+
+    .ps-bottom {
+        flex-direction: column;
+    }
+
+    .ps-group-box {
+        width: 100%;
+        box-sizing: border-box;
+    }
+}
+
+/* =========================================
+   SECTION HORAIRES ("Nous trouver")
+   ========================================= */
+
+.horaires-section {
+    padding: 80px 10%;
+    width: 100%;
+    max-width: 1000px;
+    /* On donne de la place ! */
+    margin: 0 auto;
+    /* Pour centrer le bloc au milieu de la page */
+    box-sizing: border-box;
+    display: block;
+    /* Sécurité pour forcer le bloc à prendre sa propre ligne */
+    clear: both;
+}
+
+.horaires-section h2 {
+    font-family: 'Special Elite', cursive;
+    color: #4AA07B;
+    font-size: 42px;
+    margin-top: 50px;
+    margin-bottom: 50px;
+    font-weight: normal;
+}
+
+/* --- LA LIGNE VERTICALE --- */
+.horaires-timeline {
+    border-left: 6px solid #334439;
+    position: relative;
+    width: 100%;
+    box-sizing: border-box;
+}
+
+/* --- CHAQUE LIGNE D'HORAIRE --- */
+.horaires-item {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 30px 0;
+    border-bottom: 3px solid #233027;
+    position: relative;
+    width: 100%;
+}
+
+.horaires-item:last-child {
+    border-bottom: none;
+}
+
+/* --- LES POINTS VERTS --- */
+.horaires-item::before {
+    content: "";
+    position: absolute;
+    left: -9px;
+    /* On ajuste pour que ça tombe pile sur la ligne */
+    top: 50%;
+    transform: translateY(-50%);
+    width: 12px;
+    height: 12px;
+    background-color: #4AA07B;
+    border-radius: 50%;
+}
+
+/* --- LE TEXTE DES JOURS --- */
+.jour {
+    font-family: 'Special Elite', cursive;
+    color: #e8e8e8;
+    font-size: 24px;
+    white-space: nowrap;
+    margin-left: 30px;
+    line-height: 1.6;
+}
+
+/* --- LE TEXTE DES HEURES --- */
+.heures {
+    font-family: 'Georgia', serif;
+    color: #4AA07B;
+    font-size: 18px;
+    white-space: nowrap;
+    text-align: right;
+    line-height: 1.6;
 }
