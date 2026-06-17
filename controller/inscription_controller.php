@@ -52,6 +52,9 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
                     }
                 }
                 
+                // 4. 👉 NOUVEAU : On marque la session comme complète !
+                marquerSessionComplete($id_session);
+                
                 // Redirection fluide après succès
                 header('Location: index.php?action=connexion&succes=inscription');
                 exit();

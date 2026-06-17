@@ -1,25 +1,27 @@
 <?php
 require_once 'conf/conf.inc.php';
 
-function ajouterCommentaire($id_membre, $contenu, $note) {
-    global $pdo; 
+
+function ajouterCommentaire($id_utilisateur, $contenu, $note) {
+    global $bdd; 
     
-    // On ajoute 'note' dans la requête SQL
-    $sql = "INSERT INTO commentaires (id_membre, contenu, note, date_publication) 
-            VALUES (:id_membre, :contenu, :note, NOW())";
+    // On remplace id_membre par id_utilisateur dans la requête
+    $sql = "INSERT INTO commentaires (id_utilisateur, contenu, note, date_publication) 
+            VALUES (:id_utilisateur, :contenu, :note, NOW())";
             
-    $stmt = $pdo->prepare($sql);
+    $stmt = $bdd->prepare($sql);
     $stmt->execute([
-        ':id_membre' => $id_membre,
-        ':contenu'   => $contenu,
-        ':note'      => $note // On relie la note ici
+        ':id_utilisateur' => $id_utilisateur,
+        ':contenu'        => $contenu,
+        ':note'           => $note 
     ]);
 }
 
 function recupererCommentairesApprouves() {
     global $bdd;
+
     $req = $bdd->query("
-        SELECT c.contenu, c.date_publication, u.pseudo, u.prenom 
+        SELECT c.contenu, c.note, c.date_publication, u.pseudo, u.prenom 
         FROM commentaires c
         JOIN utilisateurs u ON c.id_utilisateur = u.id_utilisateur
         WHERE c.statut = 'approuve' 

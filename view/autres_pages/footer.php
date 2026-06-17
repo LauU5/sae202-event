@@ -1,8 +1,8 @@
 </main>
 
-    <footer class="site-footer">
+<footer class="site-footer">
     <div class="footer-logo">
-        <img src="view/img/Framed-Logo.webp" alt="Framed Logo">
+        <img src="/view/img/Framed-Logo.webp" alt="Framed Logo">
     </div>
 
     <div class="footer-center">
@@ -12,15 +12,16 @@
 
     <div class="footer-socials">
         <a href="#" target="_blank" class="social-icon">
-            <img src="view/img/icon-x.svg" alt="X (Twitter)">
+            <img src="/view/img/logo_X.webp" alt="X (Twitter)">
         </a>
         <a href="#" target="_blank" class="social-icon">
-            <img src="view/img/icon-tiktok.svg" alt="TikTok">
+            <img src="/view/img/logo_tiktok.webp" alt="TikTok">
         </a>
         <a href="#" target="_blank" class="social-icon">
-            <img src="view/img/icon-insta.svg" alt="Instagram">
+            <img src="/view/img/logo_insta.webp" alt="Instagram">
         </a>
     </div>
 </footer>
 </body>
+
 </html>

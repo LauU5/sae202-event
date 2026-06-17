@@ -2,18 +2,19 @@
 // Les fichiers de structure (Header)
 require_once 'view/autres_pages/header.php';
 ?>
-
+<div class="background-gradient-container">
 <main class="espace-client">
+    
 
     <h2 class="titre-espace">Mon Espace - <?= htmlspecialchars($infos['pseudo']) ?></h2>
 
-    <section class="profil-header-card">
+    <div class="profil-header-card">
         <div class="profil-icon">
-            <img src="" alt="[ Icône ]" width="60" height="60">
+            <img src="view/img/profil.webp" alt="[ Icône ]" width="60" height="60">
         </div>
         <div class="profil-info-main">
             <h3>
-                <?= htmlspecialchars($infos['prenom'] ?? 'Prénom inconnu') ?> 
+                <?= htmlspecialchars($infos['prenom'] ?? 'Prénom inconnu') ?>
                 <?= htmlspecialchars($infos['nom'] ?? 'Nom inconnu') ?>
             </h3>
             <p>
@@ -21,18 +22,19 @@ require_once 'view/autres_pages/header.php';
             </p>
         </div>
         <div class="profil-status">
-            <span class="badge-inscrit">Inscrit ✓</span>
+            <span class="badge-inscrit"><span class="badge-texte">Inscrit</span><img src="view/img/inscrit_vert.webp"
+                    alt="✓" width="20" height="20"></span>
         </div>
-    </section>
+    </div>
 
     <nav class="tabs-navigation">
-        <div id="tab-infos"  class="tab active" onclick="switchTab('infos')">Informations</div>
-        <div id="tab-equipe" class="tab"        onclick="switchTab('equipe')">Mon Equipe</div>
-        <div id="tab-temps"  class="tab"        onclick="switchTab('temps')">Mon Temps</div>
-        <div id="tab-avis"   class="tab"        onclick="switchTab('avis')">Laisser un Avis</div>
+        <div id="tab-infos" class="tab active" onclick="switchTab('infos')">Informations</div>
+        <div id="tab-equipe" class="tab" onclick="switchTab('equipe')">Mon Equipe</div>
+        <div id="tab-temps" class="tab" onclick="switchTab('temps')">Mon Score</div>
+        <div id="tab-avis" class="tab" onclick="switchTab('avis')">Laisser un Avis</div>
     </nav>
 
-    <?php if(!empty($message)): ?>
+    <?php if (!empty($message)): ?>
         <p class="message-notif"><?= $message ?></p>
     <?php endif; ?>
 
@@ -71,24 +73,26 @@ require_once 'view/autres_pages/header.php';
                         <input type="password" name="mot_de_passe" placeholder="Laissez vide pour ne pas changer">
                     </div>
                 </div>
-                <div class="action-zone">
-                    <button type="submit" class="btn-enregistrer">Enregistrer</button>
-                </div>
+
             </fieldset>
         </form>
+        <div class="action-zone" style="margin-top: 8px;">
+            <button type="submit" class="btn-enregistrer">Enregistrer</button>
+        </div>
     </div>
 
     <div id="content-equipe" class="tab-content" style="display:none;">
-        <h3>Nom de l'équipe</h3>
+       
         <form action="index.php?action=profil" method="POST">
             <input type="hidden" name="action" value="update_equipe">
-            
+             <h3>Nom de l'équipe</h3>
+
             <div class="liste-membres">
                 <div class="membre-item">
                     <span class="numero">1</span>
                     <div class="membre-detail">
                         <strong>
-                            <?= htmlspecialchars($infos['prenom'] ?? 'Prénom inconnu') ?> 
+                            <?= htmlspecialchars($infos['prenom'] ?? 'Prénom inconnu') ?>
                             <?= htmlspecialchars($infos['nom'] ?? 'Nom inconnu') ?>
                         </strong><br>
                         <small><?= htmlspecialchars($infos['pseudo']) ?></small>
@@ -96,25 +100,33 @@ require_once 'view/autres_pages/header.php';
                     <span class="label-vous">Vous</span>
                 </div>
 
-                <?php $i = 2; foreach($membres as $m): ?>
-                <div class="membre-item">
-                    <span class="numero"><?= $i ?></span>
-                    <div class="membre-detail">
-                        <input type="hidden" name="membre_id[]"     value="<?= $m['id_membre'] ?>">
-                        <input type="text"   name="membre_prenom[]" value="<?= htmlspecialchars($m['prenom']) ?>" placeholder="Prénom">
-                        <input type="text"   name="membre_nom[]"    value="<?= htmlspecialchars($m['nom']) ?>"    placeholder="Nom">
-                        <input type="text"   name="membre_pseudo[]" value="<?= htmlspecialchars($m['pseudo']) ?>" placeholder="Pseudo">
+                <?php $i = 2;
+                foreach ($membres as $m): ?>
+                    <div class="membre-item">
+                        <span class="numero"><?= $i ?></span>
+                        <div class="membre-detail">
+                            <input type="hidden" name="membre_id[]" value="<?= $m['id_membre'] ?>">
+                            <input type="text" name="membre_prenom[]" value="<?= htmlspecialchars($m['prenom']) ?>"
+                                placeholder="Prénom">
+                            <input type="text" name="membre_nom[]" value="<?= htmlspecialchars($m['nom']) ?>"
+                                placeholder="Nom">
+                            <input type="text" name="membre_pseudo[]" value="<?= htmlspecialchars($m['pseudo']) ?>"
+                                placeholder="Pseudo">
+                        </div>
+                        <span class="label-membre">Membre</span>
                     </div>
-                    <span class="label-membre">Membre</span>
-                </div>
-                <?php $i++; endforeach; ?>
+                    <?php $i++; endforeach; ?>
             </div>
 
             <div class="reservation-fixe-box">
                 <p><strong>Menu Choisi</strong><?= htmlspecialchars($infos['type_menu']) ?></p>
-                <p><strong>Session Réservée</strong><?= $infos['date_session'] ? date('l j F Y, H:i', strtotime($infos['date_session'])) : 'Non définie' ?></p>
-                <p><strong>Besoins Particuliers</strong><?= !empty($infos['options_accessibilite']) ? htmlspecialchars($infos['options_accessibilite']) : 'Aucun' ?></p>
+                <p><strong>Session
+                        Réservée</strong><?= $infos['date_session'] ? date('l j F Y, H:i', strtotime($infos['date_session'])) : 'Non définie' ?>
+                </p>
                 <div class="action-zone">
+                    <p><strong>Besoins
+                            Particuliers</strong><?= !empty($infos['options_accessibilite']) ? htmlspecialchars($infos['options_accessibilite']) : 'Aucun' ?>
+                    </p>
                     <button type="submit" class="btn-modifier">Modifier</button>
                 </div>
             </div>
@@ -124,7 +136,7 @@ require_once 'view/autres_pages/header.php';
     <div id="content-temps" class="tab-content" style="display:none;">
         <div class="recap-box">
             <h3>Temps record</h3>
-            <?php if($infos['score_obtenu']): ?>
+            <?php if ($infos['score_obtenu']): ?>
                 <p class="score-display"><?= htmlspecialchars($infos['score_obtenu']) ?> points</p>
             <?php else: ?>
                 <p>Score non encore disponible.<br>Il sera renseigné par nos game masters après votre session.</p>
@@ -135,9 +147,9 @@ require_once 'view/autres_pages/header.php';
     <div id="content-avis" class="tab-content" style="display:none;">
         <form action="index.php?action=profil" method="POST">
             <input type="hidden" name="action" value="envoyer_avis">
-            
+
             <h3>Envoyer un commentaire</h3>
-            
+
             <div class="rating-stars">
                 <input type="radio" name="note" id="star5" value="5"><label for="star5">★</label>
                 <input type="radio" name="note" id="star4" value="4"><label for="star4">★</label>
@@ -146,15 +158,17 @@ require_once 'view/autres_pages/header.php';
                 <input type="radio" name="note" id="star1" value="1"><label for="star1">★</label>
             </div>
 
-            <textarea name="commentaire" rows="6"></textarea>
-            
+            <textarea name="contenu" rows="6" required></textarea>
             <div class="action-zone">
                 <button type="submit" class="btn-envoyer">Envoyer</button>
             </div>
+
         </form>
+
     </div>
 
 </main>
+</div>
 
 <script>
     function switchTab(tabName) {
@@ -165,7 +179,7 @@ require_once 'view/autres_pages/header.php';
     }
 </script>
 
-<?php 
+<?php
 // Le fichier de structure (Footer)
-require_once 'view/autres_pages/footer.php'; 
+require_once 'view/autres_pages/footer.php';
 ?>

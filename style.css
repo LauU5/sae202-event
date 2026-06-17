@@ -1,291 +1,298 @@
-@import url('https://fonts.googleapis.com/css2?family=Special+Elite&display=swap');
-@import url('https://fonts.googleapis.com/css2?family=Love+Ya+Like+A+Sister&display=swap');
-@import url('https://fonts.googleapis.com/css2?family=Besley:ital,wght@0,400..900;1,400..900&display=swap');
+@import url("https://fonts.googleapis.com/css2?family=Special+Elite&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Love+Ya+Like+A+Sister&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Besley:ital,wght@0,400..900;1,400..900&display=swap");
 
 body {
-    margin: 0;
-    background-color: #0a0a0a;
-    font-family: 'Special Elite', cursive;
+  background-color: #0b1d16;
+  margin: 0;
+  position: relative;
+  font-family: "Special Elite", cursive;
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
 }
-
-body {
-    background-color: #0b1d16;
-    margin: 0;
-    position: relative;
+main {
+  flex: 1;
 }
-
 
 body::before {
-    content: "";
-    position: absolute;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    background-image: url('view/img/glitch.webp');
-    background-repeat: repeat;
-    mix-blend-mode: overlay;
-    pointer-events: none;
-    z-index: 9999;
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-image: url("view/img/glitch.webp");
+  background-repeat: repeat;
+  mix-blend-mode: overlay;
+  pointer-events: none;
+  z-index: 9999;
 }
 
 header {
-    position: absolute;
-    top: 0;
-    width: 100%;
-    background: linear-gradient(black, transparent);
-    min-height: 100px;
-    display: flex;
-    align-items: center;
-    z-index: 1000;
+  position: absolute;
+  top: 0;
+  width: 100%;
+  background: linear-gradient(black, transparent);
+  min-height: 100px;
+  display: flex;
+  align-items: center;
+  z-index: 1000;
 }
 
 nav {
-    width: 100%;
-    padding: 0 50px;
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
+  width: 100%;
+  padding: 20px 50px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
 }
 
 nav ul {
-    display: flex;
-    align-items: center;
-    gap: 40px;
-    list-style-type: none;
-    margin: 0;
-    padding: 0;
+  display: flex;
+  align-items: center;
+  gap: 40px;
+  list-style-type: none;
+  margin: 0;
+  padding: 0;
 }
 
 nav ul li a {
-    color: #4AA07B;
-    text-decoration: none;
-    font-size: 24px;
-    letter-spacing: 1.5px;
-    transition: color 0.2s ease-in-out;
+  color: #4aa07b;
+  text-decoration: none;
+  font-size: 34px;
+  letter-spacing: 1.5px;
+  transition: color 0.25s cubic-bezier(0.25, 1, 0.5, 1);
+  white-space: nowrap;
 }
 
 nav ul li a:hover {
-    color: #4AA07B;
+  color: #cc2929;
 }
 
 .logo {
-    flex: 1;
-    display: flex;
-    justify-content: flex-start;
+  flex: 1;
+  display: flex;
+  justify-content: flex-start;
 }
 
 .logo img {
-    width: 70px;
-    height: auto;
+  width: 130px;
+  height: auto;
 }
 
 .menu {
-    flex: 2;
-    display: flex;
-    justify-content: center;
+  flex: 2;
+  display: flex;
+  justify-content: center;
 }
 
 .droite {
-    flex: 1;
-    display: flex;
-    justify-content: flex-end;
+  flex: 1;
+  display: flex;
+  justify-content: flex-end;
 }
 
 a.compte {
-    color: #ffffff;
-    font-size: 20px;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    gap: 5px;
+  color: #ffffff;
+  font-size: 24px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 5px;
 }
 
 a.compte:hover {
-    color: #4AA07B;
+  color: #4aa07b;
 }
 
 a.compte img {
-    width: 35px;
-    height: auto;
+  width: 50px;
+  height: auto;
 }
 
 .hero-section {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    text-align: center;
-    padding: 150px 20px 120px 20px;
-    background-image:
-        linear-gradient(to bottom, #254134d3 0%, #0b1e18cc 70%, #0B1E18 100%),
-        url(view/img/classe_background.webp);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+  padding: 150px 20px 120px 20px;
+  background-image:
+    linear-gradient(to bottom, #254134d3 0%, #0b1e18cc 70%, #0b1e18 100%),
+    url(view/img/classe_background.webp);
 
-    background-size: cover;
-    background-position: center;
-    background-repeat: no-repeat;
-    gap: 0;
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  gap: 0;
 }
 
 .hero-section img {
-    height: 450px;
+  height: 450px;
 }
 
 .hero-section p {
-    color: #ffffff;
-    font-size: 38px;
-    margin-top: 0px;
-    letter-spacing: 1px;
-    font-family: 'Special Elite', cursive;
+  color: #ffffff;
+  font-size: 38px;
+  margin-top: 0px;
+  letter-spacing: 1px;
+  font-family: "Special Elite", cursive;
 }
 
 .hero-section a {
-    font-family: 'Special Elite', cursive;
-    color: #ffffff;
-    text-decoration: none;
-    font-size: 45px;
-    height: 75px;
-    padding: 8px 15px 0px 15px;
-    background-image: url(view/img/Rectangle702.png);
-    background-size: 100% 100%;
-    background-repeat: no-repeat;
-    background-position: center;
-    border: none;
-    display: inline-flex;
-    letter-spacing: 1px;
-    transition: transform 0.2s ease-in-out;
-    align-items: center;
-    justify-content: center;
-    box-sizing: border-box;
+  font-family: "Special Elite", cursive;
+  color: #ffffff;
+  text-decoration: none;
+  font-size: 45px;
+  height: 75px;
+  padding: 8px 15px 0px 15px;
+  background-image: url(view/img/rectangle_rouge.webp);
+  background-size: 100% 100%;
+  background-repeat: no-repeat;
+  background-position: center;
+  border: none;
+  display: inline-flex;
+  letter-spacing: 1px;
+  transition: transform 0.25s cubic-bezier(0.25, 1, 0.5, 1);
+  align-items: center;
+  justify-content: center;
+  box-sizing: border-box;
 }
 
-
 .hero-section a:hover {
-    transform: scale(1.01);
-    color: #cf2525;
+  transform: scale(1.01);
+  color: #cf2525;
 }
 
 .lore {
-    position: relative;
-    background-image: linear-gradient(to bottom, #0B1E18 0%, #254134 100%);
-    z-index: 10;
-    box-shadow: 0 49px 45px rgb(0 0 0 / 51%)
+  position: relative;
+  background-image: linear-gradient(to bottom, #0b1e18 100%, #254134 100%);
+  z-index: 10;
+  box-shadow: 0 49px 45px rgb(0 0 0 / 51%);
 }
 
 section {
-    padding: 80px 10%;
-    display: grid;
-    grid-template-columns: 1fr 1fr;
-    gap: 40px 60px;
-    align-items: center;
+  padding: 80px 10%;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 40px 60px;
+  align-items: center;
 }
 
 section h2 {
-    grid-column: 1 / -1;
-    font-family: 'Love Ya Like A Sister', cursive;
-    color: #4AA07B;
-    font-size: 80px;
-    font-weight: normal;
-    text-align: center;
-    margin-bottom: 20px;
-    letter-spacing: 2px;
-    text-shadow: 0 4px 4px hsl(0deg 0% 0% / 75%);
+  grid-column: 1 / -1;
+  font-family: "Love Ya Like A Sister", cursive;
+  color: #4aa07b;
+  font-size: 80px;
+  font-weight: normal;
+  text-align: center;
+  margin-bottom: 20px;
+  letter-spacing: 2px;
+  text-shadow: 0 4px 4px hsl(0deg 0% 0% / 75%);
+  padding-top: 100px;
 }
 
 section article {
-    font-family: 'Besley', serif;
-    font-size: 32px;
-    color: #d1d1d1;
-    line-height: 1.8;
+  font-family: "Besley", serif;
+  font-size: 27px;
+  color: #d1d1d1;
+  line-height: 1.8;
 }
 
 section article p {
-    margin-bottom: 25px;
+  margin-bottom: 25px;
 }
 
 section aside {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    gap: 50px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 50px;
 }
 
 section aside br {
-    display: none;
+  display: none;
 }
 
 section aside img {
-    width: 100%;
-    max-width: 800px;
-    height: auto;
-    border-radius: 2px;
+  width: 100%;
+  max-width: 800px;
+  height: auto;
+  border-radius: 2px;
 }
 
 section aside a {
-    font-family: 'Special Elite', cursive;
-    color: #ffffff;
-    text-decoration: none;
-    font-size: 40px;
-    padding: 15px 55px;
-    background-image: url('view/img/Rectangle 702.png');
-    background-size: 100% 100%;
-    background-repeat: no-repeat;
-    background-position: center;
-    background-color: transparent;
-    border: none;
-    display: inline-block;
-    letter-spacing: 1px;
-    transition: transform 0.2s ease-in-out;
+  font-family: "Special Elite", cursive;
+  color: #ffffff;
+  text-decoration: none;
+  font-size: 32px;
+  letter-spacing: 1px;
+  height: 75px;
+  box-sizing: border-box;
+  padding: 8px 15px 0px 15px;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  background-image: url(view/img/rectangle_rouge.webp);
+  background-size: 100% 100%;
+  background-repeat: no-repeat;
+  background-position: center;
+  background-color: transparent;
+  border: none;
+  transition: all 0.25s cubic-bezier(0.25, 1, 0.5, 1);
 }
 
 section aside a:hover {
-    transform: scale(1.01);
-    color: #cf2525;
+  transform: scale(1.01);
+  color: #cf2525;
 }
 
 .info-cards-section {
-    position: relative;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    gap: 65px;
-    padding: 60px 10%;
-    background-image: linear-gradient(to bottom, #254134, #27362d);
-    box-shadow: 0 49px 45px rgb(0 0 0 / 51%);
-    z-index: 9;
+  position: relative;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 65px;
+  padding: 60px 10%;
+  background-image: linear-gradient(to bottom, #254134, #27362d);
+  box-shadow: 0 49px 45px rgb(0 0 0 / 51%);
+  z-index: 9;
 }
 
 .info-card {
-    background-color: #0b110d;
-    width: 320px;
-    height: 270px;
-    border-radius: 8px;
-    box-shadow: 0 8px 15px rgba(0, 0, 0, 0.5);
+  background-color: #0b1e18;
+  width: 320px;
+  height: 270px;
+  border-radius: 8px;
+  box-shadow: 0 8px 15px rgba(0, 0, 0, 0.5);
 
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
-    text-align: center;
-    gap: 15px;
-
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  gap: 15px;
 }
 
-
 .card-valeur {
-    display: flex;
-    font-family: 'Special Elite', cursive;
-    color: #4AA07B;
-    font-size: 48px;
-    line-height: 1;
-    gap:5px;
+  display: flex;
+  font-family: "Special Elite", cursive;
+  color: #4aa07b;
+  font-size: 42px;
+  line-height: 1;
+  gap: 5px;
+}
+.card-valeur img {
+  width: auto;
+  height: 48px;
 }
 
 .info-card p {
-    font-family: 'Georgia', serif;
-    color: #e8e8e8;
-    font-size: 30px;
-    margin: 0;
-    line-height: 1.4;
+  font-family: "Besley", serif;
+  color: #e8e8e8;
+  font-size: 27px;
+  margin: 0;
+  line-height: 1.4;
 }
 
 /* =========================================
@@ -293,67 +300,67 @@ section aside a:hover {
    ========================================= */
 
 .presentation-section {
-    /* Le fond vert sombre de ta maquette */
-    background-image: linear-gradient(to bottom, #254134 0%, #387158 100%);
-    padding: 80px 10% 40px 10%;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
+  /* Le fond vert sombre de ta maquette */
+  background-image: linear-gradient(to bottom, #254134 0%, #387158 100%);
+  padding: 80px 10% 40px 10%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
 }
 
 /* Conteneur Flexbox pour les deux colonnes */
 .presentation-content {
-    display: flex;
-    align-items: center;
-    gap: 60px;
-    width: 100%;
-    max-width: 1100px;
-    /* Garde le texte bien centré sur les grands écrans */
-    margin-bottom: 60px;
-    /* L'espace avant la ligne rouge */
+  display: flex;
+  align-items: center;
+  gap: 60px;
+  width: 100%;
+  max-width: 1100px;
+  /* Garde le texte bien centré sur les grands écrans */
+  margin-bottom: 60px;
+  /* L'espace avant la ligne rouge */
 }
 
 /* La place vide à gauche */
 .espace-video {
-    flex: 1;
-    min-height: 250px;
-    /* Garde la hauteur pour que le texte reste bien à droite */
+  flex: 1;
+  min-height: 250px;
+  /* Garde la hauteur pour que le texte reste bien à droite */
 }
 
 /* Le texte à droite */
 .presentation-text {
-    flex: 1;
+  flex: 1;
 }
 
 .presentation-text h2 {
-    font-family: 'Special Elite', cursive;
-    color: #4AA07B;
-    /* Ton vert craie */
-    font-size: 49px;
-    font-weight: normal;
-    margin-top: 0;
-    margin-bottom: 20px;
-    letter-spacing: 2px;
-    text-shadow: 0 4px 4px hsl(0deg 0% 0% / 75%);
+  font-family: "Special Elite", cursive;
+  color: #4aa07b;
+  /* Ton vert craie */
+  font-size: 49px;
+  font-weight: normal;
+  margin-top: 0;
+  margin-bottom: 20px;
+  letter-spacing: 2px;
+  text-shadow: 0 4px 4px hsl(0deg 0% 0% / 75%);
 }
 
 .presentation-text p {
-    font-family: 'Besley', serif;
-    color: #e8e8e8;
-    font-size: 23px;
-    line-height: 1.8;
-    margin: 0;
+  font-family: "Besley", serif;
+  color: #e8e8e8;
+  font-size: 23px;
+  line-height: 1.8;
+  margin: 0;
 }
 
 /* --- LA LIGNE ROUGE EN BAS --- */
 .ligne-rouge {
-    width: 100%;
-    height: 25px;
-    background-image: url('view/img/Line1.svg');
-    background-size: 100% 100%;
-    background-repeat: no-repeat;
-    background-position: center;
-    filter: drop-shadow(0px 3px 5px rgba(0, 0, 0, 0.6));
+  width: 100%;
+  height: 25px;
+  background-image: url("view/img/Line.webp");
+  background-size: 100% 100%;
+  background-repeat: no-repeat;
+  background-position: center;
+  filter: drop-shadow(0px 3px 5px rgba(0, 0, 0, 0.6));
 }
 
 /* =========================================
@@ -361,107 +368,103 @@ section aside a:hover {
    ========================================= */
 
 .avis-section {
-    background-image: linear-gradient(to bottom, #387158 0%, #4AA07B 100%);
-    padding: 80px 0;
-    text-align: center;
-    display: block;
+  background-image: linear-gradient(to bottom, #387158 0%, #4aa07b 100%);
+  padding: 80px 0;
+  text-align: center;
+  display: block;
 }
 
 .avis-section h2 {
-    font-family: 'Special Elite', cursive;
-    color: #4AA07B;
-    font-size: 75px;
-    font-weight: normal;
-    margin-top: 0;
-    letter-spacing: 2px;
-    text-shadow: 0 4px 4px hsl(0deg 0% 0% / 75%);
+  font-family: "Special Elite", cursive;
+  color: #0b1e18;
+  font-size: 75px;
+  font-weight: normal;
+  margin-top: 0;
+  letter-spacing: 2px;
+  text-shadow: none;
 }
 
 .avis-section p {
-    color: #e8e8e8;
-    font-size: 24px;
-    font-family: 'Besley';
-    margin-bottom: 50px;
-    margin-top: 0;
+  color: #e8e8e8;
+  font-size: 24px;
+  font-family: "Besley";
+  margin-bottom: 50px;
+  margin-top: 0;
+  text-shadow: 0 4px 4px rgb(0 0 0 / 25%);
 }
 
 /* --- LE CONTENEUR BIEN CENTRÉ --- */
 /* --- LE CONTENEUR DU DÉFILEMENT --- */
 .defilement-container {
-    width: 100%;
-    overflow: hidden;
-    /* Cache tout ce qui dépasse de l'écran */
-    padding: 20px 0;
-    position: relative;
+  width: 100%;
+  overflow: hidden;
+  padding: 20px 0;
+  position: relative;
+  z-index: 10000000;
 }
 
-/* --- LA PISTE QUI AVANCE --- */
 .defilement-track {
-    display: flex;
-    gap: 100px;
-    /* L'espace entre les cartes */
-    width: max-content;
-    /* La piste s'allonge selon le nombre de cartes */
+  display: flex;
+  gap: 100px;
 
-    /* C'est cette ligne qui fait défiler ! 25s = la vitesse. */
-    animation: defilement 25s linear infinite;
+  width: max-content;
+
+  animation: defilement 25s linear infinite;
 }
 
-/* Mets le défilement en pause quand le joueur passe sa souris pour lire */
 .defilement-track:hover {
-    animation-play-state: paused;
+  animation-play-state: paused;
 }
 
-/* --- LE DESIGN DE TES GRANDES CARTES --- */
 .avis-card {
-    background-color: #0b110d;
-    border: 2px solid #4AA07B;
-    padding: 40px;
-    width: 500px;
-    /* Tes grandes cartes */
-    flex-shrink: 0;
-    /* Empêche l'écran d'écraser les cartes */
-    border-radius: 2px;
-    text-align: left;
-    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.4);
-    display: flex;
-    flex-direction: column;
-    justify-content: space-between;
-    box-sizing: border-box;
+  background-color: #0b1e18;
+  border: 2px solid #4aa07b;
+  padding: 5px 15px 5px 15px;
+  width: 500px;
+  flex-shrink: 0;
+  border-radius: 2px;
+  text-align: left;
+  box-shadow: 0 10px 20px rgba(0, 0, 0, 0.4);
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  gap: 5px;
+  overflow-wrap: break-word;
 }
 
 .avis-card .commentaire {
-    font-family: 'Georgia', serif;
-    color: #e8e8e8;
-    font-size: 20px;
-    font-style: italic;
-    line-height: 1.6;
-    margin: 0 0 20px 0;
+  font-family: "Besley", serif;
+  color: #e8e8e8;
+  font-size: 20px;
+  font-style: italic;
+  line-height: 1.6;
+  margin: 0 0 20px 0;
 }
 
 .avis-card .auteur {
-    font-family: 'Special Elite', cursive;
-    color: #6ebd87;
-    font-size: 22px;
-    margin: 0;
+  font-family: "Special Elite", cursive;
+  color: #4aa07b;
+  font-size: 22px;
+  margin: 0;
 }
 
 .avis-card small {
-    color: #999999;
-    font-family: 'Georgia', serif;
-    font-size: 16px;
+  color: #999999;
+  font-family: "Besley", serif;
+  font-size: 16px;
+  margin-top: auto;
 }
 
 /* --- L'ANIMATION CSS --- */
 @keyframes defilement {
-    0% {
-        transform: translateX(0);
-    }
+  0% {
+    transform: translateX(0);
+  }
 
-    100% {
-        /* Se décale de 50% de la largeur totale (car on a doublé les cartes) + la moitié de l'espace (gap) */
-        transform: translateX(calc(-50% - 20px));
-    }
+  100% {
+    /* Se décale de 50% de la largeur totale (car on a doublé les cartes) + la moitié de l'espace (gap) */
+    transform: translateX(calc(-50% - 20px));
+  }
 }
 
 /* =========================================
@@ -469,98 +472,95 @@ section aside a:hover {
    ========================================= */
 
 .site-footer {
-    background-color: #0b110d;
-    
-    padding: 30px 5%;
-    display: flex;
-    justify-content: space-between;
-    
-    align-items: center;
-    border-top: 1px solid #1a241e;
-    position: relative;
-    z-index: 10000;
-    
+  background-color: #0b1e18;
+  background-image: linear-gradient(to bottom, #0b1d16 40%, rgba(0, 0, 0, 1));
+  padding: 30px 5%;
+  display: flex;
+  justify-content: space-between;
+
+  align-items: center;
+  border-top: 1px solid #1a241e;
+  position: relative;
+  z-index: 10000;
 }
 
 /* --- LOGO --- */
 .footer-logo img {
-    width: 150px;
-    /* Adapte la taille selon ton besoin */
-    height: auto;
+  width: 150px;
+  /* Adapte la taille selon ton besoin */
+  height: auto;
 }
 
 /* --- TEXTE CENTRAL --- */
 .footer-center {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    text-align: center;
-    gap: 10px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+  gap: 10px;
 }
 
 .copyright {
-    font-family: 'Special Elite', cursive;
-    color: #6ebd87;
-    /* Ton vert machine à écrire */
-    font-size: 16px;
-    margin: 0;
-    letter-spacing: 1px;
+  font-family: "Special Elite", cursive;
+  color: #4aa07b;
+  /* Ton vert machine à écrire */
+  font-size: 16px;
+  margin: 0;
+  letter-spacing: 1px;
 }
 
 .mentions-legales {
-    font-family: 'Georgia', serif;
-    color: #e8e8e8;
-    /* Blanc cassé */
-    font-size: 14px;
-    text-decoration: none;
-    transition: color 0.2s ease;
+  font-family: "Besley", serif;
+  color: #e8e8e8;
+  /* Blanc cassé */
+  font-size: 14px;
+  text-decoration: none;
+  transition: color 0.2s ease;
 }
 
 .mentions-legales:hover {
-    color: #6ebd87;
-    /* Devient vert au survol */
-    text-decoration: underline;
+  color: #4aa07b;
+  /* Devient vert au survol */
+  text-decoration: underline;
 }
 
 /* --- RÉSEAUX SOCIAUX --- */
 .footer-socials {
-    display: flex;
-    gap: 15px;
+  display: flex;
+  gap: 15px;
 }
 
 .social-icon {
-    display: inline-block;
-    width: 40px;
-    height: 40px;
-    background-color: #000000;
-    /* Fond noir pour les icônes comme sur ta maquette */
-    border-radius: 8px;
-    /* Bords légèrement arrondis */
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    transition: transform 0.2s ease;
+  display: inline-block;
+  width: 40px;
+  height: 40px;
+  background-color: #e8e8e8;
+
+  border-radius: 8px;
+
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  transition: transform 0.2s ease;
 }
 
 .social-icon img {
-    width: 20px;
-    height: 20px;
-    /* Si tes icônes sont noires de base, tu peux forcer la couleur blanche en CSS avec ce filtre (optionnel) : */
-    /* filter: invert(1); */
+  width: 43px;
+  height: 43px;
 }
 
 .social-icon:hover {
-    transform: scale(1.1);
-    /* Petit effet de zoom sympa au survol */
+  transform: scale(1.1);
+  /* Petit effet de zoom sympa au survol */
 }
 
 /* --- RESPONSIVE (Pour les téléphones) --- */
 @media (max-width: 850px) {
-    .site-footer {
-        flex-direction: column;
-        gap: 30px;
-        text-align: center;
-    }
+  .site-footer {
+    flex-direction: column;
+    gap: 30px;
+    text-align: center;
+  }
 }
 
 /* =========================================
@@ -568,85 +568,78 @@ section aside a:hover {
    ========================================= */
 
 .about-section {
-    
-    padding-top: 200px;
-    padding-bottom: 80px;
-    padding-left: 10%;
-    padding-right: 10%;
-
-
-    background-color: transparent;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
+  padding-top: 200px;
+  padding-bottom: 80px;
+  padding-left: 10%;
+  padding-right: 10%;
+  background-color: #0b1e18;
 }
 
 .about-section h2 {
-    font-family: 'Special Elite', cursive;
-    color: #6ebd87;
-    font-size: 80px;
-    font-weight: normal;
-    text-align: center;
-    margin-top: 0;
-    margin-bottom: 60px;
-    letter-spacing: 2px;
-    text-shadow: 0 4px 4px hsl(0deg 0% 0% / 75%);
+  font-family: "Love Ya Like A Sister", cursive;
+  color: #4aa07b;
+  font-size: 80px;
+  font-weight: normal;
+  text-align: center;
+  margin-top: 0;
+  margin-bottom: 60px;
+  letter-spacing: 2px;
+  text-shadow: 0 4px 4px hsl(0deg 0% 0% / 75%);
 }
+
 
 /* --- CONTENEUR FLEX (Texte à gauche / Image à droite) --- */
 .about-container {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    gap: 50px;
-    width: 100%;
-    margin-bottom: 40px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 50px;
+  width: 100%;
+  margin-bottom: 40px;
 }
 
 /* --- COLONNE TEXTE --- */
 .about-text {
-    flex: 1;
+  flex: 1;
 }
 
 .about-text p {
-    font-family: 'Georgia', serif;
-    color: #e8e8e8;
-    font-size: 28px;
-    line-height: 1.8;
-    margin-top: 0;
-    margin-bottom: 25px;
+  font-family: "Besley", serif;
+  color: #e8e8e8;
+  font-size: 22px;
+  line-height: 1.8;
+  margin-top: 0;
+  margin-bottom: 25px;
 }
 
 /* La petite partie de texte en vert */
 .texte-vert {
-    color: #6ebd87;
+  color: #4aa07b;
 }
 
 /* --- COLONNE IMAGE --- */
 .about-image {
-    flex: 1;
-    display: flex;
-    justify-content: flex-end;
+  flex: 1;
+  display: flex;
+  justify-content: flex-end;
 }
 
 .about-image img {
-    width: 100%;
-    max-width: 600px;
-    height: auto;
-    border-radius: 4px;
-    
+  width: 100%;
+  height: auto;
+  border-radius: 4px;
 }
 
 /* --- PHRASE DE CONCLUSION EN BAS --- */
 .about-conclusion {
-    font-family: 'Georgia', serif;
-    color: #e8e8e8;
-    font-size: 28px;
-    line-height: 1.8;
-    width: 100%;
-    max-width: 1100px;
-    margin: 0;
-    text-align: left;
+  font-family: "Besley", serif;
+  color: #e8e8e8;
+  font-size: 28px;
+  line-height: 1.8;
+  width: 100%;
+  max-width: 1100px;
+  margin: 0;
+  text-align: left;
 }
 
 /* =========================================
@@ -654,165 +647,174 @@ section aside a:hover {
    ========================================= */
 
 .planning-section {
-    padding: 80px 10%;
-    background-color: #27362d;
-    grid-template-columns: none;
+  padding: 80px 10%;
+  background-color: #27362d;
+  grid-template-columns: none;
 }
 
 .planning-section h2 {
-    text-align: left;
-    font-family: 'Special Elite', cursive;
-    color: #6ebd87;
-    font-size: 80px;
-    margin: 0 0 60px 0;
-    letter-spacing: 2px;
+  text-align: left;
+  font-family: "Special Elite", cursive;
+  color: #4aa07b;
+  font-size: 80px;
+  margin: 0 0 60px 0;
+  letter-spacing: 2px;
 }
 
 .timeline {
-    position: relative;
-    max-width: 1550px;
-    border-left: 6px solid #0B1E18;
+  position: relative;
+  max-width: 1550px;
+  border-left: 6px solid #0b1e18;
 }
 
 .timeline-item {
-    display: flex;
-    padding: 30px 0;
-    position: relative;
-    border-bottom: 3px solid #0B1E18;
-    align-items: center;
+  display: flex;
+  padding: 30px 0;
+  position: relative;
+  border-bottom: 3px solid #0b1e18;
+  align-items: center;
 }
 
 /* Le point vert */
 .timeline-item::before {
-    content: "";
-    position: absolute;
-    left: -3px;
-    top: 75px;
-    transform: translate(-50%, -50%);
-    width: 14px;
-    height: 14px;
-    background-color: #4AA07B;
-    border-radius: 50%;
-    border: 4px solid #254134;
+  content: "";
+  position: absolute;
+  left: -3px;
+  top: 75px;
+  transform: translate(-50%, -50%);
+  width: 14px;
+  height: 14px;
+  background-color: #4aa07b;
+  border-radius: 50%;
+  border: 4px solid #254134;
 }
 
 .time {
-    font-family: 'Special Elite', cursive;
-    color: #4aa07b;
-    font-size: 50px;
-    width: 180px;
-    flex-shrink: 0;
-    margin-left: 35px;
-    line-height: 1.6;
+  font-family: "Special Elite", cursive;
+  color: #4aa07b;
+  font-size: 50px;
+  width: 180px;
+  flex-shrink: 0;
+  margin-left: 35px;
+  line-height: 1.6;
 }
 .timeline-item:last-child {
-    border-bottom: none;
+  border-bottom: none;
 }
 
 .desc {
-    font-family: 'Georgia', serif;
-    color: #e8e8e8;
-    font-size: 34px;
-    line-height: 1.6;
+  font-family: "Besley", serif;
+  color: #e8e8e8;
+  font-size: 27px;
+  line-height: 1.6;
 }
 
 .desc em {
-    color: #6ebd87;
-    font-style: italic;
+  color: #4aa07b;
+  font-style: italic;
 }
 
 /* =========================================
    SECTION MENUS
    ========================================= */
 .menus-section {
-    display: flex;
-    gap: 30px;
-    padding: 80px 5%;
-    flex-direction: column;
+  display: flex;
+  gap: 30px;
+  padding: 80px 5%;
+  flex-direction: column;
+  background-image: linear-gradient(to bottom, #254134 0%, #4aa07b 100%);
 }
 
 .menu-card {
-    background-color: #0b110d;
-    border: 2px solid #6ebd87;
-    width: 300px;
-    height: 600px;
-    padding: 30px;
-    text-align: center;
-    position: relative;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: flex-end;
+  background-image: url("view/img/rectangle_menu.webp");
+  background-size: 100% 100%;
+  width: 350px;
+  height: 540px;
+  padding: 30px;
+  text-align: center;
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: space-between;
 }
 
 .nos-menus {
-    display: flex;
-    gap: 70px;
-
+  display: flex;
+  gap: 70px;
 }
 
 /* Badge Populaire */
 .popular {
-    border-color: #6ebd87;
+  border-color: #4aa07b;
 }
 
 .badge-populaire {
-    position: absolute;
-    top: -38px;
-    background-color: #6ebd87;
-    color: #0b110d;
-    font-family: 'Love Ya Like A Sister', cursive;
-    padding: 3px 15px;
-    font-size: 48px;
-    font-weight: bold;
-    border-radius: 5px;
+  position: absolute;
+  top: -38px;
+  background-color: #4aa07b;
+  color: #0b1e18;
+  font-family: "Love Ya Like A Sister", cursive;
+  padding: 3px 15px;
+  font-size: 48px;
+  border-radius: 5px;
+  box-shadow: 0 0 15px rgba(74, 160, 123, 0.6);
 }
 
 .menu-card h3 {
-    font-family: 'Special Elite', cursive;
-    color: #ecf6ec;
-    font-size: 40px;
-    margin-bottom: 20px;
-    margin-top: 70px;
+  font-family: "Special Elite", cursive;
+  font-weight: 100;
+  color: #ecf6ec;
+  font-size: 40px;
+  margin-bottom: 20px;
+  margin-top: 40px;
+  white-space: nowrap;
+}
+
+.prix_framed {
+  color: #cf2525;
 }
 
 .menu-card ul {
-    list-style: none;
-    padding: 0;
-    font-size: 28px;
-    font-family: 'Georgia', serif;
-    color: #4aa07b;
-    margin-bottom: 30px;
-    text-align: left;
+  list-style: none;
+  padding: 0;
+  font-size: 26px;
+  font-family: "Besley", serif;
+  color: #4aa07b;
+  margin-bottom: 30px;
+  text-align: left;
 }
 
 .menu-card ul li {
-    margin-bottom: 10px;
-    position: relative;
-    padding-left: 15px;
+  margin-bottom: 10px;
+  position: relative;
+  padding-left: 15px;
+  white-space: nowrap;
 }
 
 .menu-card ul li::before {
-    content: "•";
-    position: absolute;
-    left: 0;
-    color: #6ebd87;
+  content: "•";
+  position: absolute;
+  left: 0;
+  color: #4aa07b;
 }
 
 .menu-card img {
-    width: 100%;
-    height: auto;
-    border-radius: 5px;
+  width: 300px;
+  height: 165px;
+  object-fit: cover;
+  border-radius: 5px;
 }
 
 .allergies-note {
-    text-align: center;
-    font-family: 'Georgia', serif;
-    color: #e8e8e8;
-    font-style: italic;
-    padding: 0 10%;
-    margin-bottom: 50px;
-    font-size: 18px;
+  text-align: left;
+  font-family: "Besley", serif;
+  color: #e8e8e8;
+  font-style: italic;
+  font-size: 18px;
+  display: block;
+  margin: 0 auto 50px auto;
+  text-shadow: 0 4px 4px rgb(0 0 0 / 25%);
 }
 
 /* =========================================
@@ -820,184 +822,183 @@ section aside a:hover {
    ========================================= */
 
 .prix-services-section {
-    padding: 60px 5%;
-    /* On réduit le padding latéral de 10% à 5% pour gagner de la place */
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    /* On centre tout proprement */
+  padding: 60px 5%;
+  /* On réduit le padding latéral de 10% à 5% pour gagner de la place */
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  background-image: linear-gradient(to bottom, #4aa07b 0%, #254134 100%);
 }
 
 /* Le titre noir au-dessus du bloc */
 .prix-services-section h2 {
-    font-family: 'Special Elite', cursive;
-    color: #4AA07B;
-    font-size: 80px;
-    margin-top: 0;
-    margin-bottom: 20px;
-    text-align: left;
-    width: 100%;
-    max-width: 1200px;
-    /* Aligne parfaitement le titre avec le bord gauche du cadre */
+  font-family: "Special Elite", cursive;
+  color: #0b1e18;
+  font-size: 80px;
+  margin-top: 0;
+  margin-bottom: 20px;
+  text-align: left;
+  width: 100%;
+  max-width: 1200px;
+  text-shadow: none;
 }
 
 /* Le grand conteneur sombre avec la bordure verte */
 .ps-container {
-    background-color: #0b110d;
-    border: 2px solid #6ebd87;
-    padding: 50px;
-    /* Un peu plus d'air à l'intérieur */
-    display: flex;
-    flex-direction: column;
-    gap: 50px;
-    width: 100%;
-    max-width: 1200px;
-    /* C'EST CETTE LIGNE QUI REND LE BLOC BEAUCOUP PLUS LARGE */
-    box-sizing: border-box;
+  background-color: #0b1e18;
+  border: 2px solid #4aa07b;
+  padding: 50px;
+  /* Un peu plus d'air à l'intérieur */
+  display: flex;
+  flex-direction: column;
+  gap: 50px;
+  width: 100%;
+  max-width: 1200px;
+  /* C'EST CETTE LIGNE QUI REND LE BLOC BEAUCOUP PLUS LARGE */
+  box-sizing: border-box;
 }
 
 /* --- PARTIE HAUTE (3 colonnes) --- */
 .ps-top {
-    display: grid;
-    grid-template-columns: 1fr 2fr 1.2fr;
-    gap: 40px;
-    /* On augmente un peu l'espace entre les 3 colonnes */
-    align-items: center;
+  display: grid;
+  grid-template-columns: 1fr 2fr 1.2fr;
+  gap: 40px;
+  /* On augmente un peu l'espace entre les 3 colonnes */
+  align-items: center;
 }
 
 .ps-price-main {
-    text-align: center;
+  text-align: center;
 }
 
 .ps-price-main .ps-label {
-    font-family: 'Special Elite', cursive;
-    color: #e8e8e8;
-    font-size: 16px;
-    margin: 5px 0;
+  font-family: "Special Elite", cursive;
+  color: #e8e8e8;
+  font-size: 16px;
+  margin: 0;
+  margin-bottom: 10px;
 }
 
 .ps-price-value {
-    font-family: 'Permanent Marker', 'Special Elite', cursive;
-    color: #cc2929;
-    /* Le rouge vif/sang */
-    font-size: 75px;
-    line-height: 1;
-    margin: 10px 0;
+  font-family: "Love Ya Like A Sister", cursive;
+  color: #cf2525;
+  font-size: 90px;
+  line-height: 1;
 }
 
 /* La liste verte */
 .ps-list ul {
-    list-style: none;
-    padding: 0;
-    margin: 0;
+  list-style: none;
+  padding: 0;
+  margin: 0;
 }
 
 .ps-list li {
-    font-family: 'Georgia', serif;
-    color: #6ebd87;
-    /* Texte en vert */
-    font-size: 16px;
-    margin-bottom: 10px;
-    position: relative;
-    padding-left: 15px;
+  font-family: "Besley", serif;
+  color: #4aa07b;
+  font-size: 20px;
+  margin-bottom: 10px;
+  position: relative;
+  padding-left: 15px;
 }
 
 .ps-list li::before {
-    content: "•";
-    position: absolute;
-    left: 0;
-    color: #6ebd87;
+  content: "•";
+  position: absolute;
+  left: 0;
+  color: #4aa07b;
 }
 
 .ps-list em {
-    font-style: italic;
-    color: #558c66;
-    /* Vert un peu plus sombre pour l'italique */
+  font-style: italic;
+  color: #558c66;
+  /* Vert un peu plus sombre pour l'italique */
 }
 
 /* La boîte grise à droite */
 .ps-info-box {
-    background-color: #1e2a22;
-    /* Fond vert-gris légèrement plus clair */
-    padding: 20px;
-    border-radius: 4px;
+  background-color: #254134;
+  padding: 20px;
+  border-radius: 4px;
 }
 
 .ps-info-box p {
-    font-family: 'Georgia', serif;
-    color: #e8e8e8;
-    font-size: 14px;
-    line-height: 1.6;
-    margin: 0;
-    text-align: center;
+  font-family: "Besley", serif;
+  color: #e8e8e8;
+  font-size: 14px;
+  line-height: 1.6;
+  margin: 0;
+  text-align: center;
 }
 
 /* --- PARTIE BASSE (Les blocs verts) --- */
 .ps-bottom {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    gap: 20px;
+  display: flex;
+  justify-content: space-evenly;
+  align-items: center;
 }
 
 .ps-group-box {
-    background-color: #6ebd87;
-    color: #0b110d;
-    padding: 15px 25px;
-    border-radius: 4px;
-    text-align: center;
-    flex: 1;
-    /* Force les blocs à faire la même taille */
+  background-color: #4aa07b;
+  color: #0b1e18;
+  padding: 15px 40px;
+  border-radius: 4px;
+  text-align: center;
 }
 
 .ps-group-box strong {
-    font-family: 'Georgia', serif;
-    font-size: 18px;
-    font-weight: bold;
-    display: block;
-    margin-bottom: 5px;
+  font-family: "Besley", serif;
+  font-size: 20px;
+  font-weight: bold;
+  display: block;
 }
 
 .ps-group-box span {
-    font-family: 'Georgia', serif;
-    font-size: 16px;
+  font-family: "Besley", serif;
+  font-size: 18hpx;
 }
 
 /* Le bouton avec l'effet "Bordure rouge" */
 .ps-btn-tarifs {
-    font-family: 'Special Elite', cursive;
-    color: #ffffff;
-    font-size: 26px;
-    text-decoration: none;
-    padding: 10px 40px;
-    border: 3px solid #cc2929;
-    /* Bordure rouge */
-    background-color: transparent;
-    transition: all 0.2s ease;
-    /* Petite rotation pour imiter le côté dessiné/tampon de la maquette */
-    transform: rotate(-1deg);
+  font-family: "Special Elite", cursive;
+  color: #ffffff;
+  text-decoration: none;
+  font-size: 30px;
+  letter-spacing: 1px;
+  height: 50px;
+  box-sizing: border-box;
+  padding: 8px 15px 0px 15px;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  background-image: url(view/img/rectangle_rouge.webp);
+  background-size: 100% 100%;
+  background-repeat: no-repeat;
+  background-position: center;
+  background-color: transparent;
+  border: none;
+  transition: all 0.25s cubic-bezier(0.25, 1, 0.5, 1);
 }
 
 .ps-btn-tarifs:hover {
-    background-color: #cc2929;
-    color: white;
+  color: #cc2929;
 }
 
 /* --- RESPONSIVE POUR MOBILE --- */
 @media (max-width: 950px) {
-    .ps-top {
-        grid-template-columns: 1fr;
-        /* Passe en 1 seule colonne sur mobile */
-    }
+  .ps-top {
+    grid-template-columns: 1fr;
+    /* Passe en 1 seule colonne sur mobile */
+  }
 
-    .ps-bottom {
-        flex-direction: column;
-    }
+  .ps-bottom {
+    flex-direction: column;
+  }
 
-    .ps-group-box {
-        width: 100%;
-        box-sizing: border-box;
-    }
+  .ps-group-box {
+    width: 100%;
+    box-sizing: border-box;
+  }
 }
 
 /* =========================================
@@ -1005,129 +1006,135 @@ section aside a:hover {
    ========================================= */
 
 .horaires-section {
-    padding: 80px 10%;
-    width: 100%;
-    max-width: 1000px;
-    /* On donne de la place ! */
-    margin: 0 auto;
-    /* Pour centrer le bloc au milieu de la page */
-    box-sizing: border-box;
-    display: block;
-    /* Sécurité pour forcer le bloc à prendre sa propre ligne */
-    clear: both;
+  padding: 80px 10%;
+  width: 100%;
+  margin: 0 auto;
+  box-sizing: border-box;
+  display: block;
+  clear: both;
+}
+
+.background-gradient-container {
+  background: linear-gradient(to bottom, #0b1e18 0%, #0b1e18 31%, #254134 100%);
+  width: 100%;
+  min-height: 100vh;
+  overflow: hidden;
 }
 
 .horaires-section h2 {
-    font-family: 'Special Elite', cursive;
-    color: #4AA07B;
-    font-size: 42px;
-    margin-top: 50px;
-    margin-bottom: 50px;
-    font-weight: normal;
+  font-family: "Special Elite", cursive;
+  color: #4aa07b;
+  font-size: 42px;
+  margin-top: 50px;
+  margin-bottom: 50px;
+  font-weight: normal;
 }
 
 /* --- LA LIGNE VERTICALE --- */
 .horaires-timeline {
-    border-left: 6px solid #254134;
-    position: relative;
-    width: 100%;
-    box-sizing: border-box;
+  border-left: 6px solid #254134;
+  position: relative;
+  width: 100%;
+  box-sizing: border-box;
 }
 
 /* --- CHAQUE LIGNE D'HORAIRE --- */
 .horaires-item {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    padding: 30px 0;
-    border-bottom: 3px solid #254134;
-    position: relative;
-    width: 100%;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 30px 0;
+  border-bottom: 3px solid #254134;
+  position: relative;
+  width: 100%;
 }
 
 .horaires-item:last-child {
-    border-bottom: none;
+  border-bottom: none;
 }
 
 /* --- LES POINTS VERTS --- */
 .horaires-item::before {
-    content: "";
-    position: absolute;
-    left: -13px;
-    /* On ajuste pour que ça tombe pile sur la ligne */
-    top: 50%;
-    transform: translateY(-50%);
-    width: 12px;
-    height: 12px;
-    background-color: #4AA07B;
-    border-radius: 50%;
-    border: 4px solid #254134;
+  content: "";
+  position: absolute;
+  left: -13px;
+  /* On ajuste pour que ça tombe pile sur la ligne */
+  top: 50%;
+  transform: translateY(-50%);
+  width: 12px;
+  height: 12px;
+  background-color: #4aa07b;
+  border-radius: 50%;
+  border: 4px solid #254134;
 }
 
 /* --- LE TEXTE DES JOURS --- */
 .jour {
-    font-family: 'Special Elite', cursive;
-    color: #e8e8e8;
-    font-size: 32px;
-    white-space: nowrap;
-    margin-left: 30px;
-    line-height: 1.6;
+  font-family: "Special Elite", cursive;
+  color: #e8e8e8;
+  font-size: 32px;
+  white-space: nowrap;
+  margin-left: 30px;
+  line-height: 1.6;
 }
 
 /* --- LE TEXTE DES HEURES --- */
 .heures {
-    font-family: 'Georgia', serif;
-    color: #4AA07B;
-    font-size: 32px;
-    white-space: nowrap;
-    text-align: right;
-    line-height: 1.6;
+  font-family: "Besley", serif;
+  color: #4aa07b;
+  font-size: 32px;
+  white-space: nowrap;
+  text-align: right;
+  line-height: 1.6;
 }
 /* =========================================
    SECTION CONTACT & CARTE
    ========================================= */
 
 .contact-section {
-    padding: 60px 10%;
-    width: 100%;
-    max-width: 1200px; 
-    margin: 0 auto;
-    display: flex;
-    flex-direction: column;
-    align-items: center; 
-    box-sizing: border-box;
-    position: relative;
-    z-index: 10; 
+  padding: 60px 10%;
+  width: 100%;
+  margin: 0 auto;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  box-sizing: border-box;
+  position: relative;
+  z-index: 10;
 }
 
 /* Le grand cadre autour de la carte */
 .map-container {
-    width: 100%;
-    background-color: #0b110d; 
-    border: 2px solid #6ebd87; 
-    padding: 10px; 
-    margin-bottom: 40px; 
-    box-sizing: border-box;
+  width: 100%;
+  box-sizing: border-box;
 }
 
-/* La carte Google Maps elle-même (tout le style est géré ici) */
 .map-container iframe {
-    display: block; 
-    width: 100%; /* Rapatrié du HTML */
-    height: 450px; /* Rapatrié du HTML */
-    border: none; /* Le fameux style="border:0;" rapatrié ici ! */
-    border-radius: 2px; 
+  display: block;
+  width: 100%;
+  height: 750px;
+  border: 7px solid #254134;
+  border-radius: 6px;
+}
+.map-container iframe {
+  width: 100%;
+  height: 450px;
+  border: 2px solid #4aa07b;
+  border-radius: 4px;
+
+  filter: grayscale(100%) invert(100%) sepia(80%) hue-rotate(80deg)
+    brightness(80%) contrast(120%);
 }
 
 /* Le titre en dessous */
 .contact-section h2 {
-    font-family: 'Special Elite', cursive;
-    color: #6ebd87;
-    font-size: 42px;
-    margin: 0;
-    font-weight: normal;
-    text-align: center;
-    text-shadow: 0 4px 4px hsl(0deg 0% 0% / 75%);
+  font-family: "Special Elite", cursive;
+  color: #4aa07b;
+  font-size: 42px;
+  margin: 0;
+  font-weight: normal;
+  text-align: center;
+  text-shadow: 0 4px 4px hsl(0deg 0% 0% / 75%);
 }
 /* =========================================
    COORDONNÉES DE CONTACT (Titre + Colonnes)
@@ -1135,194 +1142,187 @@ section aside a:hover {
 
 /* Le grand conteneur qui englobe le titre et les colonnes */
 .infos-contact-wrapper {
-    width: 100%;
-    text-align: center; /* Centre le titre H2 */
-    padding: 0 10% 60px 10%; /* Garde une marge sur les côtés pour que ça ne touche pas l'écran */
-    box-sizing: border-box;
+  width: 100%;
+  text-align: center; /* Centre le titre H2 */
+  padding: 0 10% 60px 10%; /* Garde une marge sur les côtés pour que ça ne touche pas l'écran */
+  box-sizing: border-box;
 }
 
 /* Le style forcé du titre */
 .infos-contact-wrapper h2 {
-    font-family: 'Special Elite', cursive;
-    color: #6ebd87;
-    font-size: 42px;
-    margin-top: 0;
-    margin-bottom: 50px;
-    font-weight: normal;
-    text-shadow: 0 4px 4px hsl(0deg 0% 0% / 75%);
+  font-family: "Special Elite", cursive;
+  color: #4aa07b;
+  font-size: 42px;
+  margin-top: 0;
+  margin-bottom: 50px;
+  font-weight: normal;
+  text-shadow: 0 4px 4px hsl(0deg 0% 0% / 75%);
 }
 
 /* Le bloc qui contient les 3 colonnes */
 .contact-info-container {
-    display: flex;
-    justify-content: space-between; 
-    align-items: flex-start;
-    width: 100%;
-    max-width: 900px; 
-    margin: 0 auto; /* LA CORRECTION EST LÀ : ça force le bloc à se centrer horizontalement ! */
-    gap: 30px;
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  width: 100%;
+  max-width: 900px;
+  margin: 0 auto; /* LA CORRECTION EST LÀ : ça force le bloc à se centrer horizontalement ! */
+  gap: 30px;
 }
 
 /* Chaque colonne individuelle */
 .contact-item {
-    flex: 1; 
-    text-align: left; /* Garde le texte aligné à gauche à l'intérieur de sa propre colonne */
+  flex: 1;
+  text-align: left;
 }
 
 .contact-item h3 {
-    font-family: 'Special Elite', cursive;
-    color: #6ebd87;
-    font-size: 26px;
-    margin-top: 0;
-    margin-bottom: 15px;
-    font-weight: normal;
-    text-shadow: 0 4px 4px hsl(0deg 0% 0% / 75%);
+  font-family: "Special Elite", cursive;
+  color: #4aa07b;
+  font-size: 26px;
+  margin-top: 0;
+  margin-bottom: 0;
+  font-weight: normal;
+  text-shadow: 0 4px 4px hsl(0deg 0% 0% / 75%);
 }
 
 .contact-item p {
-    font-family: 'Georgia', serif;
-    color: #e8e8e8;
-    font-size: 18px;
-    margin: 0;
-    line-height: 1.6;
+  font-family: "Besley", serif;
+  color: #e8e8e8;
+  font-size: 18px;
+  margin: 0;
+  line-height: 1.6;
 }
 
 /* Style pour le lien mail cliquable */
 .contact-item a {
-    color: #e8e8e8;
-    text-decoration: none;
-    transition: color 0.2s ease;
+  color: #e8e8e8;
+  text-decoration: none;
+  transition: color 0.2s ease;
 }
 
 .contact-item a:hover {
-    color: #6ebd87; 
+  color: #4aa07b;
 }
 /* =========================================
    PAGE INSCRIPTION (Multi-étapes)
    ========================================= */
 
 .inscription-container {
-    max-width: 800px;
-    margin: 60px auto;
-    padding: 0 20px;
+  max-width: 800px;
+  margin: 60px auto;
+  padding: 0 20px;
 }
 /* Titre principal et texte d'intro */
 .inscription-container > p {
-    font-family: 'Georgia', serif;
-    color: #e8e8e8 !important; /* Le !important force le blanc cassé ici aussi */
-    font-size: 16px;
-    margin-bottom: 40px;
+  font-family: "Besley", serif;
+  color: #e8e8e8 !important; /* Le !important force le blanc cassé ici aussi */
+  font-size: 16px;
+  margin-bottom: 40px;
 }
 
 /* Titre principal et texte d'intro */
 .inscription-container h2 {
-    font-family: 'Special Elite', cursive;
-    color: #6ebd87;
-    font-size: 42px;
-    margin-top: 0;
-    margin-bottom: 10px;
-    font-weight: normal;
+  font-family: "Special Elite", cursive;
+  color: #4aa07b;
+  font-size: 42px;
+  margin-top: 0;
+  margin-bottom: 10px;
+  font-weight: normal;
 }
 /* --- BOUTON "AJOUTER UN PARTICIPANT" --- */
 
 .action-ajouter {
-    margin-top: 20px;
-    margin-bottom: 30px;
-    text-align: left; /* Tu peux mettre 'center' si tu préfères qu'il soit au milieu */
+  margin-top: 20px;
+  margin-bottom: 30px;
+  text-align: left; /* Tu peux mettre 'center' si tu préfères qu'il soit au milieu */
 }
 
 .btn-ajouter {
-    background-color: transparent;
-    color: #6ebd87;
-    /* On utilise une bordure en pointillés (dashed) pour le côté "Ajout/Optionnel", 
-       ça rend super bien pour ce genre d'action ! */
-    border: 2px dashed #6ebd87; 
-    font-family: 'Special Elite', cursive;
-    font-size: 18px;
-    padding: 10px 25px;
-    cursor: pointer;
-    transition: all 0.2s ease;
+  background-color: rgb(0 0 0 / 30%);
+  color: #e8e8e8;
+  border: 2px solid #4aa07b;
+  font-family: "Special Elite", cursive;
+  font-size: 26px;
+  padding: 10px 25px;
+  cursor: pointer;
+  transition: all 0.2s ease;
+  margin-right: auto;
+  text-shadow: 0 4px 4px black;
 }
 
 /* Effet quand on passe la souris dessus */
 .btn-ajouter:hover {
-    background-color: #6ebd87;
-    color: #0b110d; /* Le texte devient sombre */
-    border-style: solid; /* La bordure devient pleine */
+  background-color: #4aa07b;
+  color: #e8e8e8; /* Le texte devient sombre */
+  border-style: solid; /* La bordure devient pleine */
 }
-
 
 .inscription-container {
-    max-width: 800px;
-    margin: 0 auto 60px auto !important; /* On centre le bloc proprement */
-    
-    /* LA SOLUTION DE CHOC : On force un gros espace en haut à l'intérieur du bloc */
-    padding-top: 160px !important; 
-    
-    padding-left: 20px;
-    padding-right: 20px;
-    position: relative;
-    z-index: 10; 
-}
+  max-width: 800px;
+  margin: 0 auto 60px auto !important; /* On centre le bloc proprement */
 
-/* --- LES ONGLETS (1. Equipe, 2. Membres...) --- */
-.tabs-navigation {
-    display: flex;
-    gap: 5px; /* Petit espace entre les onglets */
-    margin-bottom: 30px;
+  /* LA SOLUTION DE CHOC : On force un gros espace en haut à l'intérieur du bloc */
+  padding-top: 160px !important;
+
+  padding-left: 20px;
+  padding-right: 20px;
+  position: relative;
+  z-index: 10;
 }
 
 .tab {
-    flex: 1;
-    padding: 15px 10px;
-    text-align: center;
-    font-family: 'Special Elite', cursive;
-    font-size: 16px;
-    color: #e8e8e8;
-    border: 2px solid #6ebd87;
-    background-color: transparent;
-    cursor: default; /* On désactive le curseur pointeur si ce n'est pas cliquable manuellement */
+  flex: 1;
+  padding: 15px 10px;
+  text-align: center;
+  font-family: "Special Elite", cursive;
+  font-size: 16px;
+  color: #e8e8e8;
+  border: 2px solid #4aa07b;
+  background-color: transparent;
+  cursor: default; /* On désactive le curseur pointeur si ce n'est pas cliquable manuellement */
 }
 
 .tab.active {
-    background-color: #6ebd87;
-    color: #0b110d;
-    font-weight: bold;
+  background-color: #4aa07b;
+  color: #0b1e18;
+  font-weight: bold;
 }
 
 /* --- LE CADRE DU FORMULAIRE --- */
 #form-inscription fieldset {
-    border: 2px solid #6ebd87;
-    padding: 40px;
-    margin: 0;
-    background-color: transparent;
+  border: 2px solid #4aa07b;
+  padding: 40px;
+  margin: 0;
+  background-color: #0b1e18;
+  display: flex;
+  flex-direction: column;
 }
 
-/* On force la légende ("Nommez votre équipe") à s'afficher à l'intérieur du cadre */
 #form-inscription legend {
-    font-family: 'Special Elite', cursive;
-    color: #6ebd87;
-    font-size: 36px;
-    float: left;
-    width: 100%;
-    margin-bottom: 30px;
-    padding: 0;
+  font-family: "Special Elite", cursive;
+  color: #4aa07b;
+  font-size: 36px;
+  float: left;
+  width: 100%;
+  padding: 0;
+  margin-bottom: 30px;
 }
 
 /* --- LES CHAMPS DU FORMULAIRE --- */
 #form-inscription label {
-    display: block;
-    font-family: 'Georgia', serif;
-    color: #e8e8e8;
-    font-size: 16px;
-    margin-bottom: 10px;
-    clear: both; /* Pour s'assurer qu'ils passent bien sous la légende */
-    margin-top: 20px;
+  display: block;
+  font-family: "Besley", serif;
+  color: #e8e8e8;
+  font-size: 16px;
+  margin-bottom: 10px;
+  clear: both; /* Pour s'assurer qu'ils passent bien sous la légende */
+  margin-top: 20px;
 }
 
 /* Annule la marge du tout premier label juste en dessous du titre */
 #form-inscription legend + label {
-    margin-top: 0;
+  margin-top: 0;
 }
 
 #form-inscription input[type="text"],
@@ -1331,220 +1331,243 @@ section aside a:hover {
 #form-inscription input[type="password"],
 #form-inscription select,
 #form-inscription textarea {
-    width: 100%;
-    background-color: #0a0f0c; /* Fond presque noir */
-    border: 1px solid #1a241e; /* Bordure très discrète */
-    color: #e8e8e8;
-    padding: 12px;
-    font-family: 'Georgia', serif;
-    font-size: 16px;
-    box-sizing: border-box;
+  width: 100%;
+  background-color: #0a0f0c; /* Fond presque noir */
+  border: 2px solid #4aa07b; /* Bordure très discrète */
+  color: #e8e8e8;
+  padding: 12px;
+  font-family: "Besley", serif;
+  font-size: 16px;
+  box-sizing: border-box;
+  resize: none;
 }
 
 /* Changement de couleur quand on clique dans un champ */
 #form-inscription input:focus,
 #form-inscription select:focus,
 #form-inscription textarea:focus {
-    outline: none;
-    border-color: #6ebd87;
+  outline: none;
+  border-color: #4aa07b;
 }
 
-/* Personnalisation de la petite flèche des menus déroulants (Select) */
 #form-inscription select {
-    appearance: none;
-    background-image: url('data:image/svg+xml;utf8,<svg fill="%236ebd87" height="24" viewBox="0 0 24 24" width="24" xmlns="http://www.w3.org/2000/svg"><path d="M7 10l5 5 5-5z"/><path d="M0 0h24v24H0z" fill="none"/></svg>');
-    background-repeat: no-repeat;
-    background-position-x: 98%;
-    background-position-y: center;
-    cursor: pointer;
+  appearance: none;
+  background-image: url('data:image/svg+xml;utf8,<svg fill="%234aa07b" height="24" viewBox="0 0 24 24" width="24" xmlns="http://www.w3.org/2000/svg"><path d="M7 10l5 5 5-5z"/><path d="M0 0h24v24H0z" fill="none"/></svg>');
+  background-repeat: no-repeat;
+  background-position-x: 98%;
+  background-position-y: center;
+  cursor: pointer;
 }
 
-/* Alignement des colonnes (ex: Nombre de participants / Menu) */
 .form-row {
-    display: flex;
-    gap: 30px;
-    width: 100%;
+  display: flex;
+  gap: 30px;
+  width: 100%;
 }
 
 .form-group {
-    flex: 1;
+  flex: 1;
 }
 
-/* --- LES BOUTONS --- */
 .boutons-navigation {
-    display: flex;
-    justify-content: flex-end; /* Pousse les boutons tout à droite */
-    margin-top: 30px;
-    gap: 20px;
+  display: flex;
+  justify-content: flex-end; /* Pousse les boutons tout à droite */
+  margin-top: 30px;
+  gap: 20px;
 }
 
-/* Bouton Suivant avec la bordure rouge */
-.btn-suivant, .btn-confirmer {
-    background-color: #0b110d;
-    color: #e8e8e8;
-    border: 2px solid #cc2929; /* Le rouge de ta maquette */
-    font-family: 'Special Elite', cursive;
-    font-size: 20px;
-    padding: 10px 30px;
-    cursor: pointer;
-    transition: all 0.2s ease;
+.btn-refuser,
+.btn-suivant,
+.btn-confirmer {
+  font-family: "Special Elite", cursive;
+  color: #ffffff;
+  text-decoration: none;
+  font-size: 30px;
+  letter-spacing: 1px;
+  height: 60px;
+  box-sizing: border-box;
+  padding: 8px 15px 0px 15px;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  background-image: url(view/img/rectangle_rouge.webp);
+  background-size: 100% 100%;
+  background-repeat: no-repeat;
+  background-position: center;
+  background-color: transparent;
+  border: none;
+  transition: all 0.25s cubic-bezier(0.25, 1, 0.5, 1);
+  text-shadow: 0 4px 4px black;
 }
 
-.btn-suivant:hover, .btn-confirmer:hover {
-    background-color: #cc2929;
-    color: white;
+.btn-suivant:hover,
+.btn-confirmer:hover {
+  color: #cc2929;
 }
 
-/* Bouton Précédent (pour les étapes suivantes) */
+.btn-accepter,
 .btn-precedent {
-    background-color: transparent;
-    color: #6ebd87;
-    border: 2px solid #6ebd87;
-    font-family: 'Special Elite', cursive;
-    font-size: 18px;
-    padding: 10px 30px;
-    cursor: pointer;
-    transition: all 0.2s ease;
+  font-family: "Special Elite", cursive;
+  color: #ffffff;
+  text-decoration: none;
+  font-size: 30px;
+  letter-spacing: 1px;
+  height: 60px;
+  box-sizing: border-box;
+  padding: 8px 15px 0px 15px;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  background-image: url(view/img/rectangle_vert.webp);
+  background-size: 100% 100%;
+  background-repeat: no-repeat;
+  background-position: center;
+  background-color: transparent;
+  border: none;
+  transition: all 0.25s cubic-bezier(0.25, 1, 0.5, 1);
+  text-shadow: 0 4px 4px black;
 }
 
 .btn-precedent:hover {
-    background-color: #6ebd87;
-    color: #0b110d;
+  color: #4aa07b;
 }
 /* --- TEXTES ET TITRES A L'INTERIEUR DU FORMULAIRE --- */
 
 /* Le texte "Seul le capitaine..." */
 #form-inscription p {
-    font-family: 'Georgia', serif;
-    color: #e8e8e8; /* Le blanc cassé */
-    font-size: 16px;
-    margin-top: -15px; /* Rapproche un peu le texte du grand titre vert */
-    margin-bottom: 30px;
+  font-family: "Besley", serif;
+  color: #e8e8e8;
+  font-size: 16px;
+  margin-top: -15px;
+  margin-bottom: 30px;
 }
 
-/* Le texte "Participant 1 - CAPITAINE D'EQUIPE" et les suivants ajoutés en JS */
-.participant-titre,
-.participant-titre strong {
-    font-family: 'Special Elite', cursive;
-    color: #e8e8e8; /* Le blanc cassé */
-    font-size: 20px;
-    font-weight: normal; /* Enlève le gras trop prononcé si besoin */
-    margin-top: 20px;
-    margin-bottom: 20px;
-    display: block; /* S'assure qu'il prend bien toute la ligne */
+.participant-titre {
+  font-family: "Special Elite", cursive;
+  color: #4aa07b;
+  background-color: #254134;
+  border-left: 7px solid #4aa07b;
+  font-size: 20px;
+  font-weight: normal;
+  display: block;
+  text-shadow: 0 4px 4px black;
+  padding: 15px;
+}
+
+.nouveau-participant {
+  margin-top: 60px;
 }
 /* =========================================
    PAGE CONNEXION
    ========================================= */
 
-
 .connexion-container {
-    max-width: 400px; /* On a réduit la largeur ici (au lieu de 500px) */
-    margin: 0 auto 100px auto; 
-    padding: 30px 35px; /* On a réduit l'espace à l'intérieur du cadre */
-    border: 2px solid #6ebd87; 
-    background-color: #0b110d; 
-    box-sizing: border-box;
-    position: relative;
-    z-index: 10; 
+  max-width: 400px; /* On a réduit la largeur ici (au lieu de 500px) */
+  margin: 0 auto 100px auto;
+  padding: 30px 35px; /* On a réduit l'espace à l'intérieur du cadre */
+  border: 2px solid #4aa07b;
+  background-color: #0b1e18;
+  box-sizing: border-box;
+  position: relative;
+  z-index: 10;
 }
 
 /* Le titre */
 .connexion-container h2 {
-    font-family: 'Special Elite', cursive;
-    color: #6ebd87;
-    font-size: 38px;
-    text-align: center;
-    margin-top: 0;
-    margin-bottom: 40px;
-    font-weight: normal;
+  font-family: "Special Elite", cursive;
+  color: #4aa07b;
+  font-size: 38px;
+  text-align: center;
+  margin-top: 0;
+  margin-bottom: 40px;
+  font-weight: normal;
 }
 
 /* Gestion du formulaire */
 .connexion-form {
-    display: flex;
-    flex-direction: column;
+  display: flex;
+  flex-direction: column;
 }
 
 .connexion-form label {
-    font-family: 'Georgia', serif;
-    color: #e8e8e8;
-    font-size: 16px;
-    margin-bottom: 10px;
-    text-align: left;
+  font-family: "Besley", serif;
+  color: #e8e8e8;
+  font-size: 16px;
+  margin-bottom: 10px;
+  text-align: left;
 }
 
 /* Les champs de saisie */
 .connexion-form input[type="email"],
 .connexion-form input[type="password"] {
-    background-color: #0a0f0c; /* Fond très sombre */
-    border: 1px solid #233027; /* Bordure discrète */
-    color: #e8e8e8;
-    padding: 12px;
-    font-family: 'Georgia', serif;
-    font-size: 16px;
-    margin-bottom: 30px; /* Espace entre les champs */
-    width: 100%;
-    box-sizing: border-box;
-    transition: border-color 0.2s ease;
+  background-color: #0a0f0c; /* Fond très sombre */
+  border: 1px solid #254134; /* Bordure discrète */
+  color: #e8e8e8;
+  padding: 12px;
+  font-family: "Besley", serif;
+  font-size: 16px;
+  margin-bottom: 30px; /* Espace entre les champs */
+  width: 100%;
+  box-sizing: border-box;
+  transition: border-color 0.2s ease;
 }
 
 /* Focus sur les champs */
 .connexion-form input:focus {
-    outline: none;
-    border-color: #6ebd87; /* La bordure s'allume en vert quand on clique dedans */
+  outline: none;
+  border-color: #4aa07b; /* La bordure s'allume en vert quand on clique dedans */
 }
 
 /* Le conteneur du bouton pour le centrer */
 .bouton-centrer {
-    text-align: center;
-    margin-top: 10px;
-    margin-bottom: 30px;
+  text-align: center;
+  margin-top: 10px;
+  margin-bottom: 30px;
 }
 
 /* Le bouton "Se Connecter" */
 .btn-connexion {
-    background-color: transparent;
-    color: #6ebd87;
-    border: 2px solid #6ebd87;
-    font-family: 'Special Elite', cursive;
-    font-size: 22px;
-    padding: 10px 40px;
-    cursor: pointer;
-    transition: all 0.2s ease;
+  background-color: transparent;
+  color: #4aa07b;
+  border: 2px solid #4aa07b;
+  font-family: "Special Elite", cursive;
+  font-size: 22px;
+  padding: 10px 40px;
+  cursor: pointer;
+  transition: all 0.2s ease;
 }
 
 .btn-connexion:hover {
-    background-color: #6ebd87;
-    color: #0b110d;
+  background-color: #4aa07b;
+  color: #0b1e18;
 }
 
 /* Le texte tout en bas */
 .inscription-link {
-    text-align: center;
-    font-family: 'Georgia', serif;
-    color: #e8e8e8;
-    font-size: 16px;
-    margin: 0;
+  text-align: center;
+  font-family: "Besley", serif;
+  color: #e8e8e8;
+  font-size: 16px;
+  margin: 0;
 }
 
 /* Le lien "Inscrivez-vous!" */
 .inscription-link a {
-    color: #558c66; /* Vert un peu plus sombre, comme sur ta maquette */
-    text-decoration: none;
-    transition: color 0.2s ease;
+  color: #558c66; /* Vert un peu plus sombre, comme sur ta maquette */
+  text-decoration: none;
+  transition: color 0.2s ease;
 }
 
 .inscription-link a:hover {
-    color: #6ebd87; /* Devient plus clair au survol */
+  color: #4aa07b; /* Devient plus clair au survol */
 }
 
 /* Message d'erreur PHP */
 .erreur-message {
-    color: #cc2929 !important; /* Rouge vif */
-    font-family: 'Georgia', serif;
-    text-align: center;
-    margin-bottom: 20px;
+  color: #cc2929 !important; /* Rouge vif */
+  font-family: "Besley", serif;
+  text-align: center;
+  margin-bottom: 20px;
 }
 /* =========================================
    SÉCURITÉ HEADER
@@ -1552,10 +1575,95 @@ section aside a:hover {
 
 /* Le mur invisible qui empêche le contenu de passer sous le menu */
 .espace-header {
-    height: 180px; 
-    width: 100%;
-    display: block;
-    clear: both;
+  height: 180px;
+  width: 100%;
+  display: block;
+  clear: both;
+}
+/* =========================================
+   ÉTAPE 4 : RÉCAPITULATIF & CGV
+   ========================================= */
+
+/* Le cadre global du récapitulatif */
+.fieldset-recap {
+  border: 2px solid #4aa07b !important;
+  padding: 40px !important;
+  background-color: #0b1e18 !important;
+}
+
+/* Les lignes d'information */
+.recap-box p {
+  margin-bottom: 50px;
+  font-size: 18px;
+  line-height: 1.5;
+}
+
+.recap-label {
+  font-family: "Special Elite", cursive;
+  color: #4aa07b; /* Vert */
+  margin-right: 5px;
+}
+
+.recap-valeur {
+  font-family: "Besley", serif;
+  color: #e8e8e8; /* Blanc */
+}
+
+/* --- LA ZONE DE LA CASE À COCHER --- */
+.cgv-container {
+  display: flex;
+  align-items: center;
+  margin-top: 50px;
+  gap: 15px;
+}
+
+/* On cache la case par défaut du navigateur pour la remplacer */
+.cgv-checkbox {
+  appearance: none;
+  -webkit-appearance: none;
+  min-width: 30px;
+  height: 30px;
+  border: 2px solid #4aa07b;
+  border-radius: 2px;
+  background-color: transparent;
+  cursor: pointer;
+  position: relative;
+  display: inline-block;
+  transition: all 0.2s ease;
+}
+
+/* Ce qui s'affiche quand la case est cochée (une croix façon machine à écrire) */
+.cgv-checkbox:checked::after {
+  content: "X";
+  font-family: "Special Elite", cursive;
+  color: #4aa07b;
+  font-size: 24px;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+}
+
+.cgv-checkbox:hover {
+  background-color: rgba(74, 160, 123, 0.1);
+}
+
+/* Le texte à côté de la case */
+.cgv-container label {
+  font-family: "Besley", serif;
+  color: #4aa07b; /* Texte en vert */
+  font-size: 16px;
+  cursor: pointer;
+}
+
+.cgv-container label a {
+  color: #4aa07b;
+  text-decoration: underline; /* Souligne le lien */
+  transition: color 0.2s ease;
+}
+
+.cgv-container label a:hover {
+  color: #6ebd87;
 }
 
 /* =========================================
@@ -1564,446 +1672,1149 @@ section aside a:hover {
 
 /* Le grand cadre au centre */
 .connexion-container {
-    max-width: 500px; 
-    margin: 0 auto 100px auto; /* On centre au milieu de la page */
-    padding: 40px 50px;
-    border: 2px solid #6ebd87; 
-    background-color: #0b110d; /* Fond plein pour bien bloquer les éléments derrière */
-    box-sizing: border-box;
-    position: relative;
-    z-index: 10; 
+  max-width: 500px;
+  margin: 0 auto 100px auto; /* On centre au milieu de la page */
+  padding: 40px 50px;
+  border: 2px solid #4aa07b;
+  background-color: #0b1e18; /* Fond plein pour bien bloquer les éléments derrière */
+  box-sizing: border-box;
+  position: relative;
+  z-index: 10;
 }
 
 /* Le titre centré */
 .connexion-container h2 {
-    font-family: 'Special Elite', cursive;
-    color: #6ebd87;
-    font-size: 38px;
-    text-align: center; /* Oblige le titre à rester au milieu */
-    margin-top: 0;
-    margin-bottom: 40px;
-    font-weight: normal;
+  font-family: "Special Elite", cursive;
+  color: #4aa07b;
+  font-size: 38px;
+  text-align: center; /* Oblige le titre à rester au milieu */
+  margin-top: 0;
+  margin-bottom: 40px;
+  font-weight: normal;
 }
 
 /* Le conteneur du bouton pour le centrer */
 .bouton-centrer {
-    text-align: center;
-    margin-top: 20px;
-    margin-bottom: 30px;
+  text-align: center;
+  margin-top: 20px;
+  margin-bottom: 30px;
 }
 
 /* Le texte tout en bas centré */
 .inscription-link {
-    text-align: center;
-    font-family: 'Georgia', serif;
-    color: #e8e8e8;
-    font-size: 16px;
-    margin: 20px 0 0 0;
+  text-align: center;
+  font-family: "Besley", serif;
+  color: #e8e8e8;
+  font-size: 16px;
+  margin: 20px 0 0 0;
 }
 /* =========================================
    ESPACE CLIENT
    ========================================= */
 
 .espace-client {
-    max-width: 800px;
-    margin: 150px auto 100px auto; /* Marge pour dégager le header fixe */
-    padding: 0 20px;
-    position: relative;
-    z-index: 10;
+  max-width: 1100px;
+  margin: 150px auto 100px auto;
+  padding: 0 20px;
+  position: relative;
+  z-index: 10;
 }
 
-/* Le titre principal de la page */
 .titre-espace {
-    font-family: 'Special Elite', cursive;
-    color: #6ebd87;
-    font-size: 38px;
-    margin-bottom: 30px;
-    font-weight: normal;
+  font-family: "Love Ya Like A Sister", cursive;
+  color: #4aa07b;
+  font-size: 53px;
+  margin-bottom: 30px;
+  font-weight: normal;
 }
 
-/* --- LE BLOC EN-TÊTE DU PROFIL --- */
 .profil-header-card {
-    display: flex;
-    align-items: center;
-    border: 2px solid #6ebd87;
-    padding: 20px 30px;
-    margin-bottom: 40px;
-    background-color: transparent; /* Laisse le fond sombre de la page */
+  display: flex;
+  align-items: center;
+  border: 2px solid #4aa07b;
+  padding: 20px 30px;
+  margin-bottom: 40px;
+  background-color: #0b1e18;
+}
+
+.profil-header-card :nth-child(3) {
+  margin-left: auto;
 }
 
 /* L'icône (avatar) */
 .profil-icon {
-    margin-right: 20px;
-    display: flex;
-    align-items: center;
+  margin-right: 20px;
+  display: flex;
+  align-items: center;
 }
 
-/* Placeholder pour l'image SVG si tu n'en as pas encore */
 .profil-icon img {
-    border-radius: 50%;
-    /* Tu pourras remplacer ça par ton vrai SVG */
-    background-color: #6ebd87; 
-    width: 60px;
-    height: 60px;
-    display: block;
+  width: 60px;
+  height: auto;
+  display: block;
 }
 
-/* Les infos (Nom, prénom, équipe) */
 .profil-info-main {
-    flex-grow: 1; /* Prend l'espace restant pour pousser le statut à droite */
+  flex-grow: 1;
 }
 
 .profil-info-main h3 {
-    font-family: 'Special Elite', cursive;
-    color: #6ebd87;
-    font-size: 26px;
-    margin: 0 0 5px 0;
-    font-weight: normal;
+  font-family: "Special Elite", cursive;
+  color: #4aa07b;
+  font-size: 26px;
+  margin: 0 0 5px 0;
+  font-weight: normal;
 }
 
 .profil-info-main p {
-    font-family: 'Georgia', serif;
-    color: #e8e8e8;
-    font-size: 16px;
-    margin: 0;
+  font-family: "Besley", serif;
+  color: #e8e8e8;
+  font-size: 16px;
+  margin: 0;
 }
 
-/* Le badge "Inscrit" à droite */
 .profil-status {
-    text-align: right;
+  align-self: flex-end;
+}
+
+.badge-texte {
+  transform: translateY(3px);
 }
 
 .badge-inscrit {
-    background-color: #6ebd87;
-    color: #0b110d;
-    font-family: 'Special Elite', cursive;
-    font-size: 16px;
-    padding: 5px 15px;
-    border: 1px solid #0b110d; /* Petite bordure foncée pour le style */
+  background-color: #4aa07b;
+  color: #0b1e18;
+  font-family: "Special Elite", cursive;
+  font-size: 20px;
+  padding: 5px 15px;
+  border: 1px solid #0b1e18;
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
 }
 
-/* --- LA NAVIGATION (LES ONGLETS) --- */
 .tabs-navigation {
-    display: flex;
-    border-bottom: 2px solid #233027; /* Ligne sombre sous les onglets */
-    margin-bottom: 30px;
+  display: flex;
+  justify-content: space-between;
+  border-bottom: 1px solid #4aa07b;
+  margin-bottom: 30px;
+  padding: 0;
 }
 
 .tabs-navigation .tab {
-    padding: 10px 20px;
-    font-family: 'Special Elite', cursive;
-    color: #e8e8e8;
-    font-size: 18px;
-    cursor: pointer;
-    border-bottom: 3px solid transparent; /* Bordure invisible par défaut */
-    transition: all 0.2s ease;
-    margin-bottom: -2px; /* Pour superposer la bordure sur la ligne principale */
+  padding: 10px 15px;
+  font-family: "Special Elite", cursive;
+  color: #e8e8e8;
+  font-size: 18px;
+  cursor: pointer;
+  background-color: transparent;
+  border: none;
+  border-bottom: 3px solid transparent;
+  margin-bottom: -1px;
+  white-space: nowrap;
+  text-decoration: none;
 }
 
-.tabs-navigation .tab:hover {
-    color: #6ebd87;
-}
-
-/* L'onglet actif avec sa ligne verte en dessous */
 .tabs-navigation .tab.active {
-    color: #6ebd87;
-    border-bottom: 3px solid #6ebd87;
+  color: #6ebd87 !important;
+  border-bottom: 3px solid #6ebd87;
 }
 
-/* --- LE CONTENU DES ONGLETS (FORMULAIRE) --- */
-.tab-content {
-    border: 2px solid #6ebd87;
-    padding: 40px;
-    background-color: transparent;
+.recap-box {
+    border: 2px solid #4aa07b;
+    padding: 20px;
+    background-color: #0b1e18;
 }
 
-/* Retire la bordure et la marge par défaut des fieldsets */
-.tab-content fieldset {
+div#content-infos {
     border: none;
     padding: 0;
-    margin: 0;
+    background: none;
+} 
+
+.tab-content form {
+   border: 2px solid #4aa07b;
+    padding: 20px;
+    background-color: #0b1e18;
 }
 
-/* Titre "Modifier mes Informations" (et autres légendes) */
-.tab-content legend, .tab-content h3 {
-    font-family: 'Special Elite', cursive;
-    color: #6ebd87;
-    font-size: 24px;
-    margin-bottom: 30px;
-    font-weight: normal;
+.tab-content fieldset {
+  border: none;
+  padding: 0;
+  margin: 0;
 }
 
-/* Grille pour les champs de formulaire (2 colonnes) */
+.tab-content legend,
+.tab-content h3 {
+  font-family: "Special Elite", cursive;
+  color: #4aa07b;
+  font-size: 24px;
+  margin: 0;
+  font-weight: normal;
+}
+
 .form-row {
-    display: flex;
-    gap: 40px;
-    margin-bottom: 25px;
+  display: flex;
+  gap: 40px;
+  margin-bottom: 5px;
 }
 
 .form-group {
-    flex: 1; /* Les colonnes prennent une largeur égale */
+  flex: 1;
 }
 
 .form-group label {
-    display: block;
-    font-family: 'Georgia', serif;
-    color: #e8e8e8;
-    font-size: 16px;
-    margin-bottom: 10px;
+  display: block;
+  font-family: "Besley", serif;
+  color: #e8e8e8;
+  font-size: 16px;
+  margin-bottom: 10px;
 }
 
-/* Style des champs input */
 .form-group input[type="text"],
 .form-group input[type="email"],
 .form-group input[type="tel"],
 .form-group input[type="password"],
 .tab-content textarea {
-    width: 100%;
-    background-color: #0a0f0c;
-    border: 1px solid #233027;
-    color: #e8e8e8;
-    padding: 12px;
-    font-family: 'Georgia', serif;
-    font-size: 16px;
-    box-sizing: border-box;
-    transition: border-color 0.2s ease;
+  width: 100%;
+  background-color: #0a0f0c;
+  border: 1px solid #254134;
+  color: #e8e8e8;
+  padding: 12px;
+  font-family: "Besley", serif;
+  font-size: 16px;
+  box-sizing: border-box;
+  transition: border-color 0.2s ease;
 }
 
 .form-group input:focus,
 .tab-content textarea:focus {
-    outline: none;
-    border-color: #6ebd87;
+  outline: none;
+  border-color: #4aa07b;
 }
 
-/* --- LA ZONE DU BOUTON (Enregistrer) --- */
+.btn-enregistrer, .btn-envoyer {
+margin-left: auto;
+}
+
+
+
 .action-zone {
-    text-align: right; /* Aligne le bouton à droite comme sur la maquette */
-    margin-top: 40px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
 }
 
-.btn-enregistrer, .btn-modifier, .btn-envoyer {
-    background-color: transparent;
-    color: #e8e8e8; /* Texte blanc cassé par défaut */
-    border: 2px solid #cc2929; /* Bordure rouge */
-    font-family: 'Special Elite', cursive;
-    font-size: 20px;
-    padding: 10px 30px;
-    cursor: pointer;
-    transition: all 0.2s ease;
+.btn-enregistrer,
+.btn-modifier,
+.btn-envoyer {
+  background-image: url(view/img/rectangle_rouge.webp);
+  background-size: 100% 100%;
+  color: #e8e8e8;
+  font-family: "Special Elite", cursive;
+  font-size: 20px;
+  padding: 10px 10px 5px 10px;
+  cursor: pointer;
+  transition: all 0.2s ease;
+  background-color: transparent;
+  border: none;
 }
 
-/* Effet au survol (devient plein rouge) */
-.btn-enregistrer:hover, .btn-modifier:hover, .btn-envoyer:hover {
-    background-color: #cc2929;
-    color: white;
+.message-notif,
+.recap-box p,
+.tab-content p {
+  font-family: "Besley", serif;
+  color: #e8e8e8;
+  font-size: 16px;
+  line-height: 1.6;
 }
 
-/* Textes secondaires (notifications, etc.) */
-.message-notif, .recap-box p, .tab-content p {
-    font-family: 'Georgia', serif;
-    color: #e8e8e8;
-    font-size: 16px;
-    line-height: 1.6;
-}
-.tab.active {
-    background-color: #6ebd87 !important;
-    color: #0b110d !important; /* Le !important force le texte en sombre */
-    font-weight: bold;
-}
 /* =========================================
    ESPACE CLIENT
    ========================================= */
 
 .espace-client {
-    max-width: 800px;
-    margin: 0 auto 100px auto !important; /* Sécurise le centrage et la marge du bas */
-    
-    /* LA CORRECTION : On force un gros espace en haut pour dégager le header */
-    padding-top: 180px !important; 
-    
-    padding-left: 20px;
-    padding-right: 20px;
-    position: relative;
-    z-index: 10;
+  max-width: 800px;
+  margin: 0 auto 100px auto !important;
+  width: 100%;
+  padding-top: 180px !important;
+  padding-left: 20px;
+  padding-right: 20px;
+  position: relative;
+  z-index: 10;
 }
 /* =========================================
    ONGLET : MON EQUIPE
    ========================================= */
 
-/* La liste des membres */
-.liste-membres {
-    margin-bottom: 40px;
-}
-
-/* Chaque ligne de membre */
 .membre-item {
-    display: flex;
-    align-items: center;
-    border-bottom: 1px solid #6ebd87; /* La ligne de séparation verte */
-    padding: 20px 0;
+  display: flex;
+  align-items: center;
+  border-bottom: 1px solid #4aa07b;
+  padding: 20px 0;
 }
 
-/* Enlève la ligne sous le dernier membre de la liste */
 .membre-item:last-of-type {
-    border-bottom: none;
+  border-bottom: none;
 }
 
 /* Le gros numéro (1, 2, 3...) */
 .numero {
-    font-family: 'Special Elite', cursive;
-    color: #6ebd87;
-    font-size: 45px;
-    width: 60px; /* Largeur fixe pour bien aligner tous les textes */
-    text-align: left;
-    margin: 0;
-    line-height: 1;
+  font-family: "Special Elite", cursive;
+  color: #4aa07b;
+  font-size: 60px;
+  width: 60px; /* Largeur fixe pour bien aligner tous les textes */
+  text-align: left;
+  margin: 0;
+  line-height: 1;
+  text-shadow: 0 4px 4px rgb(0 0 0 / 25%);
 }
 
 /* Le conteneur du nom et pseudo */
 .membre-detail {
-    flex: 1; /* Prend tout l'espace restant au milieu */
+  flex: 1; /* Prend tout l'espace restant au milieu */
 }
 
 /* Style pour le texte du Capitaine (Participant 1) */
 .membre-detail strong {
-    font-family: 'Georgia', serif;
-    color: #e8e8e8;
-    font-size: 18px;
-    font-weight: normal;
+  font-family: "Besley", serif;
+  color: #e8e8e8;
+  font-size: 18px;
+  font-weight: normal;
 }
 
 .membre-detail small {
-    font-family: 'Georgia', serif;
-    color: #6ebd87;
-    font-size: 14px;
-    display: block; /* Force le passage à la ligne */
-    margin-top: 4px;
+  font-family: "Besley", serif;
+  color: #4aa07b;
+  font-size: 14px;
+  display: block; /* Force le passage à la ligne */
+  margin-top: 4px;
 }
 
 /* --- L'ASTUCE POUR LES AUTRES MEMBRES (Champs Input) --- */
 /* On enlève le fond et les bordures pour qu'ils ressemblent à du texte pur */
 .membre-detail input[type="text"] {
-    background-color: transparent !important;
-    border: none !important;
-    padding: 0 !important;
-    margin: 0 !important;
-    font-family: 'Georgia', serif;
-    color: #e8e8e8;
-    font-size: 18px;
+  background-color: transparent !important;
+  border: none !important;
+  padding: 0 !important;
+  margin: 0 !important;
+  font-family: "Besley", serif;
+  color: #e8e8e8;
+  font-size: 18px;
 }
 
-/* On met le prénom et le nom sur la même ligne (Côte à côte) */
 .membre-detail input[name="membre_prenom[]"],
 .membre-detail input[name="membre_nom[]"] {
-    display: inline-block;
-    width: 48%; /* Moitié-moitié */
-    margin-bottom: 4px !important;
+  display: inline-block;
+  width: 48%; /* Moitié-moitié */
+  margin-bottom: 4px !important;
 }
 
 /* Le pseudo passe en dessous, en plus petit et en vert */
 .membre-detail input[name="membre_pseudo[]"] {
-    display: block;
-    width: 100%;
-    color: #6ebd87 !important;
-    font-size: 14px !important;
+  display: block;
+  width: 100%;
+  color: #4aa07b !important;
+  font-size: 14px !important;
 }
 
 /* --- LES BADGES A DROITE --- */
 .label-vous {
-    background-color: #6ebd87;
-    color: #0b110d;
-    font-family: 'Special Elite', cursive;
-    font-size: 14px;
-    padding: 5px 15px;
-    border: 1px solid #6ebd87;
+  background-color: #4aa07b;
+  color: #0b1e18;
+  font-family: "Special Elite", cursive;
+  font-size: 20px;
+  padding: 5px 0px;
+  border: 1px solid #4aa07b;
+  width: 100px;
+  text-align: center;
+  text-shadow: 0 4px 4px rgb(0 0 0 / 25%);
 }
 
 .label-membre {
-    background-color: transparent;
-    color: #e8e8e8;
-    font-family: 'Special Elite', cursive;
-    font-size: 14px;
-    padding: 5px 15px;
-    border: 1px solid #6ebd87; /* Bordure verte avec fond vide */
+  color: #e8e8e8;
+  font-family: "Special Elite", cursive;
+  font-size: 20px;
+  width: 100px;
+  height: 30px;
+  box-sizing: border-box;
+  padding: 5px 0px 0px 0px;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  background-image: url(view/img/rectangle_vert.webp);
+  background-size: 100% 100%;
+  background-repeat: no-repeat;
+  background-position: center;
 }
 
 /* --- LA ZONE DU BAS (Menu, Session, Besoins) --- */
 .reservation-fixe-box {
-    margin-top: 10px;
+  margin: 0;
 }
 
-.reservation-fixe-box p {
-    margin-bottom: 25px;
-    font-family: 'Georgia', serif;
-    color: #e8e8e8;
-    font-size: 16px;
-    line-height: 1.5;
-}
-
-/* Les titres (Menu Choisi, etc.) en vert et Special Elite */
 .reservation-fixe-box p strong {
-    font-family: 'Special Elite', cursive;
-    color: #6ebd87;
-    font-size: 18px;
-    font-weight: normal;
-    display: block; /* Met le titre sur sa propre ligne */
-    margin-bottom: 5px;
+  font-family: "Special Elite", cursive;
+  color: #4aa07b;
+  font-size: 18px;
+  font-weight: normal;
+  display: block;
+}
+
+.reservation-fixe-box p strong {
+  font-family: "Special Elite", cursive;
+  color: #4aa07b;
+  font-size: 18px;
+  font-weight: normal;
+  display: block;
 }
 /* =========================================
    ONGLET : LAISSER UN AVIS (Etoiles)
    ========================================= */
 
-/* Conteneur des étoiles */
 .rating-stars {
-    display: flex;
-    flex-direction: row-reverse; /* Astuce pour que le hover éclaire les étoiles précédentes */
-    justify-content: flex-end;   /* Aligné à gauche */
-    gap: 10px;
-    margin-bottom: 25px;
+  display: flex;
+  flex-direction: row-reverse;
+  justify-content: flex-end;
+  gap: 10px;
+  margin-bottom: 10px;
+  margin-top: 25px;
 }
 
 /* On cache les vrais boutons radio (les ronds moches) */
 .rating-stars input[type="radio"] {
-    display: none;
+  display: none;
 }
 
 /* Le style des étoiles (vides par défaut) */
 .rating-stars label {
-    font-size: 45px;
-    color: transparent; /* Fond transparent */
-    -webkit-text-stroke: 2px #e8e8e8; /* Contour blanc cassé */
-    cursor: pointer;
-    transition: all 0.2s ease;
-    line-height: 1;
+  font-size: 45px;
+  color: transparent; /* Fond transparent */
+  -webkit-text-stroke: 2px #e8e8e8; /* Contour blanc cassé */
+  cursor: pointer;
+  transition: all 0.2s ease;
+  line-height: 1;
 }
 
-/* L'effet magique de remplissage au survol et au clic */
 .rating-stars label:hover,
 .rating-stars label:hover ~ label,
 .rating-stars input[type="radio"]:checked ~ label {
-    color: #e8e8e8; /* L'étoile se remplit en blanc cassé */
+  color: #e8e8e8;
 }
 
-/* Ajustement de la zone de texte pour coller à la maquette */
 #content-avis textarea {
-    margin-bottom: 10px;
+  margin-bottom: 10px;
+  resize: none;
 }
 /* =========================================
    AFFICHAGE DES ÉTOILES (Avis)
    ========================================= */
 
 .etoiles-affichage {
-    margin-bottom: 15px;
-    letter-spacing: 2px; /* Un petit espace entre chaque étoile */
+  letter-spacing: 2px;
 }
 
 .etoile-pleine {
-    color: #e8e8e8; /* Blanc cassé pour les étoiles remplies */
-    font-size: 24px;
+  color: #e8e8e8; /* Blanc cassé pour les étoiles remplies */
+  font-size: 32px;
 }
 
 .etoile-vide {
-    color: #e8e8e8; /* Blanc cassé pour les contours des étoiles vides */
+  color: #e8e8e8;
+  font-size: 32px;
+  opacity: 0.5;
+}
+
+/* =========================================
+   ESPACE ADMINISTRATEUR - HAUT DE PAGE
+   ========================================= */
+
+/* Le conteneur principal du haut */
+.dashboard-container {
+  max-width: 1100px; /* Ajusté pour correspondre à la largeur de la maquette */
+  margin: 0 auto;
+  padding-top: 180px; /* Garde l'espace pour ton header */
+  padding-bottom: 40px;
+}
+
+/* ⚠️ LE TITRE REVIENT ICI ⚠️ */
+.dashboard-title {
+  font-family: "Special Elite", cursive;
+  color: #4aa07b;
+  font-size: 60px;
+  font-weight: normal;
+  margin-bottom: 40px;
+  text-shadow: 0 4px 4px rgba(0, 0, 0, 0.4);
+}
+
+/* Les 4 cartes de statistiques */
+.dashboard-stats {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 30px; /* Espace entre les cartes */
+}
+
+.stat-card {
+  background-color: #0b1e18; /* Fond vert très foncé et légèrement transparent */
+  border: 1px solid #4aa07b; /* Bordure verte */
+  border-radius: 4px; /* Coins légèrement arrondis */
+  padding: 35px 15px;
+  text-align: center;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  box-shadow: 0 8px 15px rgba(0, 0, 0, 0.3); /* Légère ombre sous les boîtes */
+}
+
+.stat-card .stat-value {
+  font-family: "Special Elite", cursive;
+  color: #4aa07b; /* Vert clair */
+  font-size: 48px;
+  margin-bottom: 15px;
+  line-height: 1;
+}
+
+.stat-card .stat-label {
+  font-family: "Besley", serif;
+  color: #e8e8e8; /* Blanc cassé */
+  font-size: 18px;
+  line-height: 1.5;
+}
+/* =========================================
+   SECTION TABLEAU DES SESSIONS (Maquette)
+   ========================================= */
+.dashboard-table-container {
+  border: 1px solid #4aa07b;
+  padding: 30px;
+  border-radius: 4px;
+  background-color: #0b1e18; /* Ou rgba(11, 30, 24, 0.4) si tu veux un fond légèrement teinté */
+  margin-bottom: 40px;
+  margin-top: 60px;
+}
+
+.table-title {
+  font-family: "Special Elite", cursive;
+  color: #4aa07b;
+  font-size: 43px;
+  font-weight: normal;
+  margin-top: 0;
+  margin-bottom: 30px;
+}
+
+.dashboard-table {
+  width: 100%;
+  border-collapse: collapse;
+}
+
+/* Les en-têtes (Date, Equipe...) */
+.dashboard-table th {
+  font-family: "Besley", serif;
+  color: #e8e8e8;
+  font-size: 18px;
+  font-weight: normal;
+  text-align: left;
+  padding-bottom: 15px;
+  border-bottom: 1px solid #4aa07b; /* La longue ligne verte */
+}
+
+/* Les cellules du tableau */
+.dashboard-table td {
+  font-family: "Besley", serif;
+  color: #e8e8e8;
+  font-size: 18px;
+  padding: 25px 0; /* Espace aéré en haut et en bas de chaque ligne */
+  border-bottom: 1px solid #4aa07b; /* Ligne de séparation horizontale */
+  position: relative; /* Indispensable pour placer les petites barres verticales */
+}
+
+/* Retire la ligne horizontale pour la toute dernière session du tableau */
+.dashboard-table td.no-border-bottom {
+  border-bottom: none;
+}
+
+/* L'astuce pour les barres verticales "flottantes" */
+.dashboard-table td.border-left {
+  padding-left: 30px; /* Décale le texte pour laisser la place à la barre */
+}
+
+.dashboard-table td.border-left::before {
+  content: "";
+  position: absolute;
+  left: 10px; /* Positionne la barre à gauche de la cellule */
+  top: 35%; /* La barre commence plus bas... */
+  bottom: 35%; /* ...et finit plus haut, donc elle ne touche pas les bords ! */
+  width: 1px;
+  background-color: #4aa07b; /* Couleur de la barre */
+}
+
+/* Pagination */
+.table-pagination {
+  text-align: right;
+  font-family: "Besley", serif;
+  color: #e8e8e8;
+  font-size: 16px;
+  margin-top: 10px;
+}
+
+.table-pagination a {
+  color: #e8e8e8;
+  text-decoration: none;
+  margin: 0 5px;
+  transition: color 0.2s;
+}
+
+.table-pagination a:hover {
+  color: #4aa07b;
+}
+/* =========================================
+   GRILLE DES SESSIONS (Page Inscription)
+   ========================================= */
+
+.fieldset-creneaux {
+  border: 2px solid #4aa07b !important;
+  padding: 40px !important;
+  background-color: #0b1e18 !important;
+}
+
+/* La grille 3 colonnes */
+.session-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 20px;
+  margin-top: 20px;
+  margin-bottom: 20px;
+}
+
+/* On cache les vrais boutons ronds */
+.hidden-radio {
+  display: none;
+}
+
+/* Le design de base de la carte */
+.session-card {
+  display: flex;
+  flex-direction: column;
+  background-color: #0d120f;
+  padding: 18px;
+  border-radius: 2px;
+  cursor: pointer;
+  transition: all 0.2s ease;
+  height: 100%;
+  max-height: 150px;
+  box-sizing: border-box;
+}
+
+.sess-date {
+  font-family: "Special Elite", cursive;
+  color: #e8e8e8;
+  font-size: 20px;
+  margin-bottom: 5px;
+}
+
+.sess-time {
+  font-family: "Besley", serif;
+  font-size: 20px;
+  margin-bottom: 25px;
+}
+
+.sess-status {
+  font-family: "Besley", serif;
+  font-size: 16px;
+  text-align: right;
+  margin-top: auto; /* Pousse le statut tout en bas à droite */
+}
+
+/* --- ETAT : DISPONIBLE --- */
+.card-available {
+  border: 1px solid #3a7a58;
+}
+
+.card-available .sess-time,
+.card-available .sess-status {
+  color: #4aa07b;
+}
+
+.card-available:hover {
+  border-color: #6ebd87;
+  background-color: #121a16;
+}
+
+/* --- LORSQUE LA CARTE EST SÉLECTIONNÉE --- */
+.hidden-radio:checked + .card-available {
+  border: 1px solid #6ebd87;
+  background-color: rgba(74, 160, 123, 0.1);
+  box-shadow: 0 0 10px rgba(74, 160, 123, 0.3);
+}
+
+/* --- ETAT : COMPLET --- */
+.card-complete {
+  border: 1px solid #7a3a3a;
+  cursor: not-allowed;
+  opacity: 0.8;
+}
+
+.card-complete .sess-time,
+.card-complete .sess-status {
+  color: #cc2929; /* Rouge */
+}
+
+/* --- PAGINATION --- */
+.pagination-creneaux {
+  text-align: right;
+  margin-top: 30px;
+  padding-top: 15px;
+  border-top: 1px solid #3a7a58;
+}
+/* =========================================
+   PAGE MENTIONS LÉGALES
+   ========================================= */
+
+/* Limite la largeur pour que le texte ne prenne pas tout l'écran (meilleur pour la lecture) */
+.mentions-container {
+  max-width: 900px;
+  margin: 0 auto;
+  padding: 180px 20px 80px 20px; /* Laisse de l'espace pour le header */
+}
+
+/* Le grand titre principal */
+.mentions-container h2 {
+  font-family: "Special Elite", cursive;
+  color: #4aa07b;
+  font-size: 50px;
+  font-weight: normal;
+  margin-top: 0;
+  margin-bottom: 50px;
+  text-shadow: 0 4px 4px rgba(0, 0, 0, 0.4);
+}
+
+/* Les sous-titres numérotés */
+.titre-mention {
+  font-family: "Besley", serif;
+  color: #e8e8e8; /* Vert clair pour ressortir */
+  font-size: 22px;
+  font-weight: bold;
+  margin-top: 45px;
+  margin-bottom: 15px;
+}
+
+/* Le texte de loi */
+.mention {
+  font-family: "Besley", serif;
+  color: #e8e8e8; /* Blanc cassé */
+  font-size: 16px;
+  line-height: 1.8; /* Espace bien les lignes pour aérer la lecture */
+  margin-bottom: 20px;
+  text-align: justify; /* Aligne le texte à gauche et à droite de façon nette */
+}
+
+/* Si tu veux rendre les liens cliquables plus jolis plus tard */
+.mention a {
+  color: #4aa07b;
+  text-decoration: underline;
+  transition: color 0.2s ease;
+}
+
+.mention a:hover {
+  color: #6ebd87;
+}
+
+/* =========================================
+   ONGLET : COMMENTAIRES (Administration)
+   ========================================= */
+
+/* --- Sous-navigation (Filtres) --- */
+.comments-subnav {
+  display: flex;
+  justify-content: center;
+  gap: 30px;
+  margin-bottom: 50px;
+}
+
+.comments-subnav .subtab {
+  font-family: "Special Elite", cursive;
+  font-size: 20px;
+  color: #e8e8e8;
+  text-decoration: none;
+  border: 1px solid #4aa07b;
+  padding: 10px 30px;
+  transition: all 0.2s ease;
+}
+
+.comments-subnav .subtab:hover {
+  background-color: rgba(74, 160, 123, 0.1);
+}
+
+.comments-subnav .subtab.active {
+  background-color: #4aa07b;
+  color: #0b1e18;
+}
+
+/* --- Carte Commentaire --- */
+.comment-card {
+  border: 1px solid #4aa07b;
+  background-color: rgba(11, 30, 24, 0.4);
+  padding: 30px;
+  margin-bottom: 30px;
+  border-radius: 2px;
+}
+
+/* En-tête de la carte (Pseudo + Etoiles + Badge) */
+.comment-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  margin-bottom: 25px;
+}
+
+.comment-user-section {
+  display: flex;
+  align-items: center;
+  gap: 20px;
+}
+
+.comment-pseudo {
+  font-family: "Special Elite", cursive;
+  font-size: 40px; /* Grand texte comme sur la maquette */
+  color: #e8e8e8;
+  line-height: 1;
+}
+
+.comment-meta {
+  display: flex;
+  flex-direction: column;
+  gap: 5px;
+}
+
+.comment-stars {
+  color: #4aa07b;
+  font-size: 22px;
+  letter-spacing: 2px;
+  line-height: 1;
+}
+
+.comment-date {
+  font-family: "Besley", serif;
+  color: #e8e8e8;
+  font-size: 14px;
+}
+
+/* Le petit badge "En attente" */
+.comment-badge {
+  font-family: "Besley", serif;
+  color: #4aa07b;
+  border: 1px solid #4aa07b;
+  padding: 5px 15px;
+  font-size: 14px;
+}
+
+/* --- Texte du commentaire --- */
+.comment-text {
+  font-family: "Besley", serif;
+  color: #e8e8e8;
+  font-size: 18px;
+  line-height: 1.6;
+  margin-bottom: 30px;
+}
+
+/* --- Boutons d'action --- */
+.comment-actions {
+  display: flex;
+  gap: 15px;
+}
+
+.btn-refuser:hover {
+  color: #cc2929;
+}
+
+.btn-accepter:hover {
+  color: #4aa07b;
+}
+
+/* =========================================
+   LE BOUTON HAMBURGER (Caché sur grand écran)
+   ========================================= */
+.burger-toggle {
+  display: none;
+}
+
+.burger-icon {
+  display: none;
+  cursor: pointer;
+  width: 35px;
+  height: 25px;
+  flex-direction: column;
+  justify-content: space-between;
+  z-index: 1001;
+}
+
+.burger-icon span {
+  display: block;
+  height: 4px;
+  width: 100%;
+  background-color: #4aa07b;
+  border-radius: 4px;
+  transition: all 0.3s ease-in-out;
+}
+
+/* =========================================
+   RESPONSIVE : TÉLÉPHONES ET TABLETTES (Max 1024px)
+   ========================================= */
+@media (max-width: 1024px) {
+  /* --- HEADER & NAVIGATION BURGER --- */
+  nav {
+    padding: 15px 20px;
+    min-height: 80px;
+  }
+
+  .logo {
+    order: 1;
+  }
+
+  .logo img {
+    width: 100px;
+  }
+
+  .burger-icon {
+    display: flex;
+    order: 3;
+    right: 20px;
+    top: 30px;
+  }
+
+  .droite {
+    right: 75px;
+    top: 15px;
+    margin: 0;
+    order: 2;
+    padding-right: 20px;
+  }
+
+  a.compte {
+    font-size: 16px;
+  }
+
+  a.compte img {
+    width: 35px;
+  }
+
+  .menu {
+    display: none;
+    position: absolute;
+    top: 100%;
+    left: 0;
+    width: 100%;
+    background-color: #0b1e18;
+    border-bottom: 2px solid #4aa07b;
+    padding: 30px 0;
+    box-shadow: 0 15px 25px rgba(0, 0, 0, 0.8);
+    z-index: 1000;
+  }
+
+  .menu ul {
+    flex-direction: column;
+    gap: 25px;
+    margin: 0;
+    padding: 0;
+    width: 100%;
+  }
+
+  nav ul li {
+    text-align: center;
+  }
+
+  nav ul li a {
+    font-size: 26px;
+  }
+
+  .burger-toggle:checked ~ .menu {
+    display: flex;
+  }
+
+  .burger-toggle:checked ~ .burger-icon span:nth-child(1) {
+    transform: translateY(10.5px) rotate(45deg);
+  }
+  .burger-toggle:checked ~ .burger-icon span:nth-child(2) {
+    opacity: 0;
+  }
+  .burger-toggle:checked ~ .burger-icon span:nth-child(3) {
+    transform: translateY(-10.5px) rotate(-45deg);
+  }
+
+  /* --- LE RESTE DU SITE SUR MOBILE/TABLETTE --- */
+  .hero-section {
+    padding: 160px 15px 60px 15px;
+  }
+
+  .hero-section img {
+    height: auto;
+    width: 90%;
+    max-width: 380px;
+  }
+
+  .hero-section p {
     font-size: 24px;
-    opacity: 0.5; /* On les rend un peu transparentes pour qu'elles soient plus discrètes */
+    margin-top: 15px;
+  }
+
+  .hero-section a {
+    font-size: 26px;
+    height: 60px;
+    margin-top: 10px;
+  }
+
+  section {
+    grid-template-columns: 1fr;
+    text-align: center;
+    padding: 50px 5%;
+  }
+
+  section h2 {
+    font-size: 50px;
+  }
+
+  section article {
+    font-size: 20px;
+  }
+
+  .presentation-content {
+    flex-direction: column-reverse;
+    gap: 30px;
+  }
+
+  .espace-video {
+    min-height: 200px;
+    width: 100%;
+  }
+  .espace-video iframe {
+    display: block;
+    height: auto;
+    width: 100%;
+    aspect-ratio: 16 / 9;
+}
+
+  .avis-section h2 {
+    font-size: 45px;
+  }
+
+  .avis-card {
+    width: 85vw;
+    padding: 25px;
+  }
+
+  .planning-section h2 {
+    font-size: 50px;
+  }
+
+  .timeline-item {
+    flex-direction: column;
+    align-items: flex-start;
+    padding-left: 30px;
+  }
+
+  .time {
+    font-size: 32px;
+    margin-left: 0;
+    margin-bottom: 10px;
+    width: auto;
+  }
+
+  .desc {
+    font-size: 20px;
+  }
+
+  .timeline-item::before {
+    top: 40px;
+  }
+
+  /* Pour les menus (Flex au lieu de Grid) */
+  .menus-section {
+    padding: 50px 5%;
+  }
+  .nos-menus {
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 40px;
+  }
+
+  .ps-container {
+    padding: 20px;
+  }
+
+  .ps-price-value {
+    font-size: 60px;
+  }
+
+  .horaires-item {
+    align-items: flex-start;
+    padding-left: 20px;
+  }
+
+  .jour {
+    margin-left: 0;
+    font-size: 24px;
+  }
+
+  .heures {
+    font-size: 22px;
+    text-align: left;
+  }
+
+  .contact-info-container {
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+  }
+
+  .contact-item {
+    text-align: center;
+  }
+
+  .map-container iframe {
+    height: 400px;
+  }
+
+  .inscription-container,
+  .connexion-container,
+  .espace-client {
+    padding-left: 15px;
+    padding-right: 15px;
+  }
+
+  #form-inscription fieldset,
+  .tab-content {
+    padding: 20px 15px;
+  }
+
+  .form-row {
+    flex-direction: column;
+    gap: 15px;
+  }
+
+  .btn-suivant,
+  .btn-precedent,
+  .btn-confirmer {
+    font-size: 24px;
+    height: 50px;
+    width: 100%;
+  }
+
+  .boutons-navigation {
+    flex-direction: column;
+  }
+
+  .tabs-navigation .tab {
+    font-size: 16px;
+  }
+  .btn-ajouter {
+    margin: 0;
+  }
+}
+
+@media (max-width: 1024px) {
+  section {
+    grid-template-columns: 1fr;
+    padding: 40px 20px;
+    gap: 30px;
+    flex-direction: column;
+  }
 }

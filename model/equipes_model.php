@@ -41,4 +41,13 @@ function ajouterMembreEquipe($id_equipe, $nom, $prenom, $pseudo) {
         'pseudo' => $pseudo
     ]);
 }
+
+// Marque une session comme complète après une réservation
+function marquerSessionComplete($id_session) {
+    global $bdd;
+    $req = $bdd->prepare("UPDATE sessions SET est_complete = 1 WHERE id_session = :id_session");
+    $req->execute([
+        'id_session' => $id_session
+    ]);
+}
 ?>

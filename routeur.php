@@ -4,7 +4,6 @@ if (session_status() === PHP_SESSION_NONE) {
     session_start();
 }
 
-
 $action = $_GET['action'] ?? 'accueil';
 
 switch ($action) {
@@ -30,7 +29,6 @@ switch ($action) {
         require_once 'controller/deconnexion_controller.php';
         break;
     case 'profil':
-
         if(isset($_SESSION['id_utilisateur'])) {
             require_once 'controller/profil_controller.php';
         } else {
@@ -39,7 +37,6 @@ switch ($action) {
         }
         break;
     case 'avis':
-        
         if(isset($_SESSION['id_utilisateur'])) {
             require_once 'controller/avis_controller.php';
         } else {
@@ -48,7 +45,6 @@ switch ($action) {
         }
         break;
     default:
-        
         require_once 'controller/accueil_controller.php';
         break;
 }

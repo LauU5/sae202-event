@@ -17,7 +17,7 @@
             <p>Framed inclut également un repas thématisé et une nuit complète sur place pour prolonger le frisson jusqu'au matin.</p>
         </article>
         <aside>
-            <img src="view/img/Framed-Logo.webp" alt="[ Emplacement Image : Capture d'écran du jeu avec caméra vision nocturne ]" width="400" height="250">
+            <img src="view/img/image1.webp" alt="[ Emplacement Image : Capture d'écran du jeu avec caméra vision nocturne ]" width="400" height="250">
             <br>
             <a href="index.php?action=concept">Découvrir le scénario</a>
         </aside>
@@ -42,7 +42,7 @@
     </div>
     
     <div class="info-card">
-        <span class="card-valeur"><img src="view/img/etoile.svg"><img src="view/img/etoile.svg"><img src="view/img/etoile.svg"></span>
+        <span class="card-valeur"><img src="view/img/etoile.webp" alt="etoile difficulté 1"><img src="view/img/etoile.webp" alt="etoile difficulté 2"><img src="view/img/etoile.webp" alt="etoile difficulté 3"></span>
         <p>difficulté<br>élevée</p>
     </div>
 </section>
@@ -52,6 +52,7 @@
     <section class="presentation-section">
     <div class="presentation-content">
         <div class="espace-video">
+            <iframe width="560" height="315" src="https://www.youtube.com/embed/AjWfY7SnMBI?si=0k5TOfsuP7hgybaD" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
             </div>
         
         <div class="presentation-text">
@@ -93,16 +94,18 @@
                                 ?>
                             </div>
 
-                            <p class="commentaire">
-                                "<?= nl2br(htmlspecialchars($avis['contenu'])) ?>"
-                            </p>
+                            
                             <p class="auteur">
-                                — <?= htmlspecialchars($avis['pseudo']) ?>
+                                <?= htmlspecialchars($avis['pseudo']) ?>
                                 <?php if (!empty($avis['prenom'])): ?>
                                     (<?= htmlspecialchars($avis['prenom']) ?>)
                                 <?php endif; ?>
-                                <br><small><?= date('d/m/Y', strtotime($avis['date_publication'])) ?></small>
                             </p>
+                                <p class="commentaire">
+                                <?= nl2br(htmlspecialchars($avis['contenu'])) ?>
+                                </p>
+                                <small><?= date('d/m/Y', strtotime($avis['date_publication'])) ?></small>
+                            
                         </div>
                     <?php endforeach; ?>
                 <?php endfor; ?>
