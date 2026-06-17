@@ -1501,7 +1501,7 @@ section aside a:hover {
 .connexion-form input[type="email"],
 .connexion-form input[type="password"] {
   background-color: #0a0f0c; /* Fond très sombre */
-  border: 1px solid #254134; /* Bordure discrète */
+  border: 2px solid #4aa07b; /* Bordure discrète */
   color: #e8e8e8;
   padding: 12px;
   font-family: "Besley", serif;
@@ -1527,19 +1527,32 @@ section aside a:hover {
 
 /* Le bouton "Se Connecter" */
 .btn-connexion {
-  background-color: transparent;
-  color: #4aa07b;
-  border: 2px solid #4aa07b;
-  font-family: "Special Elite", cursive;
-  font-size: 22px;
-  padding: 10px 40px;
-  cursor: pointer;
-  transition: all 0.2s ease;
+    background-color: transparent;
+    color: #4aa07b;
+    background-image: url('view/img/rectangle_vert.webp');
+    
+    
+    background-size: 100% 100%; 
+    background-repeat: no-repeat; 
+    background-position: center;
+    border: none; 
+    
+    font-family: "Special Elite", cursive;
+    font-size: 22px;
+    letter-spacing: 1px;
+    justify-content: center;
+    align-items: center;
+    display: inline-flex;
+    
+    /* J'ai légèrement augmenté le padding vertical (15px) pour laisser respirer le texte dans le cadre */
+    padding: 15px 50px; 
+    
+    cursor: pointer;
+    transition: all 0.2s ease;
 }
 
 .btn-connexion:hover {
-  background-color: #4aa07b;
-  color: #0b1e18;
+  color: #4aa07b;
 }
 
 /* Le texte tout en bas */
