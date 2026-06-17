@@ -52,7 +52,7 @@
     <section class="presentation-section">
     <div class="presentation-content">
         <div class="espace-video">
-            <iframe width="560" height="315" src="https://www.youtube.com/embed/AjWfY7SnMBI?si=0k5TOfsuP7hgybaD" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+            <iframe width="560" height="315" src="https://www.youtube.com/embed/TN1E5M0mALk?mute=1" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
             </div>
         
         <div class="presentation-text">
